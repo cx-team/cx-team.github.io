@@ -56,12 +56,13 @@ h6 {
 }
 
 .highlights-bg {
-	background: url(wallpaper4.png) no-repeat center center;
-    -webkit-background-size: cover;
+	padding-top: 100px;
+	padding-bottom: 100px;
+    background: url('wallpaper4.png') no-repeat center center fixed;
     -moz-background-size: cover;
+    -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 100%;
 }
 
 .highlights-bg-content > h3 {
