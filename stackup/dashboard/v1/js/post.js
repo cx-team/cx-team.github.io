@@ -1,4 +1,4 @@
-var upload_photo_url = api_host + '/profiles/photos';
+var upload_photo_url = api_host + '/profiles/articles/attachment';
 
 var toolbarButtons = [
     'paragraphFormat', 'quote', 'bold', 'italic', 'underline', 'color', '|',
@@ -18,7 +18,7 @@ var imageEditButtons = [
     'imageReplace', 'imageRemove'
 ];
 
-$('.textarea-editor').froalaEditor({
+$('#editor').froalaEditor({
     theme: 'dark',
     heightMin: 500,
     // quickInsertButtons: [],
