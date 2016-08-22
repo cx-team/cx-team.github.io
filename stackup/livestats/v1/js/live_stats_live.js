@@ -292,7 +292,7 @@ function loadPlayerAndScore(data) {
                     home_active_player_ids.push(player.id);
                     $('#js-home-active-player-list').append(
                         '<div class="js-team-player active-player" data-side="1" data-id="' + player.id + '">' +
-                            '<img src="../../../share/image/player.png" >' +
+                            '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                             '<p><strong>' + player.name + '</strong></p>' +
                             '<p>#' + player.jersey + ' ' + player.position + '</p>' +
                         '</div>'
@@ -306,7 +306,7 @@ function loadPlayerAndScore(data) {
                     home_inactive_player_ids.push(player.id);
                     $('#js-home-inactive-player-list').append(
                         '<div class="js-team-player inactive-player" data-side="1" data-id="' + player.id + '">' +
-                            '<img src="../../../share/image/player.png" >' +
+                            '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                             '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
                         '</div>'
                     );
@@ -317,7 +317,7 @@ function loadPlayerAndScore(data) {
                     away_active_player_ids.push(player.id);
                     $('#js-away-active-player-list').append(
                         '<div class="js-team-player active-player" data-side="0" data-id="' + player.id + '">' +
-                            '<img src="../../../share/image/player.png" >' +
+                            '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                             '<p><strong>' + player.name + '</strong></p>' +
                             '<p>#' + player.jersey + ' ' + player.position + '</p>' +
                         '</div>'
@@ -328,7 +328,7 @@ function loadPlayerAndScore(data) {
                     away_inactive_player_ids.push(player.id);
                     $('#js-away-inactive-player-list').append(
                         '<div class="js-team-player inactive-player" data-side="0" data-id="' + player.id + '">' +
-                            '<img src="../../../share/image/player.png" >' +
+                            '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                             '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
                         '</div>'
                     );
@@ -417,7 +417,7 @@ function addActivePlayer(select, player) {
     select.append(
     '<tr><td>' +
         '<button class="js-select-player" data-id="' + player.id + '">' +
-            //'<img src="../../../share/image/player.png">' +
+            //'<img src="https://cx-team.github.io/stackup/share/image/player.png">' +
             '<p><span class="jersey">' + player.position + ' #' + player.jersey + '</span><br><strong>' + player.name + '</strong></p>' +
             '<i class="fa fa-info-circle"></i>' +
         '</button>' +
@@ -725,7 +725,7 @@ function resetTeamPlayer() {
                 home_inactive_player_ids.push(player.id);
                 $('#js-home-inactive-player-list').append(
                     '<div class="js-team-player inactive-player" data-side="1" data-id="' + player.id + '">' +
-                    '<img src="../../../share/image/player.png" >' +
+                    '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                     '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
                     '</div>'
                 );
@@ -733,7 +733,7 @@ function resetTeamPlayer() {
                 away_inactive_player_ids.push(player.id);
                 $('#js-away-inactive-player-list').append(
                     '<div class="js-team-player inactive-player" data-side="0" data-id="' + player.id + '">' +
-                    '<img src="../../../share/image/player.png" >' +
+                    '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                     '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
                     '</div>'
                 );
@@ -1026,7 +1026,7 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
         var player = player_data({id: player_id}).first();
         $('#js-home-active-player-list').append(
             '<div class="js-team-player active-player" data-side="1" data-id="' + player.id + '">' +
-                '<img src="../../../share/image/player.png" >' +
+                '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                 '<p><strong>' + player.name + '</strong></p>' +
                 '<p>#' + player.jersey + ' ' + player.position + '</p>' +
             '</div>'
@@ -1037,7 +1037,7 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
         var player = player_data({id: player_id}).first();
         $('#js-home-inactive-player-list').append(
             '<div class="js-team-player inactive-player" data-side="1" data-id="' + player.id + '">' +
-                '<img src="../../../share/image/player.png" >' +
+                '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                 '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
             '</div>'
         );
@@ -1047,7 +1047,7 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
         var player = player_data({id: player_id}).first();
         $('#js-away-active-player-list').append(
             '<div class="js-team-player active-player" data-side="0" data-id="' + player.id + '">' +
-                '<img src="../../../share/image/player.png" >' +
+                '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                 '<p><strong>' + player.name + '</strong></p>' +
                 '<p>#' + player.jersey + ' ' + player.position + '</p>' +
             '</div>'
@@ -1058,7 +1058,7 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
         var player = player_data({id: player_id}).first();
         $('#js-away-inactive-player-list').append(
             '<div class="js-team-player inactive-player" data-side="0" data-id="' + player.id + '">' +
-                '<img src="../../../share/image/player.png" >' +
+                '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                 '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
             '</div>'
         );
@@ -1289,7 +1289,7 @@ $(document).on('click', '.js-team-player', function (e) {
         temp.remove();
         $('#js-' + team + '-inactive-player-list').append(
             '<div class="js-team-player inactive-player" data-side="' + side + '" data-id="' + player.id + '">' +
-                '<img src="../../../share/image/player.png" >' +
+                '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                 '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
             '</div>'
         );
@@ -1300,7 +1300,7 @@ $(document).on('click', '.js-team-player', function (e) {
             temp.remove();
             $('#js-' + team + '-active-player-list').append(
                 '<div class="js-team-player active-player" data-side="' + side + '" data-id="' + player.id + '">' +
-                    '<img src="../../../share/image/player.png" >' +
+                    '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                     '<p><strong>' + player.name + '</strong></p>' +
                     '<p>#' + player.jersey + ' ' + player.position + '</p>' +
                 '</div>'
