@@ -589,7 +589,7 @@ $(document).on('click', '#js-next-period2', function (e) {
     e.preventDefault();
 
     $('#js-chart-popup').hide();
-    // canvas.removeLayer('player_pos').drawLayers();
+    canvas.removeLayer('player_pos').drawLayers();
 
     swal({
         title: 'End Period',
@@ -1015,7 +1015,7 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
     e.preventDefault();
 
     $('#js-chart-popup').hide();
-    // canvas.removeLayer('player_pos').drawLayers();
+    canvas.removeLayer('player_pos').drawLayers();
 
     $('#js-home-active-player-list').html('');
     $('#js-home-inactive-player-list').html('');
@@ -1552,7 +1552,7 @@ function addInstantPlay(list, play, type) {
 
 function submitInstantPlay(formData) {
     $('#js-chart-popup').hide();
-    // canvas.removeLayer('player_pos').drawLayers();
+    canvas.removeLayer('player_pos').drawLayers();
 
     // $('#js-loading-message').text('Loading...');
     // $('#js-loading').show();
@@ -1704,7 +1704,7 @@ $(document).on('click', '.js-select-player', function (e) {
     e.preventDefault();
 
     // $('#js-chart-popup').hide();
-    // canvas.removeLayer('player_pos').drawLayers();
+    canvas.removeLayer('player_pos').drawLayers();
 
     var temp = $(this);
     if (temp.hasClass('active')) {
@@ -1802,8 +1802,6 @@ $(document).on('click', '#js-reset-game', function (e) {
     });
 });
 
-
-/*
 $(document).on('click', '.js-submit-score', function (e) {
     e.preventDefault();
 
@@ -1850,7 +1848,7 @@ var canvasJS = document.getElementById('myCanvas');
 var canvas = $('#myCanvas').drawImage({
     layer: true,
     name: "stadium",
-    source: 'image/stadium.jpg',
+    source: '../../../share/image/stadium.jpg',
     x: 0,
     y: 0,
     index: 1,
@@ -1937,8 +1935,6 @@ function showCanvasPopup(e) {
 
     //        var offset = $(this).offset();
     var left = e.pageX;
-    /!*console.log(left);
-     console.log(mousePos.x);*!/
     var top = e.pageY;
     var theHeight = $('.popover').height();
 
@@ -2012,7 +2008,6 @@ $(document).on('click', '#js-cancel', function (e) {
     $('#js-chart-popup').hide();
     canvas.removeLayer('player_pos').drawLayers();
 });
-*/
 
 /*
 function start_countdown() {
