@@ -33,12 +33,10 @@ $('#editor').froalaEditor({
     imageUploadURL: upload_photo_url,
     imageUploadMethod: 'POST',
     imageAllowedTypes: ['jpeg', 'jpg', 'png'],
-    /*imageUploadParams: {
-        object_model: '$object_model',
-        object_id: $object_id,
-        file_name: '$file_name',
+    imageUploadParams: {
+        article_id: '5555',
         editor: 1
-    },*/
+    },
 
 
     /*imageManagerPageSize: 20,
