@@ -1,5 +1,6 @@
 $.ajax({
     type: 'GET',
+	dataType: 'json',
     url: api_host + '/admin/dashboard/' + season_id + '/temp_teams',
     success: function (result) {
         console.log(result);
