@@ -1,6 +1,6 @@
 $.ajax({
     type: 'GET',
-    url: api_host + '/admin/dashboard/batch_approvals/' + season_id + '/requests',
+    url: api_host + '/admin/dashboard/batch_approvals/' + approval_id + '/requests?mode=Team',
     success: function (result) {
         console.log(result);
         //                $('#js-loading').hide();
