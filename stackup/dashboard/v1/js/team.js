@@ -1,29 +1,29 @@
 $.ajax({
     type: 'GET',
-    url: api_host + '/admin/dashboard/batch_approvals/' + approval_id + '/requests?mode=Team',
+    url: api_host + '/admin/dashboard/' + season_id + '/temp_teams/',
     success: function (result) {
         console.log(result);
         //                $('#js-loading').hide();
         result.forEach(function(team){
             $('#js-team-list').append(
                 '<tr id="js-team' + team.id + '">' +
-                '<td>' + team.detail.inputs.name +'</td>' +
-                '<td>' + team.detail.inputs.name_alt +'</td>' +
-                '<td>' + team.detail.inputs.name_abbrv +'</td>' +
-                '<td>' + team.detail.inputs.city +'</td>' +
-                '<td>' + team.detail.inputs.country +'</td>' +
-                '<td>' + team.detail.inputs.division +'</td>' +
-                '<td>' + team.detail.inputs.uniqueid +'</td>' +
+                '<td>' + team.detail.attributes.name +'</td>' +
+                '<td>' + team.detail.attributes.name_alt +'</td>' +
+                '<td>' + team.detail.attributes.name_abbrv +'</td>' +
+                '<td>' + team.detail.attributes.city +'</td>' +
+                '<td>' + team.detail.attributes.country +'</td>' +
+                '<td>' + team.detail.attributes.division +'</td>' +
+                '<td>' + team.detail.attributes.uniqueid +'</td>' +
                 '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button></td>' +
                 '</tr>' +
                 '<tr id="js-team-form' + team.id + '" style="display: none">' +
-                '<td><input id="js-team-name' + team.id + '" type="text" name="name" value="' + team.detail.inputs.name + '"><br></td>' +
-                '<td><input id="js-team-name-alt' + team.id + '" type="text" name="name_alt" value="' + team.detail.inputs.name_alt + '"><br></td>' +
-                '<td><input id="js-team-name-abbrv' + team.id + '" type="text" name="name_abbrv" value="' + team.detail.inputs.name_abbrv + '"><br></td>' +
-                '<td><input id="js-team-city' + team.id + '" type="text" name="city" value="' + team.detail.inputs.city + '"><br></td>' +
-                '<td><input id="js-team-country' + team.id + '" type="text" name="country" value="' + team.detail.inputs.country + '"><br></td>' +
-                '<td><input id="js-team-division' + team.id + '" type="text" name="division" value="' + team.detail.inputs.division + '"><br></td>' +
-                '<td><input id="js-team-uniqueid' + team.id + '" type="text" name="uniqueid" value="' + team.detail.inputs.uniqueid + '"><br></td>' +
+                '<td><input id="js-team-name' + team.id + '" type="text" name="name" value="' + team.detail.attributes.name + '"><br></td>' +
+                '<td><input id="js-team-name-alt' + team.id + '" type="text" name="name_alt" value="' + team.detail.attributes.name_alt + '"><br></td>' +
+                '<td><input id="js-team-name-abbrv' + team.id + '" type="text" name="name_abbrv" value="' + team.detail.attributes.name_abbrv + '"><br></td>' +
+                '<td><input id="js-team-city' + team.id + '" type="text" name="city" value="' + team.detail.attributes.city + '"><br></td>' +
+                '<td><input id="js-team-country' + team.id + '" type="text" name="country" value="' + team.detail.attributes.country + '"><br></td>' +
+                '<td><input id="js-team-division' + team.id + '" type="text" name="division" value="' + team.detail.attributes.division + '"><br></td>' +
+                '<td><input id="js-team-uniqueid' + team.id + '" type="text" name="uniqueid" value="' + team.detail.attributes.uniqueid + '"><br></td>' +
                 '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + team.id + '">SAVE</button></td>' +
                 '</tr>'
             );
@@ -71,13 +71,13 @@ $(document).on('click', '.js-update', function (e) {
             $('#js-team-form' + id).hide();
             $('#js-team' + id).replaceWith(
                 '<tr id="js-team' + team.id + '">' +
-                '<td>' + team.detail.inputs.name +'</td>' +
-                '<td>' + team.detail.inputs.name_alt +'</td>' +
-                '<td>' + team.detail.inputs.name_abbrv +'</td>' +
-                '<td>' + team.detail.inputs.city +'</td>' +
-                '<td>' + team.detail.inputs.country +'</td>' +
-                '<td>' + team.detail.inputs.division +'</td>' +
-                '<td>' + team.detail.inputs.uniqueid +'</td>' +
+                '<td>' + team.detail.attributes.name +'</td>' +
+                '<td>' + team.detail.attributes.name_alt +'</td>' +
+                '<td>' + team.detail.attributes.name_abbrv +'</td>' +
+                '<td>' + team.detail.attributes.city +'</td>' +
+                '<td>' + team.detail.attributes.country +'</td>' +
+                '<td>' + team.detail.attributes.division +'</td>' +
+                '<td>' + team.detail.attributes.uniqueid +'</td>' +
                 '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button></td>' +
                 '</tr>'
             );
@@ -115,23 +115,23 @@ $(document).on('click', '#js-create', function (e) {
             //                $('#js-loading').hide();
             $('#js-team-list').append(
                 '<tr id="js-team' + team.id + '">' +
-                '<td>' + team.detail.inputs.name +'</td>' +
-                '<td>' + team.detail.inputs.name_alt +'</td>' +
-                '<td>' + team.detail.inputs.name_abbrv +'</td>' +
-                '<td>' + team.detail.inputs.city +'</td>' +
-                '<td>' + team.detail.inputs.country +'</td>' +
-                '<td>' + team.detail.inputs.division +'</td>' +
-                '<td>' + team.detail.inputs.uniqueid +'</td>' +
+                '<td>' + team.detail.attributes.name +'</td>' +
+                '<td>' + team.detail.attributes.name_alt +'</td>' +
+                '<td>' + team.detail.attributes.name_abbrv +'</td>' +
+                '<td>' + team.detail.attributes.city +'</td>' +
+                '<td>' + team.detail.attributes.country +'</td>' +
+                '<td>' + team.detail.attributes.division +'</td>' +
+                '<td>' + team.detail.attributes.uniqueid +'</td>' +
                 '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button></td>' +
                 '</tr>' +
                 '<tr id="js-team-form' + team.id + '" style="display: none">' +
-                '<td><input id="js-team-name' + team.id + '" type="text" name="name" value="' + team.detail.inputs.name + '"><br></td>' +
-                '<td><input id="js-team-name-alt' + team.id + '" type="text" name="name_alt" value="' + team.detail.inputs.name_alt + '"><br></td>' +
-                '<td><input id="js-team-name-abbrv' + team.id + '" type="text" name="name_abbrv" value="' + team.detail.inputs.name_abbrv + '"><br></td>' +
-                '<td><input id="js-team-city' + team.id + '" type="text" name="city" value="' + team.detail.inputs.city + '"><br></td>' +
-                '<td><input id="js-team-country' + team.id + '" type="text" name="country" value="' + team.detail.inputs.country + '"><br></td>' +
-                '<td><input id="js-team-division' + team.id + '" type="text" name="division" value="' + team.detail.inputs.division + '"><br></td>' +
-                '<td><input id="js-team-uniqueid' + team.id + '" type="text" name="uniqueid" value="' + team.detail.inputs.uniqueid + '"><br></td>' +
+                '<td><input id="js-team-name' + team.id + '" type="text" name="name" value="' + team.detail.attributes.name + '"><br></td>' +
+                '<td><input id="js-team-name-alt' + team.id + '" type="text" name="name_alt" value="' + team.detail.attributes.name_alt + '"><br></td>' +
+                '<td><input id="js-team-name-abbrv' + team.id + '" type="text" name="name_abbrv" value="' + team.detail.attributes.name_abbrv + '"><br></td>' +
+                '<td><input id="js-team-city' + team.id + '" type="text" name="city" value="' + team.detail.attributes.city + '"><br></td>' +
+                '<td><input id="js-team-country' + team.id + '" type="text" name="country" value="' + team.detail.attributes.country + '"><br></td>' +
+                '<td><input id="js-team-division' + team.id + '" type="text" name="division" value="' + team.detail.attributes.division + '"><br></td>' +
+                '<td><input id="js-team-uniqueid' + team.id + '" type="text" name="uniqueid" value="' + team.detail.attributes.uniqueid + '"><br></td>' +
                 '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + team.id + '">SAVE</button></td>' +
                 '</tr>'
             );
