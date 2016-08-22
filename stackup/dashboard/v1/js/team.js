@@ -63,7 +63,7 @@ $(document).on('click', '.js-update', function (e) {
 
     $.ajax({
         type: 'PUT',
-        url: api_host + '/admin/dashboard/batch_approvals/' + season_id + '/requests/' + id,
+        url: api_host + '/admin/dashboard/batch_approvals/' + approval_id + '/requests/' + id,
         data: data,
         success: function (team) {
             console.log(team);
@@ -108,7 +108,7 @@ $(document).on('click', '#js-create', function (e) {
 
     $.ajax({
         type: 'POST',
-        url: api_host + '/admin/dashboard/batch_approvals/' + season_id + '/requests',
+        url: api_host + '/admin/dashboard/batch_approvals/' + approval_id + '/requests',
         data: data,
         success: function (team) {
             console.log(team);
