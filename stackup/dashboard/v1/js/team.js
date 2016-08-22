@@ -1,9 +1,8 @@
 $.ajax({
     type: 'GET',
-    url: api_host + '/admin/dashboard/' + season_id + '/temp_teams/',
+    url: api_host + '/admin/dashboard/' + season_id + '/temp_teams',
     success: function (result) {
         console.log(result);
-        //                $('#js-loading').hide();
         result.forEach(function(team){
             $('#js-team-list').append(
                 '<tr id="js-team' + team.id + '">' +
