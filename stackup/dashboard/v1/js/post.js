@@ -32,7 +32,6 @@ $('#editor').froalaEditor({
     imageUploadParam: 'attachment[file]',
     imageUploadURL: upload_photo_url,
     imageUploadMethod: 'POST',
-    imageMaxSize: 5 * 1024 * 1024,
     imageAllowedTypes: ['jpeg', 'jpg', 'png'],
     /*imageUploadParams: {
         object_model: '$object_model',
