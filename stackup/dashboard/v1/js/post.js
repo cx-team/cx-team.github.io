@@ -29,7 +29,7 @@ $('#editor').froalaEditor({
     imageEditButtons: imageEditButtons,
 
     // Set the image upload parameter.
-    imageUploadParam: 'photo[file]',
+    imageUploadParam: 'attachment[file]',
     imageUploadURL: upload_photo_url,
     imageUploadMethod: 'POST',
     imageMaxSize: 5 * 1024 * 1024,
