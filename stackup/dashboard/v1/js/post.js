@@ -34,8 +34,7 @@ $('#editor').froalaEditor({
     imageUploadMethod: 'POST',
     imageAllowedTypes: ['jpeg', 'jpg', 'png'],
     imageUploadParams: {
-        article_id: '5555',
-        editor: 1
+        article_id: article_token
     },
 
 
