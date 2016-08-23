@@ -32,12 +32,12 @@ $.ajax({
                 '</tr>' +
                 '<tr id="js-team-form' + team.id + '" style="display: none">' +
                 '<td><input id="js-team-name' + team.id + '" type="text" name="name" value="' + (inputs.hasOwnProperty("name") ? inputs.name : '') + '"><br></td>' +
-                '<td><input id="js-team-name-alt' + team.id + '" type="text" name="name_alt" value="' + (inputs.hasOwnProperty("name_alt") ? inputs.name : '') + '"><br></td>' +
-                '<td><input id="js-team-name-abbrv' + team.id + '" type="text" name="name_abbrv" value="' + (inputs.hasOwnProperty("name_abbrv") ? inputs.name : '') + '"><br></td>' +
-                '<td><input id="js-team-city' + team.id + '" type="text" name="city" value="' + (inputs.hasOwnProperty("city") ? inputs.name : '') + '"><br></td>' +
-                '<td><input id="js-team-country' + team.id + '" type="text" name="country" value="' + (inputs.hasOwnProperty("country") ? inputs.name : '') + '"><br></td>' +
-                '<td><input id="js-team-division' + team.id + '" type="text" name="division" value="' + (inputs.hasOwnProperty("division") ? inputs.name : '') + '"><br></td>' +
-                '<td><input id="js-team-uniqueid' + team.id + '" type="text" name="uniqueid" value="' + (inputs.hasOwnProperty("uniqueid") ? inputs.name : '') + '"><br></td>' +
+                '<td><input id="js-team-name-alt' + team.id + '" type="text" name="name_alt" value="' + (inputs.hasOwnProperty("name_alt") ? inputs.name_alt : '') + '"><br></td>' +
+                '<td><input id="js-team-name-abbrv' + team.id + '" type="text" name="name_abbrv" value="' + (inputs.hasOwnProperty("name_abbrv") ? inputs.name_abbrv : '') + '"><br></td>' +
+                '<td><input id="js-team-city' + team.id + '" type="text" name="city" value="' + (inputs.hasOwnProperty("city") ? inputs.city : '') + '"><br></td>' +
+                '<td><input id="js-team-country' + team.id + '" type="text" name="country" value="' + (inputs.hasOwnProperty("country") ? inputs.country : '') + '"><br></td>' +
+                '<td><input id="js-team-division' + team.id + '" type="text" name="division" value="' + (inputs.hasOwnProperty("division") ? inputs.division : '') + '"><br></td>' +
+                '<td><input id="js-team-uniqueid' + team.id + '" type="text" name="uniqueid" value="' + (inputs.hasOwnProperty("uniqueid") ? inputs.uniqueid : '') + '"><br></td>' +
                 '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + team.id + '">SAVE</button></td>' +
                 '</tr>'
             );
