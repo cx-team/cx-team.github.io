@@ -1,9 +1,9 @@
 $.ajax({
     type: 'GET',
-    url: api_host + '/admin/dashboard/batch_approvals/' + season_id + '/requests',
+	dataType: 'json',
+    url: api_host + '/admin/dashboard/batch_approvals/' + approval_id + '/requests?mode=Team',
     success: function (result) {
         console.log(result);
-        //                $('#js-loading').hide();
         result.forEach(function(team){
             $('#js-team-list').append(
                 '<tr id="js-team' + team.id + '">' +
@@ -50,7 +50,7 @@ $(document).on('click', '.js-update', function (e) {
     var id = $(this).attr('data-id');
     var data = {
         model: 'Team',
-        attributes: {
+        inputs: {
             name: $('#js-team-name' + id).val(),
             name_alt: $('#js-team-name-alt' + id).val(),
             name_abbrv: $('#js-team-name-abbrv' + id).val(),
@@ -63,7 +63,7 @@ $(document).on('click', '.js-update', function (e) {
 
     $.ajax({
         type: 'PUT',
-        url: api_host + '/admin/dashboard/batch_approvals/' + season_id + '/requests/' + id,
+        url: api_host + '/admin/dashboard/batch_approvals/' + approval_id + '/requests/' + id,
         data: data,
         success: function (team) {
             console.log(team);
@@ -95,7 +95,7 @@ $(document).on('click', '#js-create', function (e) {
     //        var id = $(this).attr('data-id');
     var data = {
         model: 'Team',
-        attributes: {
+        inputs: {
             name: $('#js-team-name').val(),
             name_alt: $('#js-team-name-alt').val(),
             name_abbrv: $('#js-team-name-abbrv').val(),
@@ -108,7 +108,7 @@ $(document).on('click', '#js-create', function (e) {
 
     $.ajax({
         type: 'POST',
-        url: api_host + '/admin/dashboard/batch_approvals/' + season_id + '/requests',
+        url: api_host + '/admin/dashboard/batch_approvals/' + approval_id + '/requests',
         data: data,
         success: function (team) {
             console.log(team);
