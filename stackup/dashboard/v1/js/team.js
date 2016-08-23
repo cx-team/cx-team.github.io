@@ -5,7 +5,6 @@ $.ajax({
     success: function (result) {
         console.log(result);
         result.forEach(function(team){
-
             var inputs = team.detail.inputs;
             if ($.isEmptyObject(inputs)) {
                 inputs = {
@@ -28,7 +27,11 @@ $.ajax({
                 '<td>' + (inputs.hasOwnProperty("country") ? inputs.country : '') + '</td>' +
                 '<td>' + (inputs.hasOwnProperty("division") ? inputs.division : '') + '</td>' +
                 '<td>' + (inputs.hasOwnProperty("uniqueid") ? inputs.uniqueid : '') + '</td>' +
-                '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button></td>' +
+                '<td>' +
+                    '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button>' +
+                    '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + team.id + '">DELETE</button>' +
+                    '<a href="' + api_host + '/admin/dashboard/' + season_id + '/registration?locale=zh-tw&page=rosters_pending&temp_token=' + team.id + '" class="btn-xs btn-primary btn-fill" data-id="' + team.id + '">ROSTER</a>' +
+                '</td>' +
                 '</tr>' +
                 '<tr id="js-team-form' + team.id + '" style="display: none">' +
                 '<td><input id="js-team-name' + team.id + '" type="text" name="name" value="' + (inputs.hasOwnProperty("name") ? inputs.name : '') + '"><br></td>' +
@@ -92,10 +95,32 @@ $(document).on('click', '.js-update', function (e) {
                 '<td>' + team.detail.inputs.country +'</td>' +
                 '<td>' + team.detail.inputs.division +'</td>' +
                 '<td>' + team.detail.inputs.uniqueid +'</td>' +
-                '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button></td>' +
+                '<td>' +
+                    '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button>' +
+                    '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + team.id + '">DELETE</button>' +
+                    '<a href="' + api_host + '/admin/dashboard/' + season_id + '/registration?locale=zh-tw&page=rosters_pending&temp_token=' + team.id + '" class="btn-xs btn-primary btn-fill" data-id="' + team.id + '">ROSTER</a>' +
+                '</td>' +
                 '</tr>'
             );
+        },
+        error: function (request, status, error) {
+            //retry(this, request, error);
+        }
+    });
+});
 
+$(document).on('click', '.js-delete', function (e) {
+    e.preventDefault();
+
+    var id = $(this).attr('data-id');
+
+    $.ajax({
+        type: 'DELETE',
+        url: api_host + '/admin/dashboard/' + season_id + '/temp_teams/' + id,
+        success: function (result) {
+            //                $('#js-loading').hide();
+            $('#js-team' + id).remove();
+            $('#js-team-form' + id).remove();
         },
         error: function (request, status, error) {
             //retry(this, request, error);
@@ -136,7 +161,11 @@ $(document).on('click', '#js-create', function (e) {
                 '<td>' + team.detail.inputs.country +'</td>' +
                 '<td>' + team.detail.inputs.division +'</td>' +
                 '<td>' + team.detail.inputs.uniqueid +'</td>' +
-                '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button></td>' +
+                '<td>' +
+                '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button>' +
+                '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + team.id + '">DELETE</button>' +
+                '<a href="' + api_host + '/admin/dashboard/' + season_id + '/registration?locale=zh-tw&page=rosters_pending&temp_token=' + team.id + '" class="btn-xs btn-primary btn-fill" data-id="' + team.id + '">ROSTER</a>' +
+                '</td>' +
                 '</tr>' +
                 '<tr id="js-team-form' + team.id + '" style="display: none">' +
                 '<td><input id="js-team-name' + team.id + '" type="text" name="name" value="' + team.detail.inputs.name + '"><br></td>' +
