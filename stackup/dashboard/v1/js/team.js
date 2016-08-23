@@ -1,7 +1,7 @@
 $.ajax({
     type: 'GET',
 	dataType: 'json',
-    url: api_host + '/admin/dashboard/' + approval_id + '/temp_teams',
+    url: api_host + '/admin/dashboard/' + season_id + '/temp_teams',
     success: function (result) {
         console.log(result);
         result.forEach(function(team){
@@ -63,7 +63,7 @@ $(document).on('click', '.js-update', function (e) {
 
     $.ajax({
         type: 'PUT',
-        url: api_host + '/admin/dashboard/' + approval_id + '/temp_teams/' + id,
+        url: api_host + '/admin/dashboard/' + season_id + '/temp_teams/' + id,
         data: data,
         success: function (team) {
             console.log(team);
@@ -108,7 +108,7 @@ $(document).on('click', '#js-create', function (e) {
 
     $.ajax({
         type: 'POST',
-        url: api_host + '/admin/dashboard/' + approval_id + '/temp_teams',
+        url: api_host + '/admin/dashboard/' + season_id + '/temp_teams',
         data: data,
         success: function (team) {
             console.log(team);
