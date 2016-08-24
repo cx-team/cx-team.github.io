@@ -30,7 +30,7 @@ $.ajax({
                 '<td>' +
                     '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button>' +
                     '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + team.id + '">DELETE</button>' +
-                    '<a href="' + api_host + '/admin/dashboard/' + season_id + '/registration?locale=zh-tw&page=rosters_pending&temp_token=' + team.id + '" class="btn-xs btn-primary btn-fill" data-id="' + team.id + '">ROSTER</a>' +
+                    '<button class="js-roster btn-xs btn-primary btn-fill" data-id="' + team.id + '">ROSTER</button>' +
                 '</td>' +
                 '</tr>' +
                 '<tr id="js-team-form' + team.id + '" style="display: none">' +
@@ -98,7 +98,7 @@ $(document).on('click', '.js-update', function (e) {
                 '<td>' +
                     '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button>' +
                     '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + team.id + '">DELETE</button>' +
-                    '<a href="' + api_host + '/admin/dashboard/' + season_id + '/registration?locale=zh-tw&page=rosters_pending&temp_token=' + team.id + '" class="btn-xs btn-primary btn-fill" data-id="' + team.id + '">ROSTER</a>' +
+                    '<button class="js-roster btn-xs btn-primary btn-fill" data-id="' + team.id + '">ROSTER</button>' +
                 '</td>' +
                 '</tr>'
             );
@@ -126,6 +126,14 @@ $(document).on('click', '.js-delete', function (e) {
             //retry(this, request, error);
         }
     });
+});
+
+
+$(document).on('click', '.js-roster', function (e) {
+    e.preventDefault();
+
+    var id = $(this).attr('data-id');
+    window.location.href = api_host + '/admin/dashboard/' + season_id + '/registration?locale=zh-tw&page=rosters_pending&temp_token=' + id;
 });
 
 $(document).on('click', '#js-create', function (e) {
