@@ -366,7 +366,7 @@ function loadPlayerAndScore(data) {
         var time_text = moment("2016-01-01").startOf('day').seconds(period_time).format('mm:ss');
         $('#js-remaining-time').val(time_text);
 
-        $('#js-change-player-title').text('Choose starter players to start PERIOD ' + cur_period);
+        $('#js-change-player-title').text('SELECT STARTERS - PERIOD ' + cur_period);
         $('#change-player-modal').modal({
             backdrop: 'static',
             keyboard: false

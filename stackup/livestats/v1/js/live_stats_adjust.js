@@ -258,6 +258,7 @@ $(document).on('click', '.js-update-stat', function (e) {
             'ast': ($('#js-ast' + player_id).val() - player.ast),
             'stl': ($('#js-stl' + player_id).val() - player.stl),
             'blk': ($('#js-blk' + player_id).val() - player.blk),
+            'turnover': ($('#js-turnover' + player_id).val() - player.turnover),
             'pfoul': ($('#js-pfoul' + player_id).val() - player.pfoul),
         }
     };
