@@ -418,7 +418,7 @@ function addActivePlayer(select, player) {
     '<tr><td>' +
         '<button class="js-select-player" data-id="' + player.id + '">' +
             //'<img src="https://cx-team.github.io/stackup/share/image/player.png">' +
-            '<p><span class="jersey">' + player.position + ' #' + player.jersey + '</span><br><strong>' + player.name + '</strong></p>' +
+            '<p><span class="jersey">' + ' #' + player.jersey + '</span><br><strong>' + player.name + '</strong></p>' +
             '<i class="fa fa-info-circle"></i>' +
         '</button>' +
     '</td></tr>');
