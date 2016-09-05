@@ -86,10 +86,10 @@ function loadGameSetting() {
                 $(this).text(game.away_team);
             });
 
-            if (game.home_logo)
-                $('#js-home-logo').attr('src', game.home_logo);
-            if (game.away_logo)
-                $('#js-away-logo').attr('src', game.away_logo);
+        //    if (game.home_logo)
+        //        $('#js-home-logo').attr('src', game.home_logo);
+        //    if (game.away_logo)
+        //        $('#js-away-logo').attr('src', game.away_logo);
 
             $('#js-loading').hide();
             updateStatline();
