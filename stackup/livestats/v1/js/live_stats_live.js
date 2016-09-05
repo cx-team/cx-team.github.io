@@ -100,10 +100,10 @@ function loadGameSetting() {
                 $(this).text(data.away_team);
             });
 
-            if (data.home_logo)
-                $('#js-home-logo').attr('src', data.home_logo);
-            if (data.away_logo)
-                $('#js-away-logo').attr('src', data.away_logo);
+            // if (data.home_logo)
+            //    $('#js-home-logo').attr('src', data.home_logo);
+            // if (data.away_logo)
+            //    $('#js-away-logo').attr('src', data.away_logo);
 
             // console.log($.isEmptyObject(data.detail));
             if ($.isEmptyObject(data.detail)) {
