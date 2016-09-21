@@ -86,10 +86,10 @@ function loadGameSetting() {
                 $(this).text(game.away_team);
             });
 
-            if (game.home_logo)
-                $('#js-home-logo').attr('src', game.home_logo);
-            if (game.away_logo)
-                $('#js-away-logo').attr('src', game.away_logo);
+        //    if (game.home_logo)
+        //        $('#js-home-logo').attr('src', game.home_logo);
+        //    if (game.away_logo)
+        //        $('#js-away-logo').attr('src', game.away_logo);
 
             $('#js-loading').hide();
             updateStatline();
@@ -258,6 +258,7 @@ $(document).on('click', '.js-update-stat', function (e) {
             'ast': ($('#js-ast' + player_id).val() - player.ast),
             'stl': ($('#js-stl' + player_id).val() - player.stl),
             'blk': ($('#js-blk' + player_id).val() - player.blk),
+            'turnover': ($('#js-turnover' + player_id).val() - player.turnover),
             'pfoul': ($('#js-pfoul' + player_id).val() - player.pfoul),
         }
     };

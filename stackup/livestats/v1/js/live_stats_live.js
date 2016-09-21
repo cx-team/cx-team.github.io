@@ -100,10 +100,10 @@ function loadGameSetting() {
                 $(this).text(data.away_team);
             });
 
-            if (data.home_logo)
-                $('#js-home-logo').attr('src', data.home_logo);
-            if (data.away_logo)
-                $('#js-away-logo').attr('src', data.away_logo);
+            // if (data.home_logo)
+            //    $('#js-home-logo').attr('src', data.home_logo);
+            // if (data.away_logo)
+            //    $('#js-away-logo').attr('src', data.away_logo);
 
             // console.log($.isEmptyObject(data.detail));
             if ($.isEmptyObject(data.detail)) {
@@ -366,7 +366,7 @@ function loadPlayerAndScore(data) {
         var time_text = moment("2016-01-01").startOf('day').seconds(period_time).format('mm:ss');
         $('#js-remaining-time').val(time_text);
 
-        $('#js-change-player-title').text('Choose starter players to start PERIOD ' + cur_period);
+        $('#js-change-player-title').text('SELECT STARTERS - PERIOD ' + cur_period);
         $('#change-player-modal').modal({
             backdrop: 'static',
             keyboard: false
@@ -418,7 +418,7 @@ function addActivePlayer(select, player) {
     '<tr><td>' +
         '<button class="js-select-player" data-id="' + player.id + '">' +
             //'<img src="https://cx-team.github.io/stackup/share/image/player.png">' +
-            '<p><span class="jersey">' + player.position + ' #' + player.jersey + '</span><br><strong>' + player.name + '</strong></p>' +
+            '<p><span class="jersey">' + ' #' + player.jersey + '</span><br><strong>' + player.name + '</strong></p>' +
             '<i class="fa fa-info-circle"></i>' +
         '</button>' +
     '</td></tr>');
