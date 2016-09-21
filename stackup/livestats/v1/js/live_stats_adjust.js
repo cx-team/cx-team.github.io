@@ -67,7 +67,7 @@ function loadGameSetting() {
             selected_period = -1;
             selected_team = 1;
 
-            total_period = data.detail.livestats_periodnum;
+            total_period = data.detail.livestats_currentperiod;
 
             var period;
             for (period = 1; period <= total_period; period++) {
