@@ -629,9 +629,9 @@ $(document).on('click', '#js-next-period2', function (e) {
                             },
                             success: function (result) {
                                 $('#js-loading').hide();
-                                // window.location.reload();
+                                window.location.reload();
                                 // window.location.href = 'live_stats_end.html';
-                                window.location.href = 'live_stats.html';
+                                // window.location.href = 'live_stats.html';
                             },
                             error: function (request, status, error) {
                                 retry(this, request, error);
