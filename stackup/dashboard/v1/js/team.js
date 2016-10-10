@@ -89,13 +89,13 @@ $(document).on('click', '.js-update', function (e) {
             $('#js-team-form' + id).hide();
             $('#js-team' + id).replaceWith(
                 '<tr id="js-team' + team.id + '">' +
-                '<td>' + team.detail.inputs.name +'</td>' +
-                '<td>' + team.detail.inputs.name_alt +'</td>' +
-                '<td>' + team.detail.inputs.name_abbrv +'</td>' +
-                '<td>' + team.detail.inputs.city +'</td>' +
-                '<td>' + team.detail.inputs.country +'</td>' +
-                '<td>' + team.detail.inputs.division +'</td>' +
-                '<td>' + team.detail.inputs.uniqueid +'</td>' +
+                '<td>' + team.name +'</td>' +
+                '<td>' + team.name_alt +'</td>' +
+                '<td>' + team.name_abbrv +'</td>' +
+                '<td>' + team.city +'</td>' +
+                '<td>' + team.country +'</td>' +
+                '<td>' + team.division +'</td>' +
+                '<td>' + team.uniqueid +'</td>' +
                 '<td>' +
                     '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button>' +
                     '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + team.id + '">DELETE</button>' +
