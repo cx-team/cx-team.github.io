@@ -5,6 +5,7 @@ $.ajax({
     success: function (result) {
         console.log(result);
         result.forEach(function(team){
+            var data = team;
             var inputs = team.detail.inputs;
             if ($.isEmptyObject(inputs)) {
                 inputs = {
@@ -20,13 +21,13 @@ $.ajax({
             
             $('#js-team-list').append(
                 '<tr id="js-team' + team.id + '">' +
-                '<td>' + (inputs.hasOwnProperty("name") ? inputs.name : '') + '</td>' +
-                '<td>' + (inputs.hasOwnProperty("name_alt") ? inputs.name_alt : '') + '</td>' +
-                '<td>' + (inputs.hasOwnProperty("name_abbrv") ? inputs.name_abbrv : '') + '</td>' +
-                '<td>' + (inputs.hasOwnProperty("city") ? inputs.city : '') + '</td>' +
-                '<td>' + (inputs.hasOwnProperty("country") ? inputs.country : '') + '</td>' +
-                '<td>' + (inputs.hasOwnProperty("division") ? inputs.division : '') + '</td>' +
-                '<td>' + (inputs.hasOwnProperty("uniqueid") ? inputs.uniqueid : '') + '</td>' +
+                '<td>' + (data.name) + '</td>' +
+                '<td>' + (data.name_alt) + '</td>' +
+                '<td>' + (data.name_abbrv) + '</td>' +
+                '<td>' + (data.city) + '</td>' +
+                '<td>' + (data.country) + '</td>' +
+                '<td>' + (data.division) + '</td>' +
+                '<td>' + (data.uniqueid) + '</td>' +
                 '<td>' +
                     '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button>' +
                     '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + team.id + '">DELETE</button>' +
@@ -162,13 +163,13 @@ $(document).on('click', '#js-create', function (e) {
             //                $('#js-loading').hide();
             $('#js-team-list').append(
                 '<tr id="js-team' + team.id + '">' +
-                '<td>' + team.detail.inputs.name +'</td>' +
-                '<td>' + team.detail.inputs.name_alt +'</td>' +
-                '<td>' + team.detail.inputs.name_abbrv +'</td>' +
-                '<td>' + team.detail.inputs.city +'</td>' +
-                '<td>' + team.detail.inputs.country +'</td>' +
-                '<td>' + team.detail.inputs.division +'</td>' +
-                '<td>' + team.detail.inputs.uniqueid +'</td>' +
+                '<td>' + team.name +'</td>' +
+                '<td>' + team.name_alt +'</td>' +
+                '<td>' + team.name_abbrv +'</td>' +
+                '<td>' + team.city +'</td>' +
+                '<td>' + team.country +'</td>' +
+                '<td>' + team.division +'</td>' +
+                '<td>' + team.uniqueid +'</td>' +
                 '<td>' +
                 '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button>' +
                 '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + team.id + '">DELETE</button>' +
