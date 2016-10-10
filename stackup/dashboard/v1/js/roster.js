@@ -23,17 +23,17 @@ $.ajax({
 
             $('#js-roster-list').append(
                 '<tr id="js-roster' + roster.id + '">' +
-                    '<td>' + (inputs.hasOwnProperty("jersey") ? inputs.jersey : '') +'</td>' +
-                    '<td>' + (inputs.hasOwnProperty("position") ? inputs.position : '') +'</td>' +
-                    '<td>' + (inputs.hasOwnProperty("uniqueid") ? inputs.uniqueid : '') +'</td>' +
-                    '<td>' + (inputs.hasOwnProperty("name") ? inputs.name : '') +'</td>' +
-                    '<td>' + (inputs.hasOwnProperty("name_alt") ? inputs.name_alt : '') +'</td>' +
-                    '<td>' + (inputs.hasOwnProperty("classyear") ? inputs.classyear : '') +'</td>' +
-                    '<td>' + (inputs.hasOwnProperty("height") ? inputs.height : '') +'</td>' +
-                    '<td>' + (inputs.hasOwnProperty("weight") ? inputs.weight : '') +'</td>' +
-                    '<td>' + (inputs.hasOwnProperty("birthday") ? inputs.birthday : '') +'</td>' +
-                    '<td>' + (inputs.hasOwnProperty("city") ? inputs.city : '') +'</td>' +
-                    '<td>' + (inputs.hasOwnProperty("country") ? inputs.country : '') +'</td>' +
+                    '<td>' + (roster.jersey) +'</td>' +
+                    '<td>' + (roster.position) +'</td>' +
+                    '<td>' + (roster.uniqueid) +'</td>' +
+                    '<td>' + (roster.name) +'</td>' +
+                    '<td>' + (roster.name_alt) +'</td>' +
+                    '<td>' + (roster.classyear) +'</td>' +
+                    '<td>' + (roster.height) +'</td>' +
+                    '<td>' + (roster.weight) +'</td>' +
+                    '<td>' + (roster.birthday) +'</td>' +
+                    '<td>' + (roster.city) +'</td>' +
+                    '<td>' + (roster.country) +'</td>' +
                     '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button></td>' +
                 '</tr>' +
                 '<tr id="js-roster-form' + roster.id + '" style="display: none">' +
@@ -113,17 +113,17 @@ $(document).on('click', '.js-update', function (e) {
             $('#js-roster-form' + id).hide();
             $('#js-roster' + id).replaceWith(
                 '<tr id="js-roster' + roster.id + '">' +
-                '<td>' + roster.detail.inputs.jersey +'</td>' +
-                '<td>' + roster.detail.inputs.position +'</td>' +
-                '<td>' + roster.detail.inputs.uniqueid +'</td>' +
-                '<td>' + roster.detail.inputs.name +'</td>' +
-                '<td>' + roster.detail.inputs.name_alt +'</td>' +
-                '<td>' + roster.detail.inputs.classyear +'</td>' +
-                '<td>' + roster.detail.inputs.height +'</td>' +
-                '<td>' + roster.detail.inputs.weight +'</td>' +
-                '<td>' + roster.detail.inputs.birthday +'</td>' +
-                '<td>' + roster.detail.inputs.city +'</td>' +
-                '<td>' + roster.detail.inputs.country +'</td>' +
+                '<td>' + roster.jersey +'</td>' +
+                '<td>' + roster.position +'</td>' +
+                '<td>' + roster.uniqueid +'</td>' +
+                '<td>' + roster.name +'</td>' +
+                '<td>' + roster.name_alt +'</td>' +
+                '<td>' + roster.classyear +'</td>' +
+                '<td>' + roster.height +'</td>' +
+                '<td>' + roster.weight +'</td>' +
+                '<td>' + roster.birthday +'</td>' +
+                '<td>' + roster.city +'</td>' +
+                '<td>' + roster.country +'</td>' +
                 '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button></td>' +
                 '</tr>'
             );
@@ -183,17 +183,17 @@ $(document).on('click', '#js-create', function (e) {
             //                $('#js-loading').hide();
             $('#js-roster-list').append(
                 '<tr id="js-roster' + roster.id + '">' +
-                '<td>' + roster.detail.inputs.jersey +'</td>' +
-                '<td>' + roster.detail.inputs.position +'</td>' +
-                '<td>' + roster.detail.inputs.uniqueid +'</td>' +
-                '<td>' + roster.detail.inputs.name +'</td>' +
-                '<td>' + roster.detail.inputs.name_alt +'</td>' +
-                '<td>' + roster.detail.inputs.classyear +'</td>' +
-                '<td>' + roster.detail.inputs.height +'</td>' +
-                '<td>' + roster.detail.inputs.weight +'</td>' +
-                '<td>' + roster.detail.inputs.birthday +'</td>' +
-                '<td>' + roster.detail.inputs.city +'</td>' +
-                '<td>' + roster.detail.inputs.country +'</td>' +
+                '<td>' + roster.jersey +'</td>' +
+                '<td>' + roster.position +'</td>' +
+                '<td>' + roster.uniqueid +'</td>' +
+                '<td>' + roster.name +'</td>' +
+                '<td>' + roster.name_alt +'</td>' +
+                '<td>' + roster.classyear +'</td>' +
+                '<td>' + roster.height +'</td>' +
+                '<td>' + roster.weight +'</td>' +
+                '<td>' + roster.birthday +'</td>' +
+                '<td>' + roster.city +'</td>' +
+                '<td>' + roster.country +'</td>' +
                 '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button></td>' +
                 '</tr>' +
                 '<tr id="js-roster-form' + roster.id + '" style="display: none">' +
