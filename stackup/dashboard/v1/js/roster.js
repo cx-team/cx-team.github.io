@@ -37,17 +37,17 @@ $.ajax({
                     '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button></td>' +
                 '</tr>' +
                 '<tr id="js-roster-form' + roster.id + '" style="display: none">' +
-                    '<td><input id="js-roster-jersey' + roster.id + '" type="text" name="jersey" maxlength="2" size="2" value = "' + (inputs.hasOwnProperty("jersey") ? inputs.jersey : '') + '"><br></td>' +
-                    '<td><input id="js-roster-position' + roster.id + '" type="text" name="position" maxlength="2" size="2" value = "' + (inputs.hasOwnProperty("position") ? inputs.position : '') + '"><br></td>' +
-                    '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" name="uniqueid" maxlength="12" size="12" value = "' + (inputs.hasOwnProperty("uniqueid") ? inputs.uniqueid : '') + '"><br></td>' +
-                    '<td><input id="js-roster-name' + roster.id + '" type="text" name="name" value = "' + (inputs.hasOwnProperty("name") ? inputs.name : '') + '"><br></td>' +
-                    '<td><input id="js-roster-name-alt' + roster.id + '" type="text" name="name_alt" value = "' + (inputs.hasOwnProperty("name_alt") ? inputs.name_alt : '') + '"><br></td>' +
-                    '<td><input id="js-roster-classyear' + roster.id + '" type="text" name="classyear" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("classyear") ? inputs.classyear : '') + '"><br></td>' +
-                    '<td><input id="js-roster-height' + roster.id + '" type="text" name="height" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("height") ? inputs.height : '') + '"><br></td>' +
-                    '<td><input id="js-roster-weight' + roster.id + '" type="text" name="weight" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("weight") ? inputs.weight : '') + '"><br></td>' +
-                    '<td><input id="js-roster-birthday' + roster.id + '" type="text" name="birthday" value = "' + (inputs.hasOwnProperty("birthday") ? inputs.birthday : '') + '"><br></td>' +
-                    '<td><input id="js-roster-city' + roster.id + '" type="text" name="city" value = "' + (inputs.hasOwnProperty("city") ? inputs.city : '') + '"><br></td>' +
-                    '<td><input id="js-roster-country' + roster.id + '" type="text" name="country" value = "' + (inputs.hasOwnProperty("country") ? inputs.country : '') + '"><br></td>' +
+                    '<td><input id="js-roster-jersey' + roster.id + '" type="text" name="jersey" maxlength="2" size="2" value = "' + (inputs.hasOwnProperty("jersey") ? inputs.jersey : '') + '"></td>' +
+                    '<td><input id="js-roster-position' + roster.id + '" type="text" name="position" maxlength="2" size="2" value = "' + (inputs.hasOwnProperty("position") ? inputs.position : '') + '"></td>' +
+                    '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" name="uniqueid" maxlength="12" size="12" value = "' + (inputs.hasOwnProperty("uniqueid") ? inputs.uniqueid : '') + '"></td>' +
+                    '<td><input id="js-roster-name' + roster.id + '" type="text" name="name" value = "' + (inputs.hasOwnProperty("name") ? inputs.name : '') + '"></td>' +
+                    '<td><input id="js-roster-name-alt' + roster.id + '" type="text" name="name_alt" value = "' + (inputs.hasOwnProperty("name_alt") ? inputs.name_alt : '') + '"></td>' +
+                    '<td><input id="js-roster-classyear' + roster.id + '" type="text" name="classyear" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("classyear") ? inputs.classyear : '') + '"></td>' +
+                    '<td><input id="js-roster-height' + roster.id + '" type="text" name="height" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("height") ? inputs.height : '') + '"></td>' +
+                    '<td><input id="js-roster-weight' + roster.id + '" type="text" name="weight" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("weight") ? inputs.weight : '') + '"></td>' +
+                    '<td><input id="js-roster-birthday' + roster.id + '" type="text" name="birthday" value = "' + (inputs.hasOwnProperty("birthday") ? inputs.birthday : '') + '"></td>' +
+                    '<td><input id="js-roster-city' + roster.id + '" type="text" name="city" value = "' + (inputs.hasOwnProperty("city") ? inputs.city : '') + '"></td>' +
+                    '<td><input id="js-roster-country' + roster.id + '" type="text" name="country" value = "' + (inputs.hasOwnProperty("country") ? inputs.country : '') + '"></td>' +
                     '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + roster.id + '">SAVE</button></td>' +
                 '</tr>'
             );
@@ -197,17 +197,17 @@ $(document).on('click', '#js-create', function (e) {
                 '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button></td>' +
                 '</tr>' +
                 '<tr id="js-roster-form' + roster.id + '" style="display: none">' +
-                '<td><input id="js-roster-jersey' + roster.id + '" type="text" name="jersey" maxlength="2" size="2" value = "' + roster.detail.inputs.jersey + '"><br></td>' +
+                '<td><input id="js-roster-jersey' + roster.id + '" type="text" name="jersey" maxlength="2" size="2" value = "' + roster.detail.inputs.jersey + '"></td>' +
                 '<td>' + $('#js-roster-position').clone().attr('id', 'js-roster-position' + roster.id)[0].outerHTML + '</td>' +
-                '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" name="uniqueid" maxlength="12" size="12" value = "' + roster.detail.inputs.uniqueid + '"><br></td>' +
-                '<td><input id="js-roster-name' + roster.id + '" type="text" name="name" value = "' + roster.detail.inputs.name + '"><br></td>' +
-                '<td><input id="js-roster-name-alt' + roster.id + '" type="text" name="name_alt" value = "' + $('#js-roster-name-alt').val() + '"><br></td>' +
-                '<td><input id="js-roster-classyear' + roster.id + '" type="text" name="classyear" maxlength="3" size="3" value = "' + roster.detail.inputs.classyear + '"><br></td>' +
-                '<td><input id="js-roster-height' + roster.id + '" type="text" name="height" maxlength="3" size="3" value = "' + roster.detail.inputs.height + '"><br></td>' +
-                '<td><input id="js-roster-weight' + roster.id + '" type="text" name="weight" maxlength="3" size="3" value = "' + roster.detail.inputs.weight + '"><br></td>' +
-                '<td><input id="js-roster-birthday' + roster.id + '" type="text" name="birthday" value = "' + roster.detail.inputs.birthday + '"><br></td>' +
-                '<td><input id="js-roster-city' + roster.id + '" type="text" name="city" value = "' + roster.detail.inputs.city + '"><br></td>' +
-                '<td><input id="js-roster-country' + roster.id + '" type="text" name="country" value = "' + roster.detail.inputs.country + '"><br></td>' +
+                '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" name="uniqueid" maxlength="12" size="12" value = "' + roster.detail.inputs.uniqueid + '"></td>' +
+                '<td><input id="js-roster-name' + roster.id + '" type="text" name="name" value = "' + roster.detail.inputs.name + '"></td>' +
+                '<td><input id="js-roster-name-alt' + roster.id + '" type="text" name="name_alt" value = "' + $('#js-roster-name-alt').val() + '"></td>' +
+                '<td><input id="js-roster-classyear' + roster.id + '" type="text" name="classyear" maxlength="3" size="3" value = "' + roster.detail.inputs.classyear + '"></td>' +
+                '<td><input id="js-roster-height' + roster.id + '" type="text" name="height" maxlength="3" size="3" value = "' + roster.detail.inputs.height + '"></td>' +
+                '<td><input id="js-roster-weight' + roster.id + '" type="text" name="weight" maxlength="3" size="3" value = "' + roster.detail.inputs.weight + '"></td>' +
+                '<td><input id="js-roster-birthday' + roster.id + '" type="text" name="birthday" value = "' + roster.detail.inputs.birthday + '"></td>' +
+                '<td><input id="js-roster-city' + roster.id + '" type="text" name="city" value = "' + roster.detail.inputs.city + '"></td>' +
+                '<td><input id="js-roster-country' + roster.id + '" type="text" name="country" value = "' + roster.detail.inputs.country + '"></td>' +
                 '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + roster.id + '">SAVE</button></td>' +
                 '</tr>'
             );
