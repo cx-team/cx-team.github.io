@@ -108,31 +108,3 @@ $(document).on('click', '#js-upload-image', function (e) {
         }
     });
 });
-
-
-$(document).on('click', '#js-upload-file', function (e) {
-    e.preventDefault();
-
-    /*var data = new FormData($('#js-post-form')[0]);
-
-    $('#js-loading-message').text('Loading...');
-    $('#js-loading').show();
-    $.ajax({
-        url: api_host + '/profiles/photos',
-        type: 'POST',
-        data: data,
-        async: true,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function (result) {
-            $('#js-loading').hide();
-            console.log(result);
-        },
-        error: function (request, status, error) {
-            console.log(status);
-            console.log(request.responseText);
-            console.log(error);
-        }
-    });*/
-});
