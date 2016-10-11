@@ -197,17 +197,17 @@ $(document).on('click', '#js-create', function (e) {
                 '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button></td>' +
                 '</tr>' +
                 '<tr id="js-roster-form' + roster.id + '" style="display: none">' +
-                '<td><input id="js-roster-jersey' + roster.id + '" type="text" class="form-control input-sm" name="jersey" maxlength="2" size="2" value = "' + roster.detail.inputs.jersey + '"></td>' +
+                '<td><input id="js-roster-jersey' + roster.id + '" type="text" class="form-control input-sm" name="jersey" maxlength="2" size="2" value = "' + roster.jersey + '"></td>' +
                 '<td>' + $('#js-roster-position').clone().attr('id', 'js-roster-position' + roster.id)[0].outerHTML + '</td>' +
-                '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" class="form-control input-sm" name="uniqueid" maxlength="12" size="12" value = "' + roster.detail.inputs.uniqueid + '"></td>' +
-                '<td><input id="js-roster-name' + roster.id + '" type="text" class="form-control input-sm" name="name" value = "' + roster.detail.inputs.name + '"></td>' +
+                '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" class="form-control input-sm" name="uniqueid" maxlength="12" size="12" value = "' + roster.uniqueid + '"></td>' +
+                '<td><input id="js-roster-name' + roster.id + '" type="text" class="form-control input-sm" name="name" value = "' + roster.name + '"></td>' +
                 '<td><input id="js-roster-name-alt' + roster.id + '" type="text" class="form-control input-sm" name="name_alt" value = "' + $('#js-roster-name-alt').val() + '"></td>' +
-                '<td><input id="js-roster-classyear' + roster.id + '" type="text" class="form-control input-sm" name="classyear" maxlength="3" size="3" value = "' + roster.detail.inputs.classyear + '"></td>' +
-                '<td><input id="js-roster-height' + roster.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + roster.detail.inputs.height + '"></td>' +
-                '<td><input id="js-roster-weight' + roster.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + roster.detail.inputs.weight + '"></td>' +
-                '<td><input id="js-roster-birthday' + roster.id + '" type="text" class="form-control input-sm" name="birthday" value = "' + roster.detail.inputs.birthday + '"></td>' +
-                '<td><input id="js-roster-city' + roster.id + '" type="text" class="form-control input-sm" name="city" value = "' + roster.detail.inputs.city + '"></td>' +
-                '<td><input id="js-roster-country' + roster.id + '" type="text" class="form-control input-sm" name="country" value = "' + roster.detail.inputs.country + '"></td>' +
+                '<td><input id="js-roster-classyear' + roster.id + '" type="text" class="form-control input-sm" name="classyear" maxlength="3" size="3" value = "' + roster.classyear + '"></td>' +
+                '<td><input id="js-roster-height' + roster.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + roster.height + '"></td>' +
+                '<td><input id="js-roster-weight' + roster.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + roster.weight + '"></td>' +
+                '<td><input id="js-roster-birthday' + roster.id + '" type="text" class="form-control input-sm" name="birthday" value = "' + roster.birthday + '"></td>' +
+                '<td><input id="js-roster-city' + roster.id + '" type="text" class="form-control input-sm" name="city" value = "' + roster.city + '"></td>' +
+                '<td><input id="js-roster-country' + roster.id + '" type="text" class="form-control input-sm" name="country" value = "' + roster.country + '"></td>' +
                 '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + roster.id + '">SAVE</button></td>' +
                 '</tr>'
             );
