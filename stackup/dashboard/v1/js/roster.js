@@ -142,6 +142,24 @@ $(document).on('click', '.js-update', function (e) {
     });
 });
 
+$(document).on('click', '.js-delete', function (e) {
+    e.preventDefault();
+
+    var id = $(this).attr('data-id');
+
+    $.ajax({
+        type: 'DELETE',
+        url: api_host + '/admin/dashboard/' + season_id + '/temp_players/' + id,
+        success: function (result) {
+            $('#js-roster' + id).remove();
+            $('#js-roster-form' + id).remove();
+        },
+        error: function (request, status, error) {
+            //retry(this, request, error);
+        }
+    });
+});
+
 $(document).on('click', '#js-create', function (e) {
     e.preventDefault();
 
