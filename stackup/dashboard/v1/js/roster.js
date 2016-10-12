@@ -149,7 +149,7 @@ $(document).on('click', '.js-delete', function (e) {
 
     $.ajax({
         type: 'DELETE',
-        url: api_host + '/admin/dashboard/' + season_id + '/players/' + id,
+        url: 'admin.' + api_host + '/registration/temp_players/' + id,
         success: function (result) {
             $('#js-roster' + id).remove();
             $('#js-roster-form' + id).remove();
