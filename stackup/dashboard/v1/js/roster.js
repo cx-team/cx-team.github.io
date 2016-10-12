@@ -1,6 +1,6 @@
 $.ajax({
     type: 'GET',
-    url: api_host + '/admin/dashboard/' + season_id + '/temp_teams/' + temp_token + '/players',
+    url: api_host + '/registration/temp_players?tempteam='  + temp_token,
     success: function (result) {
         console.log(result);
         result.forEach(function(roster){
@@ -149,7 +149,7 @@ $(document).on('click', '.js-delete', function (e) {
 
     $.ajax({
         type: 'DELETE',
-        url: 'admin.' + api_host + '/registration/temp_players/' + id,
+        url: api_host + '/registration/temp_players/' + id,
         success: function (result) {
             $('#js-roster' + id).remove();
             $('#js-roster-form' + id).remove();
