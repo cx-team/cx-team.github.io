@@ -93,7 +93,7 @@ $(document).on('click', '.js-update', function (e) {
 
     $.ajax({
         type: 'PUT',
-        url: api_host + '/admin/dashboard/' + season_id + '/temp_teams/' + temp_token + '/players/' + id,
+        url: api_host + '/registration/temp_players/' + id,
         data: data,
         success: function (result) {
             var roster = {
@@ -184,7 +184,7 @@ $(document).on('click', '#js-create', function (e) {
     var select =
     $.ajax({
         type: 'POST',
-        url: api_host + '/admin/dashboard/' + season_id + '/temp_teams/' + temp_token + '/players',
+        url: api_host + '/registration/temp_players?tempteam=' + temp_token,
         data: data,
         success: function (result) {
             var roster = {
