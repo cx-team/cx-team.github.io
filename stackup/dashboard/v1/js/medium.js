@@ -40,6 +40,8 @@ $(document).on('click', '#js-submit-article', function(e){
     e.preventDefault();
 
     var body = $('#editor').val();
+
+
     body = body.replace(/(\r\n|\n|\r|\t)/gm, "");
     body = body.replace(/>\s+</gm, "><");
 
@@ -58,6 +60,28 @@ $(document).on('click', '#js-submit-article', function(e){
 
     body = body.replace('p class=""', 'p');
 
-    console.log(body);
-    //todo: use body here to submit
+    console.log(body);  //clean html code
+
+    /*var temp = $('#editor').val();
+    $('#editor').val(body);
+    var data = new FormData($('#js-article-form')[0]);
+    $('#editor').val(temp);
+
+    $.ajax({
+        url: 'submit article url',
+        type: 'POST',
+        data: data,
+        async: true,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (result) {
+            console.log(result);
+        },
+        error: function (request, status, error) {
+            console.log(status);
+            console.log(request.responseText);
+            console.log(error);
+        }
+    });*/
 })
