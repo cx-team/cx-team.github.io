@@ -29,34 +29,35 @@ $('#editor').mediumInsert({
                 console.log($el);
                 console.log(data);
             },*/
+        },
+        embeds: {
+            oembedProxy: null
         }
     }
 });
 
-/*
-$(document).on('click', '#js-upload-image', function (e) {
+$(document).on('click', '#js-submit-article', function(e){
     e.preventDefault();
 
-    var data = new FormData($('#js-post-form')[0]);
+    var body = $('#editor').val();
+    body = body.replace(/(\r\n|\n|\r|\t)/gm, "");
+    body = body.replace(/>\s+</gm, "><");
 
-    $('#js-loading-message').text('Loading...');
-    $('#js-loading').show();
-    $.ajax({
-        url: api_host + '/profiles/photos',
-        type: 'POST',
-        data: data,
-        async: true,
-        cache: false,
-        contentType: false,
-        processData: false,
-        success: function (result) {
-            $('#js-loading').hide();
-            console.log(result);
-        },
-        error: function (request, status, error) {
-            console.log(status);
-            console.log(request.responseText);
-            console.log(error);
-        }
-    });
-});*/
+    var pos = body.indexOf('<div class="medium-insert-buttons"');
+    body = body.substr(0, pos);
+
+    body = body.replace('<div class="medium-insert-embeds" contenteditable="false"><figure>', '');
+    body = body.replace('</figure><div class="medium-insert-embeds-overlay"></div></div>', '');
+
+    body = body.replace('<div class="medium-insert-embed"><iframe', '<iframe');
+    body = body.replace('</iframe></div>', '</iframe>');
+
+    body = body.replace('<div class="medium-insert-images medium-insert-active"><figure contenteditable="false">', '');
+    body = body.replace('<div class="medium-insert-images"><figure contenteditable="false">', '');
+    body = body.replace('</figure></div>', '');
+
+    body = body.replace('p class=""', 'p');
+
+    console.log(body);
+    //todo: use body here to submit
+})
