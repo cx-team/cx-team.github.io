@@ -1,75 +1,7 @@
-/*!
- * sideWaze Base CSS for use with Wrap & Roll Volume 1 by Christina Arasmo Beymer
- *
- * Copyright Christina Arasmo Beymer
- * License available for purchase christinabeymer@gmail.com
- * PLEASE DO NOT STEAL THIS, it's rather inexpensive to purchase and it's good karma too!
- *
- */
-
-/*------------------------------------------------------------------------------------------------------------------------------------
-  
-ABOUT: 
-  
-The columns that comprise this layout located in the sidewaze_columns.css file
-  
-# TABLE OF CONTENTS:  
-
-[2] bootstrap columns for 600px - 767px == col-ms-*
-[3] body / html
-[4] responsive line height adjustments on the content-col and footer col
-[5] ms support
-[6] font family (s)
-[7] link and link styles -- I don't believe in not underlining linkes when it's not clear that they are links 
-that's why I have ".text-underline"
-[8] nav-col links / logo-col links / footer-col links
-[9] responsive headlines
-[10] font weight classes
-[11] text or headline styles (.title, .spaced-out-header, .uppercase)
-[12] banner
-[13] image class(es) or Fixes
-[14] .vertical-spacer // empty spacer use inside content col for best results
-[15] custom utilities
-[16] fix zoom issue on focus on webkit
-[17] .primary-nav // main menu
-[18] .user-wrapper (login and signup) in nav-col -- triggers .modal 
-[19] logo-col wrappers inside
-[20] logo
-[21] search-wrapper and social-wrapper
-[22] .footer (.footer-col .footer)
-[23] #go-to-top
-[24] .social-user treatment used in login panels or modals
-[25] .multi-slider // base is in assets/owl-carousel/owl.carousel.css
-[26] .feature-icon
-[27] blog idea
-
-[28] bootstrap resets and colors // minimal styling 
-
--------------------------------------------------------------------------------------------------------------------------------------*/
-
 /*------------------------------------------------------------------------------------------------------------------------------------
   [1] profile cover
 -------------------------------------------------------------------------------------------------------------------------------------*/
 
-.profile_cover {
-   width: 100%;
-   overflow: hidden;
-}
-
-.profile_cover_bg {
-   z-index: 0;
-   width: 100%;  
-   margin-bottom: 10px;
-}
-
-.profile_cover_img {
-   width: 150px;
-   height: 150px;
-   border: 1px solid #ccc;
-   background-color: white;
-   margin: -90px 10px 0px 50px;
-   z-index: 9;
-}
 
 /*------------------------------------------------------------------------------------------------------------------------------------
   [2] bootstrap columns for 600px - 767px == col-ms-* // there are no responsive utilities for this
@@ -793,6 +725,11 @@ hr.vertical-spacer {
 @media (min-width:1020px) { 
   .feature-icon { font-size: 45px; }
 }
+
+.chip-icon { 
+  font-size: 12px;
+  margin-right: 15px;
+ }
 
 
 /*------------------------------------------------------------------------------------------------------------------------------------
