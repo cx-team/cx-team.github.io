@@ -1,0 +1,641 @@
+/*!
+ * sideWaze Column Base CSS for use with Wrap & Roll Volume 1 by Christina Arasmo Beymer
+ *
+ * Copyright Christina Arasmo Beymer
+ * License available for purchase christinabeymer@gmail.com
+ * PLEASE DO NOT STEAL THIS, it's rather inexpensive to purchase and it's good karma too!
+ *
+ */
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  
+ABOUT: 
+  
+The columns that comprise this layout are floated actual columns and fixed faux columns so that when a user scrolls
+the rules and the background continues with the scroll. 
+  
+The widths and positions of the columns are adjusted at 1020px, 1200px, and 1900px. This includes affected elements such as
+the search trigger and the menu (below 1020px)
+  
+The backgrounds and the rules of the faux-col and the actual column (nav-col, logo-col, content-col) match so that when
+a user zooms on a touch device the page scales up reasonably.
+  
+Also, notice how the footer-col adjusts significantly from 0-1399px
+  
+# TABLE OF CONTENTS:  
+
+[1] column borders styles and border color including hr
+[2] column background colors
+[3] column base smaller viewports
+[4] columns for min-width 1020px - 1199px
+[5] columns for min-width 1200px - 1399px
+[6] columns for min-width 1400px - 1899px
+[7] columns for min-width 1900px
+[8] custom footer styles from 0 - 1399px
+[9] sticky nav-col, logo-col, footer-col on non touch devices
+[10] .search-panel base
+[11] .search-open
+[12] toggle menu and toggles max-width 1019px -- too much of a pain to reset positions at min-widths 
+[13] .inner-content wrapper styles & responsive padding
+
+
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [1] column borders styles and border color including hr
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+.logo-col, .faux-logo-col,
+.nav-col, .faux-nav-col, 
+.content-col, .faux-content-col {
+    border-right: 1px solid #ccc;
+}
+
+/* --- remove right border on content-col and .faux-content-col when footer is below --- */
+@media (max-width:1399px) { 
+	.content-col, .faux-content-col { border-right: 0px }
+}
+/* --- add a LEFT border on .content-col when the menu is open on small viewports --- */
+@media (max-width:1019px) { 
+	.menu-open .content-col { border-left: 1px solid #ccc }
+}
+
+/*-------------- footer-col has a border top until 1399px -------------------------------------*/
+@media (max-width:1399px) { 
+	.footer-col { border-top: 1px solid #ccc }
+}
+
+/*-------------- .footer-col and footer-content-* borders from 600px to 1399px -------------------------------------*/
+@media (min-width:600px) and (max-width:900px) { 
+	.footer-content-1, .footer-content-3 { border-right: 1px solid #ccc }
+	[class*="footer-content-"] { border-bottom: 1px solid #ccc }
+}
+
+/*-------------- .footer-col and footer-content-* borders from 901px to 1399px -------------------------------------*/
+@media (min-width:901px) and (max-width:1399px) { 
+	.footer-content-1, .footer-content-2, .footer-content-3 { border-right: 1px solid #ccc }
+	[class*="footer-content-"] { border-bottom: 1px solid #ccc }
+}
+
+
+/* --- hr.divider is used outside inner-content to extend rule beyond the content --- */
+hr.divider {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-color: #ccc;
+    width: 100%;
+    clear: both;
+}
+
+hr {border-color:#ddd;}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [2] column background colors
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+.nav-col, .faux-nav-col { background: #fff }
+
+.logo-col, .faux-logo-col { background: #fff}
+
+.content-col, .faux-content-col { background: #fff }
+
+.footer-col, .faux-footer-col { background: #fff }
+
+/* ------ .logo-wrapper // .search-wrapper // .social-wrapper  ----- */
+.logo-wrapper { background: transparent }
+.search-wrapper { background: transparent }
+.social-wrapper { background: transparent }
+
+/* ------ footer-content-* backgrounds  ----- */
+@media (max-width:599px) { 
+.footer-content-2, .footer-content-4 { background: #fff }
+} 
+
+@media (min-width:600px) and (max-width:900px) { 
+	.footer-content-2, .footer-content-3 { background: #fff }
+}
+
+@media (min-width:901px) { 
+	.footer-content-2, .footer-content-4 { background: #fff }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [3] column base smaller viewports
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+.content-col {
+    padding-left: 50px;
+    position: relative;
+    margin-left: -1px;
+    min-height: 600px;
+}
+.logo-col {
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    margin-right: -50px;
+    z-index: 1;
+}
+.faux-logo-col {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+}
+.footer-col {
+    clear: both;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+.footer-col .inner-content { clear: both }
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [4] columns for min-width 1020px - 1199px
+-------------------------------------------------------------------------------------------------------------------------------------*/
+@media (min-width:1020px) {  
+	
+	/* ---------- faux col style ----------- */
+	.faux-col {
+	    position: fixed;
+	    top: 0;
+	    z-index: -1;
+	    min-height: 100%;
+	    bottom: 0;
+	}
+	
+	/* ---------- real column styles  ----------- */
+	.content-col {
+	    padding-left: 0;
+	    margin-left: 0;
+	    padding-bottom: 20px;
+	}
+	.logo-col, .nav-col {
+	    width: auto;
+	    margin-right: 0;
+	}
+	.logo-col, .nav-col, .content-col {
+	    float: left;
+	    left: 0;
+	    position: relative;
+	    z-index: 1;
+	    min-height: 100%;
+	}
+	.footer-col {
+	    width: 100%;
+	    left: 0;
+	    position: relative;
+	    z-index: 1;
+	}
+	
+	/* ---------- column widths ----------- */
+	
+	.nav-col, .faux-nav-col { width: 20% }
+	.logo-col, .faux-logo-col { width: 5% }
+	.content-col, .faux-content-col { width: 75% }
+	
+	/* ---------- faux col positions  ----------- */
+	
+	.faux-nav-col { left: 0 }
+	.faux-logo-col { left: 20% }
+	.faux-content-col { left: 25% }
+	
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [5] columns for min-width 1200px - 1399px
+-------------------------------------------------------------------------------------------------------------------------------------*/
+@media (min-width:1200px) {  
+	
+	/* ---------- column widths ----------- */
+	
+	.nav-col, .faux-nav-col { width: 25% }
+	.logo-col, .faux-logo-col { width: 5% }
+	.content-col, .faux-content-col { width: 70% }
+	
+	/* ---------- faux col positions  ----------- */
+	
+	.faux-nav-col { left: 0 }
+	.faux-logo-col { left: 25% }
+	.faux-content-col { left: 30% }
+	
+}
+
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [6] columns for min-width 1400px - 1899px
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width:1400px) { 
+
+	/* ---------- column widths ----------- */
+	
+	.nav-col, .faux-nav-col { width: 20% }
+	.logo-col, .faux-logo-col { width: 5% }
+	.content-col, .faux-content-col { width: 55% }
+	.footer-col, .faux-footer-col { width: 20% }
+	
+	/* ---------- faux col positions ----------- */
+	
+	.faux-nav-col { left: 0 }
+	
+	.faux-logo-col {
+	    left: 20%;/* nav-col width  */ }
+	    
+	.faux-content-col {
+	    left: 25%;/* nav-col width + logo-col width */
+	}
+	
+	.faux-footer-col {
+	    left: 80%;/* nav-col width + logo-col width + content col width */
+	}
+		
+	.footer-col {
+	    float: left;
+	    clear: none;
+	    left: 0;
+	    position: relative;
+	    z-index: 1;
+	    min-height: 100%;
+	}
+	
+	/* ---------- .footer-col > .inner-content at this breakpoint ----------- */
+	.footer-col .inner-content {
+	    max-width: 300px;
+	    width: 100%;
+	    float: none;
+	}
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [7] columns for min-width 1900px
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width:1900px) {  
+
+	/* ---------- column widths ----------- */
+	.nav-col, .faux-nav-col { width: 25% }
+	.logo-col, .faux-logo-col { width: 5% }
+	.content-col, .faux-content-col { width: 45% }
+	.footer-col, .faux-footer-col { width: 25% }
+	
+	/* ---------- faux-col positions ----------- */
+	.faux-nav-col { left: 0 }
+	
+	.faux-logo-col {
+	    left: 25%;/* nav-col width  */ }
+	
+	.faux-content-col {
+	    left: 30%;/* nav-col width + logo-col width */
+	}
+	.faux-footer-col {
+	    left: 75%;/* nav-col width + logo-col width + content col width */
+	}
+	
+	/* ---------- .footer-col > .inner-content at this breakpoint ----------- */
+	.footer-col .inner-content { max-width: 350px }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [8] custom footer styles from 0 - 1399px
+-------------------------------------------------------------------------------------------------------------------------------------*/
+@media (min-width:600px) and (max-width:900px) { 
+
+	.faux-col.faux-footer-col { display: none }
+	
+	.footer-col [class*="footer-content-"] {
+	    float: left;
+	    width: 50%;
+	    clear: none;
+	}
+	
+	.footer-col hr.divider { display: none }
+		
+}
+
+/*-------------- custom footer from 901px to 1399px -------------------------------------*/
+
+@media (min-width:901px) and (max-width:1399px) { 
+
+	.faux-col.faux-footer-col { display: none }
+	
+	.footer-col [class*="footer-content-"] {
+	    float: left;
+	    width: 25%;
+	    clear: none;
+	}
+	
+	.footer-col hr.divider { display: none }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [9] sticky nav-col, logo-col, footer-col on non touch devices that use a boxshadow (to prevent IE8 from using)
+  NOTE: These are set up to start at the heights of the content (approx) if you add more content that changes the height, adjust the
+  min-height accordingly otherwise some people will not be able to reach the content on their viewport.
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* .fixed nav-col
+-------------------------------------------------------------------------------------------------------------------------------------*/
+@media (min-width:1020px) and (min-height:800px) { 
+	.no-touch.boxshadow .nav-col nav {
+	    position: fixed;
+	    width: 20%; /*width of nav-col at this break point*/
+	    z-index: 1000;
+	}
+}
+
+@media (min-width:1200px) and (min-height:800px) { 
+	.no-touch.boxshadow .nav-col nav {
+	    width: 25%; /*width of nav-col at this break point*/
+	}
+}
+
+@media (min-width:1400px) and (min-height:800px) { 
+	.no-touch.boxshadow .nav-col nav {
+	    width: 20%; /*width of nav-col at this break point*/
+	}
+}
+
+@media (min-width:1900px) and (min-height:800px) { 
+	.no-touch.boxshadow .nav-col nav {
+	    width: 25%; /*width of nav-col at this break point*/
+	}
+}
+
+
+/* .fixed logo-col
+-------------------------------------------------------------------------------------------------------------------------------------*/
+@media (min-width:1020px) and (min-height:1000px) { 
+	.no-touch.boxshadow .logo-col {
+	    position: fixed;
+	    width: 5%;  /*width of logo-col at this break point*/
+	    z-index: 1000;
+	    left: 20%; /*width of nav-col at this break point*/
+	}
+	.no-touch.boxshadow .content-col {
+	    margin-left: 5% /*with of logo-col at this break point */
+	 }
+	.no-touch.boxshadow .footer-col {
+	    z-index:1000;
+	 }
+}
+
+@media (min-width:1200px) and (min-height:1000px) { 
+	.no-touch.boxshadow .logo-col {
+	    width: 5%;  /*width of logo-col at this break point*/
+	    left: 25%; /*width of nav-col at this break point*/
+	}
+	.no-touch.boxshadow .content-col {
+	    margin-left: 5% /*with of logo-col at this break point */
+	 }
+	.no-touch.boxshadow .footer-col {
+	    z-index:1000;
+	 }
+}
+
+@media (min-width:1400px) and (min-height:700px) { 
+	.no-touch.boxshadow .logo-col {
+	    position: fixed;
+	    width: 5%;  /*width of logo-col at this break point*/
+	    z-index: 1000;
+	    left: 20%; /*width of nav-col at this break point*/
+	}
+	.no-touch.boxshadow .content-col {
+	    margin-left: 5% /*with of logo-col at this break point */
+	 }
+}
+
+@media (min-width:1900px) and (min-height:700px) { 
+	.no-touch.boxshadow .logo-col {
+	    width: 5%;
+	    left: 25%;
+	}
+	.no-touch.boxshadow .content-col { margin-left: 5% }
+}
+
+
+/* .fixed footer-col
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width:1400px) and (min-height:1200px) { 
+	.no-touch.boxshadow .footer-col {
+	    position: fixed;
+	    width: 20%; /*width of footer-col at this break point*/
+	    right: 0;
+	    left: auto; /*remove left position */
+	    z-index: 1000;
+	}
+}
+
+@media (min-width:1900px) and (min-height:1200px) { 
+	.no-touch.boxshadow .footer-col {
+	    width: 25%; /*width of footer-col at this break point*/
+	    right: 0;
+	    left: auto; /*remove left position */
+	}
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [10] .search-panel base
+-------------------------------------------------------------------------------------------------------------------------------------*/
+.search-panel {
+    position: relative;
+    display: none;
+    padding: 10px;
+}
+.search-panel form {
+    margin: 0;
+    text-align: center;
+}
+
+.search-open .toggle-search i:before {content:"\f00d"}
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [11] .search-open
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* ------ .search-open max-width: 1019px ----- */
+@media (max-width:1019px) { 
+	.search-open .logo-col { width: 50% }
+	.search-open .search-panel { display: block }
+	.search-open .footer-col, .search-open .faux-col { display: none }
+	.search-open .content-col {
+	    position: absolute;
+	    left: 50%;
+	    padding: 0;
+	    width: 100%;
+	}
+	.search-open .content-col, .search-open .logo-col { transition: all 0.2s ease-in-out }
+}
+
+/* ------ .search-open max-width: 768px (yes 768) ----- */
+@media (max-width:768px) { 
+	.search-open .logo-col { width: 90% }
+	.search-open .search-panel { display: block }
+	.search-open .footer-col, .search-open .faux-col { display: none }
+	.search-open .content-col {
+	    position: absolute;
+	    left: 90%;
+	    padding: 0;
+	    width: 100%;
+	}
+	.search-open .content-col, .search-open .logo-col { transition: all 0.2s ease-in-out }
+}
+
+/* ------ .search-open min-width: 1020px ----- */
+@media (min-width:1020px) { 
+	.search-panel .form-control {
+	    border: 0;
+	    height: 100%;
+	    background: transparent;
+	    margin: 0;
+	    padding: 20px 10px;
+	}
+	.search-panel .form-control:focus {
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    border: 0px;
+	}
+	.search-panel {
+	    position: absolute;
+	    display: none;
+	}
+	.search-open .search-panel {
+	    transition: all 0.2s ease-in-out;
+	    display: block;
+	    padding: 0;
+	    z-index: 1000;
+	    height: 64px;
+	    width: 450px;
+	    left: 100%;
+	    top: -1px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	}
+	.search-open .logo-col {
+	    position: absolute!important; /* over-ride fixed positioning when open*/
+	    left: 20%;
+	    z-index: 1000;
+	    height: 100%;
+	    overflow: visible;
+	}
+	.search-open .content-col { margin-left: 5% }
+	.search-open .content-col * {
+	    opacity: .7;
+	    transition: all 0.2s ease-in-out;
+	}
+}
+
+/* ------ .search-open min-width: 1200px ----- */
+@media (min-width:1200px) { 
+	.search-open .search-panel { height: 64px }
+	.search-open .logo-col {left: 25%;}
+	.search-open .content-col { margin-left: 5% }
+}
+
+/* ------ .search-open min-width: 1400px ----- */
+@media (min-width:1400px) { 
+	.search-open .search-panel { height: 64px }
+	.search-open .logo-col {left: 20%;}
+	.search-open .content-col { margin-left: 5% }
+}
+
+/* ------ .search-open min-width: 1900px ----- */
+@media (min-width:1900px) { 
+	.search-open .logo-col { left: 25% }
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [12] toggle menu and toggles max-width 1019px -- too much of a pain to reset positions at min-widths 
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (max-width:1019px) { 
+
+	.menu-open .toggle-menu i:before {content:"\f00d"}
+
+	.toggle-menu {
+	    display: block;
+	    width: 100%;
+	    overflow: hidden;
+	    text-align: center;
+	    font-size: 25px;
+	    height:50px;
+	    line-height:47px;
+	    background:transparent;
+	}
+	
+	/* ------ hide nav-col on small viewports ----- */
+	.nav-col {
+	    width: 0px;
+	    height: 0px;
+	    overflow: hidden;
+	    left: -90%;
+	}
+	.content-col {
+	    left: 0;
+	    position: relative;
+	}
+	.menu-open .content-col,
+	.menu-open .logo-col,
+	.menu-open .nav-col { transition: all 0.2s ease-in-out }
+	.menu-open .logo-col { margin: 0 }
+	.menu-open .nav-col {
+	    padding-left: 50px;
+	    left: 0;
+	    position: absolute;
+	    top: 0;
+	    width: 90%;
+	    height: auto;
+	}
+	.menu-open .content-col {
+	    left: 90%;
+	    padding:0;
+	}
+	.menu-open .footer-col { display: none }
+	.menu-open .logo-col {
+	    position: absolute;
+	    top: 0;
+	    width: 50px;
+	    padding: 0;
+	    margin: 0;
+	}
+}
+@media (min-width:1020px) { 
+	.toggle-menu {
+	    display: none!important
+	}
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------
+  [13] .inner-content wrapper styles & responsive padding
+-------------------------------------------------------------------------------------------------------------------------------------*/
+
+.inner-content { padding: 20px }
+.logo-col { padding-bottom: 20px }
+
+@media (max-width:260px) { 
+	.content-col .inner-content { padding: 10px }
+}
+
+@media (min-width:1020px) { 
+	.content-col .inner-content { padding-top: 30px }
+	.logo-col .logo-wrapper{ padding-top:30px }
+}
+@media (min-width:1900px) { 
+	.content-col .inner-content { padding-top: 40px }
+	.logo-col .logo-wrapper{ padding-top:40px }
+	.nav-col, .footer-col { padding-top:20px }
+}
+
+
+
+
+
