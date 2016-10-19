@@ -87,54 +87,7 @@ $(document).ready(function () {
 }); // end document ready
 
 
-/* __________________ CLOSE SEARCH WHEN CLICKED OUTSIDE __________________*/
 
-    $(document).click(function (a) {
-        if ($(a.target).parents().index($(".search-wrapper")) == -1) {
-            $('html').removeClass('search-open');
-        }
-    });
-
-    $(document).on("touchstart", function (a) {
-        if ($(a.target).parents().index($(".search-wrapper")) == -1) {
-            $('html').removeClass('search-open');
-        }
-    });
-
-
-/* __________________ SCROLL TO TOP __________________*/
-
-if ($("html").hasClass("ie8")) { // avoid IE8 bug
-
-    $('#go-to-top').hide();
-}
-
-if ($("html").hasClass("boxshadow")) { // avoid IE8 bug
-
-    $(document).ready(function () {
-
-        $('#go-to-top').hide();
-
-        //Check to see if the window is top if not then display button
-        $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) {
-                $('#go-to-top').fadeIn();
-            } else {
-                $('#go-to-top').fadeOut();
-            }
-        });
-
-        //Click event to scroll to top
-        $('#go-to-top').click(function () {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 800);
-            return false;
-        });
-
-    });
-
-} // end if html has class boxshadow
 
 
 /* __________________ PLACEHOLDER __________________*/
