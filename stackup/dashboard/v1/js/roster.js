@@ -116,21 +116,21 @@ $(document).on('click', '.js-update', function (e) {
             //                $('#js-loading').hide();
             $('#js-roster-form' + id).hide();
             $('#js-roster' + id).replaceWith(
-                '<tr id="js-roster' + roster.id + '">' +
-                '<td>' + roster.jersey +'</td>' +
-                '<td>' + roster.position +'</td>' +
-                '<td>' + roster.uniqueid +'</td>' +
-                '<td>' + roster.name +'</td>' +
-                '<td>' + roster.name_alt +'</td>' +
-                '<td>' + roster.classyear +'</td>' +
-                '<td>' + roster.height +'</td>' +
-                '<td>' + roster.weight +'</td>' +
-                '<td>' + roster.birthday +'</td>' +
-                '<td>' + roster.city +'</td>' +
-                '<td>' + roster.country +'</td>' +
+                '<tr id="js-roster' + result.id + '">' +
+                '<td>' + result.jersey +'</td>' +
+                '<td>' + result.position +'</td>' +
+                '<td>' + result.uniqueid +'</td>' +
+                '<td>' + result.name +'</td>' +
+                '<td>' + result.name_alt +'</td>' +
+                '<td>' + result.classyear +'</td>' +
+                '<td>' + result.height +'</td>' +
+                '<td>' + result.weight +'</td>' +
+                '<td>' + result.birthday +'</td>' +
+                '<td>' + result.city +'</td>' +
+                '<td>' + result.country +'</td>' +
                 '<td>' +
-                    '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button>' +
-                    '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + roster.id + '">DELETE</button>' + 
+                    '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + result.id + '">EDIT</button>' +
+                    '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + result.id + '">DELETE</button>' + 
                 '</td>' +
                 '</tr>'
             );
