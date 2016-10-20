@@ -208,17 +208,17 @@ $(document).on('click', '#js-create', function (e) {
             //                $('#js-loading').hide();
             $('#js-roster-list').append(
                 '<tr id="js-roster' + roster.id + '">' +
-                '<td>' + roster.jersey +'</td>' +
-                '<td>' + roster.position +'</td>' +
-                '<td>' + roster.uniqueid +'</td>' +
-                '<td>' + roster.name +'</td>' +
-                '<td>' + roster.name_alt +'</td>' +
-                '<td>' + roster.classyear +'</td>' +
-                '<td>' + roster.height +'</td>' +
-                '<td>' + roster.weight +'</td>' +
-                '<td>' + roster.birthday +'</td>' +
-                '<td>' + roster.city +'</td>' +
-                '<td>' + roster.country +'</td>' +
+                '<td>' + result.jersey +'</td>' +
+                '<td>' + result.position +'</td>' +
+                '<td>' + result.uniqueid +'</td>' +
+                '<td>' + result.name +'</td>' +
+                '<td>' + result.name_alt +'</td>' +
+                '<td>' + result.classyear +'</td>' +
+                '<td>' + result.height +'</td>' +
+                '<td>' + result.weight +'</td>' +
+                '<td>' + result.birthday +'</td>' +
+                '<td>' + result.city +'</td>' +
+                '<td>' + result.country +'</td>' +
                 '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button></td>' +
                 '</tr>' +
                 '<tr id="js-roster-form' + roster.id + '" style="display: none">' +
@@ -231,7 +231,7 @@ $(document).on('click', '#js-create', function (e) {
                 '<td><input id="js-roster-height' + roster.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + roster.height + '"></td>' +
                 '<td><input id="js-roster-weight' + roster.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + roster.weight + '"></td>' +
                 '<td><input id="js-roster-birthday' + roster.id + '" type="text" class="form-control input-sm" name="birthday" value = "' + roster.birthday + '"></td>' +
-                '<td><input id="js-roster-city' + roster.id + '" type="text" class="form-control input-sm" name="city" value = "city"></td>' +
+                '<td><input id="js-roster-city' + roster.id + '" type="text" class="form-control input-sm" name="city" value = "' + roster.city + '"></td>' +
                 '<td><input id="js-roster-country' + roster.id + '" type="text" class="form-control input-sm" name="country" value = "' + roster.country + '"></td>' +
                 '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + roster.id + '">SAVE</button></td>' +
                 '</tr>'
