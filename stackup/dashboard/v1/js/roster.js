@@ -1,6 +1,6 @@
 $.ajax({
     type: 'GET',
-    url: api_host + '/registration/temp_players?tempteam='  + temp_token,
+    url: api_host + '/dashboard/temp_players?tempteam='  + temp_token,
     success: function (result) {
         console.log(result);
         result.forEach(function(roster){
@@ -93,7 +93,7 @@ $(document).on('click', '.js-update', function (e) {
 
     $.ajax({
         type: 'PUT',
-        url: api_host + '/registration/temp_players/' + id,
+        url: api_host + '/dashboard/temp_players/' + id,
         data: data,
         success: function (result) {
             var roster = {
@@ -116,21 +116,21 @@ $(document).on('click', '.js-update', function (e) {
             //                $('#js-loading').hide();
             $('#js-roster-form' + id).hide();
             $('#js-roster' + id).replaceWith(
-                '<tr id="js-roster' + roster.id + '">' +
-                '<td>' + roster.jersey +'</td>' +
-                '<td>' + roster.position +'</td>' +
-                '<td>' + roster.uniqueid +'</td>' +
-                '<td>' + roster.name +'</td>' +
-                '<td>' + roster.name_alt +'</td>' +
-                '<td>' + roster.classyear +'</td>' +
-                '<td>' + roster.height +'</td>' +
-                '<td>' + roster.weight +'</td>' +
-                '<td>' + roster.birthday +'</td>' +
-                '<td>' + roster.city +'</td>' +
-                '<td>' + roster.country +'</td>' +
+                '<tr id="js-roster' + result.id + '">' +
+                '<td>' + result.jersey +'</td>' +
+                '<td>' + result.position +'</td>' +
+                '<td>' + result.uniqueid +'</td>' +
+                '<td>' + result.name +'</td>' +
+                '<td>' + result.name_alt +'</td>' +
+                '<td>' + result.classyear +'</td>' +
+                '<td>' + result.height +'</td>' +
+                '<td>' + result.weight +'</td>' +
+                '<td>' + result.birthday +'</td>' +
+                '<td>' + result.city +'</td>' +
+                '<td>' + result.country +'</td>' +
                 '<td>' +
-                    '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button>' +
-                    '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + roster.id + '">DELETE</button>' + 
+                    '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + result.id + '">EDIT</button>' +
+                    '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + result.id + '">DELETE</button>' + 
                 '</td>' +
                 '</tr>'
             );
@@ -149,7 +149,7 @@ $(document).on('click', '.js-delete', function (e) {
 
     $.ajax({
         type: 'DELETE',
-        url: api_host + '/registration/temp_players/' + id,
+        url: api_host + '/dashboard/temp_players/' + id,
         success: function (result) {
             $('#js-roster' + id).remove();
             $('#js-roster-form' + id).remove();
@@ -184,7 +184,7 @@ $(document).on('click', '#js-create', function (e) {
     var select =
     $.ajax({
         type: 'POST',
-        url: api_host + '/registration/temp_players?tempteam=' + temp_token,
+        url: api_host + '/dashboard/temp_players?tempteam=' + temp_token,
         data: data,
         success: function (result) {
             var roster = {
@@ -208,32 +208,34 @@ $(document).on('click', '#js-create', function (e) {
             //                $('#js-loading').hide();
             $('#js-roster-list').append(
                 '<tr id="js-roster' + roster.id + '">' +
-                '<td>' + roster.jersey +'</td>' +
-                '<td>' + roster.position +'</td>' +
-                '<td>' + roster.uniqueid +'</td>' +
-                '<td>' + roster.name +'</td>' +
-                '<td>' + roster.name_alt +'</td>' +
-                '<td>' + roster.classyear +'</td>' +
-                '<td>' + roster.height +'</td>' +
-                '<td>' + roster.weight +'</td>' +
-                '<td>' + roster.birthday +'</td>' +
-                '<td>' + roster.city +'</td>' +
-                '<td>' + roster.country +'</td>' +
+                '<td>' + result.jersey +'</td>' +
+                '<td>' + result.position +'</td>' +
+                '<td>' + result.uniqueid +'</td>' +
+                '<td>' + result.name +'</td>' +
+                '<td>' + result.name_alt +'</td>' +
+                '<td>' + result.classyear +'</td>' +
+                '<td>' + result.height +'</td>' +
+                '<td>' + result.weight +'</td>' +
+                '<td>' + result.birthday +'</td>' +
+                '<td>' + result.city +'</td>' +
+                '<td>' + result.country +'</td>' +
                 '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button></td>' +
                 '</tr>' +
                 '<tr id="js-roster-form' + roster.id + '" style="display: none">' +
-                '<td><input id="js-roster-jersey' + roster.id + '" type="text" class="form-control input-sm" name="jersey" maxlength="2" size="2" value = "' + roster.jersey + '"></td>' +
+                '<td><input id="js-roster-jersey' + roster.id + '" type="text" class="form-control input-sm" name="jersey" maxlength="2" size="2" value = "' + result.detail.inputs.jersey + '"></td>' +
                 '<td>' + $('#js-roster-position').clone().attr('id', 'js-roster-position' + roster.id)[0].outerHTML + '</td>' +
-                '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" class="form-control input-sm" name="uniqueid" maxlength="12" size="12" value = "' + roster.uniqueid + '"></td>' +
-                '<td><input id="js-roster-name' + roster.id + '" type="text" class="form-control input-sm" name="name" value = "' + roster.name + '"></td>' +
+                '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" class="form-control input-sm" name="uniqueid" maxlength="12" size="12" value = "' + result.detail.inputs.uniqueid + '"></td>' +
+                '<td><input id="js-roster-name' + roster.id + '" type="text" class="form-control input-sm" name="name" value = "' + result.name + '"></td>' +
                 '<td><input id="js-roster-name-alt' + roster.id + '" type="text" class="form-control input-sm" name="name_alt" value = "' + $('#js-roster-name-alt').val() + '"></td>' +
-                '<td><input id="js-roster-classyear' + roster.id + '" type="text" class="form-control input-sm" name="classyear" maxlength="3" size="3" value = "' + roster.classyear + '"></td>' +
+                '<td><input id="js-roster-classyear' + roster.id + '" type="text" class="form-control input-sm" name="classyear" maxlength="3" size="3" value = "' + result.classyear + '"></td>' +
                 '<td><input id="js-roster-height' + roster.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + roster.height + '"></td>' +
                 '<td><input id="js-roster-weight' + roster.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + roster.weight + '"></td>' +
                 '<td><input id="js-roster-birthday' + roster.id + '" type="text" class="form-control input-sm" name="birthday" value = "' + roster.birthday + '"></td>' +
                 '<td><input id="js-roster-city' + roster.id + '" type="text" class="form-control input-sm" name="city" value = "' + roster.city + '"></td>' +
                 '<td><input id="js-roster-country' + roster.id + '" type="text" class="form-control input-sm" name="country" value = "' + roster.country + '"></td>' +
                 '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + roster.id + '">SAVE</button></td>' +
+                '<td><button class="js-delete btn-xs btn-primary btn-fill" data-id="' + roster.id + '">DELETE</button></td>' + 
+
                 '</tr>'
             );
 

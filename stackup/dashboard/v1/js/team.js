@@ -1,7 +1,7 @@
 $.ajax({
     type: 'GET',
 	dataType: 'json',
-    url: api_host + '/registration/temp_teams?season=' + season_id,
+    url: api_host + '/dashboard/temp_teams?season=' + season_id,
     success: function (result) {
         console.log(result);
         result.forEach(function(team){
@@ -81,7 +81,7 @@ $(document).on('click', '.js-update', function (e) {
 
     $.ajax({
         type: 'PUT',
-        url: api_host + '/registration/temp_teams/' + id,
+        url: api_host + '/dashboard/temp_teams/' + id,
         data: data,
         success: function (team) {
             console.log(team);
@@ -117,7 +117,7 @@ $(document).on('click', '.js-delete', function (e) {
 
     $.ajax({
         type: 'DELETE',
-        url: api_host + '/registration/temp_teams/' + id,
+        url: api_host + '/dashboard/temp_teams/' + id,
         success: function (result) {
             //                $('#js-loading').hide();
             $('#js-team' + id).remove();
@@ -134,7 +134,7 @@ $(document).on('click', '.js-roster', function (e) {
     e.preventDefault();
 
     var id = $(this).attr('data-id');
-    window.location.href = api_host + '/admin/dashboard/' + season_id + '/registration?locale=zh-tw&page=rosters_pending&temp_token=' + id;
+    window.location.href = api_host + '/dashboard/' + season_id + '/registration?locale=zh-tw&page=rosters_pending&temp_token=' + id;
 });
 
 $(document).on('click', '#js-create', function (e) {
@@ -156,7 +156,7 @@ $(document).on('click', '#js-create', function (e) {
 
     $.ajax({
         type: 'POST',
-        url: api_host + '/registration/temp_teams?season=' + season_id,
+        url: api_host + '/dashboard/temp_teams?season=' + season_id,
         data: data,
         success: function (team) {
             console.log(team);
@@ -173,7 +173,7 @@ $(document).on('click', '#js-create', function (e) {
                 '<td>' +
                 '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + team.id + '">EDIT</button>' +
                 '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + team.id + '">DELETE</button>' +
-                '<a href="' + api_host + '/admin/dashboard/' + season_id + '/registration?locale=zh-tw&page=rosters_pending&temp_token=' + team.id + '" class="btn-xs btn-primary btn-fill" data-id="' + team.id + '">ROSTER</a>' +
+                '<a href="' + api_host + '/dashboard/' + season_id + '/registration?locale=zh-tw&page=rosters_pending&temp_token=' + team.id + '" class="btn-xs btn-primary btn-fill" data-id="' + team.id + '">ROSTER</a>' +
                 '</td>' +
                 '</tr>' +
                 '<tr id="js-team-form' + team.id + '" style="display: none">' +
