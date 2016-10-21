@@ -41,7 +41,6 @@ $(document).on('click', '#js-submit-article', function(e){
 
     var body = $('#editor').val();
 
-
     body = body.replace(/(\r\n|\n|\r|\t)/gm, "");
     body = body.replace(/>\s+</gm, "><");
 
