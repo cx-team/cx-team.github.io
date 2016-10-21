@@ -91,6 +91,7 @@ $(document).on('click', '.js-update', function (e) {
         },
     }
 
+
     $.ajax({
         type: 'PUT',
         url: api_host + '/dashboard/temp_players/' + id,
