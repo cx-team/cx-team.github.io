@@ -1,3 +1,7 @@
+$('.js-date').datetimepicker({
+    format: 'YYYY-MM-DD'
+});
+
 $.ajax({
     type: 'GET',
     url: api_host + '/dashboard/temp_players?tempteam='  + temp_token,

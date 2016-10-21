@@ -3,13 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link href="https://cx-team.github.io/stackup/share/theme/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cx-team.github.io/stackup/share/lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+        td {
+            position: relative;
+        }
+    </style>
 </head>
 <body>
     <div class="card">
         <div class="header">
             <h4 class="title">中華藍</h4>
         </div>
-        <div class="content table-responsive table-full-width">
+        <div class="content table-full-width">
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
@@ -48,7 +59,7 @@
                     <td><input id="js-roster-classyear" type="text" name="classyear" maxlength="3" size="3"><br></td>
                     <td><input id="js-roster-height" type="text" name="height" maxlength="3" size="3"><br></td>
                     <td><input id="js-roster-weight" type="text" name="weight" maxlength="3" size="3"><br></td>
-                    <td><input id="js-roster-birthday" type="text" name="birthday"><br></td>
+                    <td><input id="js-roster-birthday" class="js-date" type="text" name="birthday"><br></td>
                     <td><input id="js-roster-city" type="text" name="city"><br></td>
                     <td><input id="js-roster-country" type="text" name="country"><br></td>
                     <td><button id="js-create" class="btn-xs btn-success btn-fill">SAVE</button></td>
@@ -58,13 +69,16 @@
     </div>
 
     <script src="https://cx-team.github.io/stackup/share/theme/js/jquery.min.js"></script>
+    <script src="../../../share/lib/moment/min/moment.min.js"></script>
+    <script src="https://cx-team.github.io/stackup/share/lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+
     <script>
         var api_host = 'http://www.cxn-tw.com';
         var season_id = 'ZIYLIGiuqw1oWwRI1C4aDQ';
         var temp_token = 'yJAGXdW4X9QUak_lFAhkkA';
     </script>
 
-    <script src="https://cx-team.github.io/stackup/livestats/v1/js/roster.js"></script>
-    <!--<script src="../js/roster.js"></script>-->
+    <!--<script src="https://cx-team.github.io/stackup/livestats/v1/js/roster.js"></script>-->
+    <script src="../js/roster.js"></script>
 </body>
 </html>
