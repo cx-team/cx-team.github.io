@@ -236,7 +236,7 @@ $(document).on('click', '#js-create', function (e) {
                 '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" class="form-control input-sm" name="uniqueid" maxlength="12" size="12" value = "' + result.detail.inputs.uniqueid + '"></td>' +
                 '<td><input id="js-roster-name' + roster.id + '" type="text" class="form-control input-sm" name="name" value = "' + result.name + '"></td>' +
                 '<td><input id="js-roster-name-alt' + roster.id + '" type="text" class="form-control input-sm" name="name_alt" value = "' + $('#js-roster-name-alt').val() + '"></td>' +
-                '<td><input id="js-roster-gender' + roster.id + '" type="text" class="form-control input-sm" name="gender" value = "' + $('#js-roster-gender').val() + '"></td>' +
+                '<td>' + $('#js-roster-gender').clone().attr('id', 'js-roster-gender' + roster.id)[0].outerHTML + '</td>' +
                 '<td><input id="js-roster-classyear' + roster.id + '" type="text" class="form-control input-sm" name="classyear" maxlength="3" size="3" value = "' + result.classyear + '"></td>' +
                 '<td><input id="js-roster-height' + roster.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + roster.height + '"></td>' +
                 '<td><input id="js-roster-weight' + roster.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + roster.weight + '"></td>' +
