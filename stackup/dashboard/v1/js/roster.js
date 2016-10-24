@@ -12,6 +12,7 @@ $.ajax({
                     uniqueid: '',
                     name: '',
                     name_alt: '',
+                    gender: '',
                     classyear: '',
                     height: '',
                     weight: '',
@@ -28,6 +29,7 @@ $.ajax({
                     '<td>' + (roster.uniqueid) +'</td>' +
                     '<td>' + (roster.name) +'</td>' +
                     '<td>' + (roster.name_alt) +'</td>' +
+                    '<td>' + (roster.gender) +'</td>' +
                     '<td>' + (roster.classyear) +'</td>' +
                     '<td>' + (roster.height) +'</td>' +
                     '<td>' + (roster.weight) +'</td>' +
@@ -46,6 +48,7 @@ $.ajax({
                     '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" class="form-control input-sm" name="uniqueid" maxlength="12" size="12" value = "' + (inputs.hasOwnProperty("uniqueid") ? roster.uniqueid : '') + '"></td>' +
                     '<td><input id="js-roster-name' + roster.id + '" type="text" class="form-control input-sm" name="name" value = "' + (inputs.hasOwnProperty("name") ? roster.name : '') + '"></td>' +
                     '<td><input id="js-roster-name-alt' + roster.id + '" type="text" class="form-control input-sm" name="name_alt" value = "' + (inputs.hasOwnProperty("name_alt") ? roster.name_alt : '') + '"></td>' +
+                    '<td><input id="js-roster-gender' + roster.id + '" type="text" class="form-control input-sm" name="gender" value = "' + (inputs.hasOwnProperty("gender") ? roster.gender : '') + '"></td>' +                    
                     '<td><input id="js-roster-classyear' + roster.id + '" type="text" class="form-control input-sm" name="classyear" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("classyear") ? roster.classyear : '') + '"></td>' +
                     '<td><input id="js-roster-height' + roster.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("height") ? roster.height : '') + '"></td>' +
                     '<td><input id="js-roster-weight' + roster.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("weight") ? roster.weight : '') + '"></td>' +
@@ -82,6 +85,7 @@ $(document).on('click', '.js-update', function (e) {
             uniqueid: $('#js-roster-uniqueid' + id).val(),
             name: $('#js-roster-name' + id).val(),
             name_alt: $('#js-roster-name-alt' + id).val(),
+            gender: $('#js-roster-gender' + id).val(),
             classyear: $('#js-roster-classyear' + id).val(),
             height: $('#js-roster-height' + id).val(),
             weight: $('#js-roster-weight' + id).val(),
@@ -105,6 +109,7 @@ $(document).on('click', '.js-update', function (e) {
                         uniqueid: $('#js-roster-uniqueid' + id).val(),
                         name: $('#js-roster-name' + id).val(),
                         name_alt: $('#js-roster-name-alt' + id).val(),
+                        gender: $('#js-roster-gender' + id).val(),
                         classyear: $('#js-roster-classyear' + id).val(),
                         height: $('#js-roster-height' + id).val(),
                         weight: $('#js-roster-weight' + id).val(),
@@ -114,7 +119,6 @@ $(document).on('click', '.js-update', function (e) {
                     }
                 }
             }
-            //                $('#js-loading').hide();
             $('#js-roster-form' + id).hide();
             $('#js-roster' + id).replaceWith(
                 '<tr id="js-roster' + result.id + '">' +
@@ -123,6 +127,7 @@ $(document).on('click', '.js-update', function (e) {
                 '<td>' + result.uniqueid +'</td>' +
                 '<td>' + result.name +'</td>' +
                 '<td>' + result.name_alt +'</td>' +
+                '<td>' + result.gender +'</td>' +
                 '<td>' + result.classyear +'</td>' +
                 '<td>' + result.height +'</td>' +
                 '<td>' + result.weight +'</td>' +
@@ -173,6 +178,7 @@ $(document).on('click', '#js-create', function (e) {
             uniqueid: $('#js-roster-uniqueid').val(),
             name: $('#js-roster-name').val(),
             name_alt: $('#js-roster-name-alt').val(),
+            name_alt: $('#js-roster-gender').val(),
             classyear: $('#js-roster-classyear').val(),
             height: $('#js-roster-height').val(),
             weight: $('#js-roster-weight').val(),
@@ -196,6 +202,7 @@ $(document).on('click', '#js-create', function (e) {
                         uniqueid: $('#js-roster-uniqueid').val(),
                         name: $('#js-roster-name').val(),
                         name_alt: $('#js-roster-name-alt').val(),
+                        name_alt: $('#js-roster-gender').val(),
                         classyear: $('#js-roster-classyear').val(),
                         height: $('#js-roster-height').val(),
                         weight: $('#js-roster-weight').val(),
@@ -214,6 +221,7 @@ $(document).on('click', '#js-create', function (e) {
                 '<td>' + result.uniqueid +'</td>' +
                 '<td>' + result.name +'</td>' +
                 '<td>' + result.name_alt +'</td>' +
+                '<td>' + result.gender +'</td>' +
                 '<td>' + result.classyear +'</td>' +
                 '<td>' + result.height +'</td>' +
                 '<td>' + result.weight +'</td>' +
@@ -228,6 +236,7 @@ $(document).on('click', '#js-create', function (e) {
                 '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" class="form-control input-sm" name="uniqueid" maxlength="12" size="12" value = "' + result.detail.inputs.uniqueid + '"></td>' +
                 '<td><input id="js-roster-name' + roster.id + '" type="text" class="form-control input-sm" name="name" value = "' + result.name + '"></td>' +
                 '<td><input id="js-roster-name-alt' + roster.id + '" type="text" class="form-control input-sm" name="name_alt" value = "' + $('#js-roster-name-alt').val() + '"></td>' +
+                '<td><input id="js-roster-gender' + roster.id + '" type="text" class="form-control input-sm" name="gender" value = "' + $('#js-roster-gender').val() + '"></td>' +
                 '<td><input id="js-roster-classyear' + roster.id + '" type="text" class="form-control input-sm" name="classyear" maxlength="3" size="3" value = "' + result.classyear + '"></td>' +
                 '<td><input id="js-roster-height' + roster.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + roster.height + '"></td>' +
                 '<td><input id="js-roster-weight' + roster.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + roster.weight + '"></td>' +
@@ -245,6 +254,7 @@ $(document).on('click', '#js-create', function (e) {
             $('#js-roster-uniqueid').val('');
             $('#js-roster-name').val('');
             $('#js-roster-name-alt').val('');
+            $('#js-roster-gender').val('');
             $('#js-roster-classyear').val('');
             $('#js-roster-height').val('');
             $('#js-roster-weight').val('');
