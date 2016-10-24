@@ -40,7 +40,6 @@ $.ajax({
                         '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button>' +
                         '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + roster.id + '">DELETE</button>' + 
                     '</td>' +
-
                 '</tr>' +
                 '<tr id="js-roster-form' + roster.id + '" style="display: none">' +
                     '<td><input id="js-roster-jersey' + roster.id + '" type="text" class="form-control input-sm" name="jersey" maxlength="2" size="2" value = "' + (inputs.hasOwnProperty("jersey") ? roster.jersey : '') + '"></td>' +
@@ -245,7 +244,6 @@ $(document).on('click', '#js-create', function (e) {
                 '<td><input id="js-roster-country' + roster.id + '" type="text" class="form-control input-sm" name="country" value = "' + roster.country + '"></td>' +
                 '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + roster.id + '">SAVE</button></td>' +
                 '<td><button class="js-delete btn-xs btn-primary btn-fill" data-id="' + roster.id + '">DELETE</button></td>' + 
-
                 '</tr>'
             );
 
