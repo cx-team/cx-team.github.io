@@ -49,7 +49,7 @@ $.ajax({
                     '<td><input id="js-roster-name' + roster.id + '" type="text" class="form-control input-sm" name="name" value = "' + (inputs.hasOwnProperty("name") ? roster.name : '') + '"></td>' +
                     '<td><input id="js-roster-name-alt' + roster.id + '" type="text" class="form-control input-sm" name="name_alt" value = "' + (inputs.hasOwnProperty("name_alt") ? roster.name_alt : '') + '"></td>' +
                     '<td><input id="js-roster-gender' + roster.id + '" type="text" class="form-control input-sm" name="gender" value = "' + (inputs.hasOwnProperty("gender") ? roster.gender : '') + '"></td>' +                    
-                    '<td><input id="js-roster-classyear' + roster.id + '" type="text" class="form-control input-sm" name="classyear" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("classyear") ? roster.classyear : '') + '"></td>' +
+                    '<td><input id="js-roster-classyear' + roster.id + '" type="text" class="form-control input-sm" name="classyear" maxlength="4" size="3" value = "' + (inputs.hasOwnProperty("classyear") ? roster.classyear : '') + '"></td>' +
                     '<td><input id="js-roster-height' + roster.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("height") ? roster.height : '') + '"></td>' +
                     '<td><input id="js-roster-weight' + roster.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + (inputs.hasOwnProperty("weight") ? roster.weight : '') + '"></td>' +
                     '<td><input id="js-roster-birthday' + roster.id + '" type="text" class="form-control input-sm" name="birthday" value = "' + (inputs.hasOwnProperty("birthday") ? roster.birthday : '') + '"></td>' +
@@ -237,7 +237,7 @@ $(document).on('click', '#js-create', function (e) {
                 '<td><input id="js-roster-name' + roster.id + '" type="text" class="form-control input-sm" name="name" value = "' + result.name + '"></td>' +
                 '<td><input id="js-roster-name-alt' + roster.id + '" type="text" class="form-control input-sm" name="name_alt" value = "' + $('#js-roster-name-alt').val() + '"></td>' +
                 '<td>' + $('#js-roster-gender').clone().attr('id', 'js-roster-gender' + roster.id)[0].outerHTML + '</td>' +
-                '<td><input id="js-roster-classyear' + roster.id + '" type="text" class="form-control input-sm" name="classyear" maxlength="3" size="3" value = "' + result.classyear + '"></td>' +
+                '<td>' + $('#js-roster-classyear').clone().attr('id', 'js-roster-classyear' + roster.id)[0].outerHTML + '</td>' +
                 '<td><input id="js-roster-height' + roster.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + roster.height + '"></td>' +
                 '<td><input id="js-roster-weight' + roster.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + roster.weight + '"></td>' +
                 '<td><input id="js-roster-birthday' + roster.id + '" type="text" class="form-control input-sm" name="birthday" value = "' + roster.birthday + '"></td>' +
