@@ -40,7 +40,7 @@ function addPlayer(list, player) {
         checkbox = '<input type="checkbox" id="player' + player.id + '" class="js-activate-player" data-id="' + player.id + '">';
     list.append(
         '<tr id="js-player' + player.id + '">' +
-            '<td>' + player.name + '</td>' +
+            '<td>' + player.name + ' / ' + player.name_alt + '</td>' +
             '<td>#' + player.jersey + '</td>' +
             '<td>' + player.position + '</td>' +
             '<td class="">' +
@@ -152,7 +152,7 @@ $(document).on('click', '#js-update-player', function (e) {
                     checkbox = '<input type="checkbox" id="player' + player.id + '" class="js-activate-player" data-id="' + player.id + '">';
                 $('#js-player' + player.id).replaceWith(
                     '<tr id="js-player' + player.id + '">' +
-                        '<td>' + player.name + '</td>' +
+                        '<td>' + player.name + ' / ' + player.name_alt + '</td>' +
                         '<td>#' + player.jersey + '</td>' +
                         '<td>' + player.position + '</td>' +
                         '<td class="">' +
@@ -217,7 +217,7 @@ $(document).on('click', '.js-deactivate-player', function (e) {
                     var player = player_data({id: player_id}).first();
                     $('#js-player' + player.id).replaceWith(
                         '<tr id="js-player' + player.id + '">' +
-                            '<td>' + player.name + '</td>' +
+                            '<td>' + player.name + ' / ' + player.name_alt + '</td>' +
                             '<td>#' + player.jersey + '</td>' +
                             '<td>' + player.position + '</td>' +
                             '<td class="">' +
@@ -273,7 +273,7 @@ $(document).on('click', '.js-activate-player', function (e) {
                     var player = player_data({id: player_id}).first();
                     $('#js-player' + player.id).replaceWith(
                         '<tr id="js-player' + player.id + '">' +
-                            '<td>' + player.name + '</td>' +
+                            '<td>' + player.name + ' / ' + player.name_alt + '</td>' +
                             '<td>#' + player.jersey + '</td>' +
                             '<td>' + player.position + '</td>' +
                             '<td class="">' +
