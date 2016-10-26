@@ -227,7 +227,10 @@ $(document).on('click', '#js-create', function (e) {
                 '<td>' + result.birthday +'</td>' +
                 '<td>' + result.city +'</td>' +
                 '<td>' + result.country +'</td>' +
-                '<td><button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button></td>' +
+                '<td>' +
+                    '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + result.id + '">EDIT</button>' +
+                    '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + result.id + '">DELETE</button>' + 
+                '</td>' +
                 '</tr>' +
                 '<tr id="js-roster-form' + roster.id + '" style="display: none">' +
                 '<td><input id="js-roster-jersey' + roster.id + '" type="text" class="form-control input-sm" name="jersey" maxlength="2" size="2" value = "' + result.detail.inputs.jersey + '"></td>' +
@@ -243,8 +246,7 @@ $(document).on('click', '#js-create', function (e) {
                 '<td><input id="js-roster-city' + roster.id + '" type="text" class="form-control input-sm" name="city" value = "' + roster.city + '"></td>' +
                 '<td><input id="js-roster-country' + roster.id + '" type="text" class="form-control input-sm" name="country" value = "' + roster.country + '"></td>' +
                 '<td>' +
-                    '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + result.id + '">EDIT</button>' +
-                    '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + result.id + '">DELETE</button>' + 
+                    '<button class="js-update btn-xs btn-primary btn-fill" data-id="' + result.id + '">SAVE</button>' +
                 '</td>' +
                 '</tr>'
             );

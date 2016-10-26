@@ -184,7 +184,7 @@ $(document).on('click', '#js-create', function (e) {
                 '<td><input id="js-team-country' + team.id + '" type="text" class="form-control input-sm" name="country" value="' + team.detail.inputs.country + '"></td>' +
                 '<td><input id="js-team-division' + team.id + '" type="text" class="form-control input-sm" name="division" value="' + team.detail.inputs.division + '"></td>' +
                 '<td><input id="js-team-uniqueid' + team.id + '" type="text" class="form-control input-sm" name="uniqueid" value="' + team.detail.inputs.uniqueid + '"></td>' +
-                '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + team.id + '">SAVE</button></td>' +
+                '<td><button class="js-update btn-xs btn-primary btn-fill" data-id="' + team.id + '">SAVE</button></td>' +
                 '</tr>'
             );
 
