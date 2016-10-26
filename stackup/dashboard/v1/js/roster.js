@@ -193,7 +193,7 @@ $(document).on('click', '#js-create', function (e) {
         url: api_host + '/dashboard/temp_players?tempteam=' + temp_token,
         data: data,
         success: function (result) {
-            var roster = {
+            /*var roster = {
                 detail: {
                     inputs: {
                         jersey: $('#js-roster-jersey').val(),
@@ -210,41 +210,42 @@ $(document).on('click', '#js-create', function (e) {
                         country: $('#js-roster-country').val(),
                     }
                 }
-            }
+            }*/
             // console.log(roster);
             //                $('#js-loading').hide();
             $('#js-roster-list').append(
-                '<tr id="js-roster' + roster.id + '">' +
-                '<td>' + result.jersey +'</td>' +
-                '<td>' + result.position +'</td>' +
-                '<td>' + result.uniqueid +'</td>' +
-                '<td>' + result.name +'</td>' +
-                '<td>' + result.name_alt +'</td>' +
-                '<td>' + result.gender +'</td>' +
-                '<td>' + result.classyear +'</td>' +
-                '<td>' + result.height +'</td>' +
-                '<td>' + result.weight +'</td>' +
-                '<td>' + result.birthday +'</td>' +
-                '<td>' + result.city +'</td>' +
-                '<td>' + result.country +'</td>' +
-                '<td>' +
-                    '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + roster.id + '">EDIT</button></td>' +
-                    '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + result.id + '">DELETE</button>' + 
+                '<tr id="js-roster' + result.id + '">' +
+                    '<td>' + result.jersey +'</td>' +
+                    '<td>' + result.position +'</td>' +
+                    '<td>' + result.uniqueid +'</td>' +
+                    '<td>' + result.name +'</td>' +
+                    '<td>' + result.name_alt +'</td>' +
+                    '<td>' + result.gender +'</td>' +
+                    '<td>' + result.classyear +'</td>' +
+                    '<td>' + result.height +'</td>' +
+                    '<td>' + result.weight +'</td>' +
+                    '<td>' + result.birthday +'</td>' +
+                    '<td>' + result.city +'</td>' +
+                    '<td>' + result.country +'</td>' +
+                    '<td>' +
+                        '<button class="js-edit btn-xs btn-primary btn-fill" data-id="' + result.id + '">EDIT</button>' +
+                        '<button class="js-delete btn-xs btn-primary btn-fill" data-id="' + result.id + '">DELETE</button>' +
+                    '</td>' +
                 '</tr>' +
-                '<tr id="js-roster-form' + roster.id + '" style="display: none">' +
-                '<td><input id="js-roster-jersey' + roster.id + '" type="text" class="form-control input-sm" name="jersey" maxlength="2" size="2" value = "' + result.detail.inputs.jersey + '"></td>' +
-                '<td>' + $('#js-roster-position').clone().attr('id', 'js-roster-position' + roster.id)[0].outerHTML + '</td>' +
-                '<td><input id="js-roster-uniqueid' + roster.id + '" type="text" class="form-control input-sm" name="uniqueid" maxlength="12" size="12" value = "' + result.detail.inputs.uniqueid + '"></td>' +
-                '<td><input id="js-roster-name' + roster.id + '" type="text" class="form-control input-sm" name="name" value = "' + result.name + '"></td>' +
-                '<td><input id="js-roster-name-alt' + roster.id + '" type="text" class="form-control input-sm" name="name_alt" value = "' + $('#js-roster-name-alt').val() + '"></td>' +
-                '<td>' + $('#js-roster-gender').clone().attr('id', 'js-roster-gender' + roster.id)[0].outerHTML + '</td>' +
-                '<td>' + $('#js-roster-classyear').clone().attr('id', 'js-roster-classyear' + roster.id)[0].outerHTML + '</td>' +
-                '<td><input id="js-roster-height' + roster.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + roster.height + '"></td>' +
-                '<td><input id="js-roster-weight' + roster.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + roster.weight + '"></td>' +
-                '<td><input id="js-roster-birthday' + roster.id + '" type="text" class="form-control input-sm" name="birthday" value = "' + roster.birthday + '"></td>' +
-                '<td><input id="js-roster-city' + roster.id + '" type="text" class="form-control input-sm" name="city" value = "' + roster.city + '"></td>' +
-                '<td><input id="js-roster-country' + roster.id + '" type="text" class="form-control input-sm" name="country" value = "' + roster.country + '"></td>' +
-                '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + roster.id + '">SAVE</button></td>' +
+                '<tr id="js-roster-form' + result.id + '" style="display: none">' +
+                    '<td><input id="js-roster-jersey' + result.id + '" type="text" class="form-control input-sm" name="jersey" maxlength="2" size="2" value = "' + result.detail.inputs.jersey + '"></td>' +
+                    '<td>' + $('#js-roster-position').clone().attr('id', 'js-roster-position' + result.id)[0].outerHTML + '</td>' +
+                    '<td><input id="js-roster-uniqueid' + result.id + '" type="text" class="form-control input-sm" name="uniqueid" maxlength="12" size="12" value = "' + result.detail.inputs.uniqueid + '"></td>' +
+                    '<td><input id="js-roster-name' + result.id + '" type="text" class="form-control input-sm" name="name" value = "' + result.name + '"></td>' +
+                    '<td><input id="js-roster-name-alt' + result.id + '" type="text" class="form-control input-sm" name="name_alt" value = "' + $('#js-roster-name-alt').val() + '"></td>' +
+                    '<td>' + $('#js-roster-gender').clone().attr('id', 'js-roster-gender' + result.id)[0].outerHTML + '</td>' +
+                    '<td>' + $('#js-roster-classyear').clone().attr('id', 'js-roster-classyear' + result.id)[0].outerHTML + '</td>' +
+                    '<td><input id="js-roster-height' + result.id + '" type="text" class="form-control input-sm" name="height" maxlength="3" size="3" value = "' + result.height + '"></td>' +
+                    '<td><input id="js-roster-weight' + result.id + '" type="text" class="form-control input-sm" name="weight" maxlength="3" size="3" value = "' + result.weight + '"></td>' +
+                    '<td><input id="js-roster-birthday' + result.id + '" type="text" class="form-control input-sm" name="birthday" value = "' + result.birthday + '"></td>' +
+                    '<td><input id="js-roster-city' + result.id + '" type="text" class="form-control input-sm" name="city" value = "' + result.city + '"></td>' +
+                    '<td><input id="js-roster-country' + result.id + '" type="text" class="form-control input-sm" name="country" value = "' + result.country + '"></td>' +
+                    '<td><button class="js-update btn-xs btn-success btn-fill" data-id="' + result.id + '">SAVE</button></td>' +
                 '</tr>'
             );
 
