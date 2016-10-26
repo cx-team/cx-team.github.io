@@ -56,7 +56,27 @@
                     <td><input id="js-roster-uniqueid" type="text" name="uniqueid" maxlength="12" size="12"><br></td>
                     <td><input id="js-roster-name" type="text" name="name"><br></td>
                     <td><input id="js-roster-name-alt" type="text" name="name_alt"><br></td>
-                    <td><input id="js-roster-classyear" type="text" name="classyear" maxlength="3" size="3"><br></td>
+                    <td>
+                        <select id="js-roster-gender" name="gender">
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="js-roster-classyear" name="classyear">
+                            <option disabled selected value>Select</option>
+                            <option value="jhs1">國1</option>
+                            <option value="jhs2">國2</option>
+                            <option value="jhs3">國3</option>
+                            <option value="hs1">高1</option>
+                            <option value="hs2">高2</option>
+                            <option value="hs3">高3</option>
+                            <option value="c1">大1</option>
+                            <option value="c2">大2</option>
+                            <option value="c3">大3</option>
+                            <option value="c4">大4</option>
+                        </select>
+                    </td>
                     <td><input id="js-roster-height" type="text" name="height" maxlength="3" size="3"><br></td>
                     <td><input id="js-roster-weight" type="text" name="weight" maxlength="3" size="3"><br></td>
                     <td><input id="js-roster-birthday" class="js-date" type="text" name="birthday"><br></td>
