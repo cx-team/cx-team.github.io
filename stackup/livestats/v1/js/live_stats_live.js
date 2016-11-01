@@ -293,21 +293,21 @@ function loadPlayerAndScore(data) {
                     $('#js-home-active-player-list').append(
                         '<div class="js-team-player active-player" data-side="1" data-id="' + player.id + '">' +
                             '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                            '<p><strong>' + player.name + '</strong></p>' +
+                            '<p><strong>' + player.name_alt + '</strong></p>' +
                             '<p>#' + player.jersey + ' ' + player.position + '</p>' +
                         '</div>'
                     );
                     addActivePlayer($('#js-home-player-list'), player);
                     addScore($('#js-home-active-score-list'), player);
                     /*$('#js-home-player-select').append(
-                     '<option value="' + player.id + '" selected>' + player.name + ' #' + player.jersey + ' ' + player.position + '</option>'
+                     '<option value="' + player.id + '" selected>' + player.name_alt + ' #' + player.jersey + ' ' + player.position + '</option>'
                      );*/
                 } else {
                     home_inactive_player_ids.push(player.id);
                     $('#js-home-inactive-player-list').append(
                         '<div class="js-team-player inactive-player" data-side="1" data-id="' + player.id + '">' +
                             '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                            '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
+                            '<p><strong>' + player.name_alt + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
                         '</div>'
                     );
                     addScore($('#js-home-inactive-score-list'), player);
@@ -318,7 +318,7 @@ function loadPlayerAndScore(data) {
                     $('#js-away-active-player-list').append(
                         '<div class="js-team-player active-player" data-side="0" data-id="' + player.id + '">' +
                             '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                            '<p><strong>' + player.name + '</strong></p>' +
+                            '<p><strong>' + player.name_alt + '</strong></p>' +
                             '<p>#' + player.jersey + ' ' + player.position + '</p>' +
                         '</div>'
                     );
@@ -329,7 +329,7 @@ function loadPlayerAndScore(data) {
                     $('#js-away-inactive-player-list').append(
                         '<div class="js-team-player inactive-player" data-side="0" data-id="' + player.id + '">' +
                             '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                            '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
+                            '<p><strong>' + player.name_alt + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
                         '</div>'
                     );
                     addScore($('#js-away-inactive-score-list'), player);
@@ -418,7 +418,7 @@ function addActivePlayer(select, player) {
     '<tr><td>' +
         '<button class="js-select-player" data-id="' + player.id + '">' +
             //'<img src="https://cx-team.github.io/stackup/share/image/player.png">' +
-            '<p><span class="jersey">' + ' #' + player.jersey + '</span><br><strong>' + player.name + '</strong></p>' +
+            '<p><span class="jersey">' + ' #' + player.jersey + '</span><br><strong>' + player.name_alt + '</strong></p>' +
             '<i class="fa fa-info-circle"></i>' +
         '</button>' +
     '</td></tr>');
@@ -428,7 +428,7 @@ function addScore(list, player) {
     list.append(
         '<tr id="js-score' + player.id + '">' +
             '<td>' + player.jersey + '</td>' +
-            '<td>' + player.name + '</td>' +
+            '<td>' + player.name_alt + '</td>' +
             '<td>' + player.position + '</td>' +
             '<td>' + moment("2016-01-01").startOf('day').seconds(player.seconds).format('mm:ss') + '</td>' +
             '<td>' + player.two_m + ' - ' + (player.two_m + player.two_a) + '</td>' +
@@ -505,7 +505,7 @@ function addStatline(player, statline) {
     list.append(
         '<tr id="js-statline' + player.id + '">' +
             '<td>' + player.jersey + '</td>' +
-            '<td>' + player.name + '</td>' +
+            '<td>' + player.name_alt + '</td>' +
             '<td>' + player.position + '</td>' +
             '<td>' + moment("2016-01-01").startOf('day').seconds(statline.seconds).format('mm:ss') + '</td>' +
             '<td>' + statline.two_m + ' - ' + (statline.two_m + statline.two_a) + '</td>' +
@@ -726,7 +726,7 @@ function resetTeamPlayer() {
                 $('#js-home-inactive-player-list').append(
                     '<div class="js-team-player inactive-player" data-side="1" data-id="' + player.id + '">' +
                     '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                    '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
+                    '<p><strong>' + player.name_alt + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
                     '</div>'
                 );
             } else {
@@ -734,7 +734,7 @@ function resetTeamPlayer() {
                 $('#js-away-inactive-player-list').append(
                     '<div class="js-team-player inactive-player" data-side="0" data-id="' + player.id + '">' +
                     '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                    '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
+                    '<p><strong>' + player.name_alt + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
                     '</div>'
                 );
             }
@@ -826,7 +826,7 @@ $(document).on('click', '.js-edit-stat', function (e) {
     var statline = period_stats({period: cur_period}).first();
     
     // console.log(player);
-    $('#js-edit-stat-player').text(player.name + ' #' + player.jersey + ' ' + player.position);
+    $('#js-edit-stat-player').text(player.name_alt + ' #' + player.jersey + ' ' + player.position);
     $('#js-stat').replaceWith(
         '<tr id="js-stat">' +
         //'<td><input type="text" id="js-seconds" class="form-control" data-mask="99:99" value="' + moment("2016-01-01").startOf('day').seconds(statline.seconds).format('mm:ss') + '"></td>' +
@@ -922,7 +922,7 @@ $(document).on('click', '#js-update-stat', function (e) {
             $('#js-statline' + player.id).replaceWith(
                 '<tr id="js-statline' + player.id + '">' +
                     '<td>' + player.jersey + '</td>' +
-                    '<td>' + player.name + '</td>' +
+                    '<td>' + player.name_alt + '</td>' +
                     '<td>' + player.position + '</td>' +
                     '<td>' + moment("2016-01-01").startOf('day').seconds(player.seconds).format('mm:ss') + '</td>' +
                     '<td>' + player.two_m + ' - ' + (player.two_m + player.two_a) + '</td>' +
@@ -1027,7 +1027,7 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
         $('#js-home-active-player-list').append(
             '<div class="js-team-player active-player" data-side="1" data-id="' + player.id + '">' +
                 '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                '<p><strong>' + player.name + '</strong></p>' +
+                '<p><strong>' + player.name_alt + '</strong></p>' +
                 '<p>#' + player.jersey + ' ' + player.position + '</p>' +
             '</div>'
         );
@@ -1038,7 +1038,7 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
         $('#js-home-inactive-player-list').append(
             '<div class="js-team-player inactive-player" data-side="1" data-id="' + player.id + '">' +
                 '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
+                '<p><strong>' + player.name_alt + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
             '</div>'
         );
     });
@@ -1048,7 +1048,7 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
         $('#js-away-active-player-list').append(
             '<div class="js-team-player active-player" data-side="0" data-id="' + player.id + '">' +
                 '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                '<p><strong>' + player.name + '</strong></p>' +
+                '<p><strong>' + player.name_alt + '</strong></p>' +
                 '<p>#' + player.jersey + ' ' + player.position + '</p>' +
             '</div>'
         );
@@ -1059,7 +1059,7 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
         $('#js-away-inactive-player-list').append(
             '<div class="js-team-player inactive-player" data-side="0" data-id="' + player.id + '">' +
                 '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
+                '<p><strong>' + player.name_alt + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
             '</div>'
         );
     });
@@ -1290,7 +1290,7 @@ $(document).on('click', '.js-team-player', function (e) {
         $('#js-' + team + '-inactive-player-list').append(
             '<div class="js-team-player inactive-player" data-side="' + side + '" data-id="' + player.id + '">' +
                 '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
+                '<p><strong>' + player.name_alt + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
             '</div>'
         );
         $('#js-change-player').attr('disabled', 'disabled');
@@ -1301,7 +1301,7 @@ $(document).on('click', '.js-team-player', function (e) {
             $('#js-' + team + '-active-player-list').append(
                 '<div class="js-team-player active-player" data-side="' + side + '" data-id="' + player.id + '">' +
                     '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                    '<p><strong>' + player.name + '</strong></p>' +
+                    '<p><strong>' + player.name_alt + '</strong></p>' +
                     '<p>#' + player.jersey + ' ' + player.position + '</p>' +
                 '</div>'
             );
@@ -1412,12 +1412,12 @@ function initXEditable() {
     var active_player_list = [];
     home_active_player_ids.forEach(function (player_id) {
         var player = player_data({id: player_id}).first();
-        active_player_list.push({value: player.id, text: '[' + home_team + '] #' + player.jersey + ' - ' + player.name});
+        active_player_list.push({value: player.id, text: '[' + home_team + '] #' + player.jersey + ' - ' + player.name_alt});
     });
 
     away_active_player_ids.forEach(function (player_id) {
         var player = player_data({id: player_id}).first();
-        active_player_list.push({value: player.id, text: '[' + away_team + '] #' + player.jersey + ' - ' + player.name});
+        active_player_list.push({value: player.id, text: '[' + away_team + '] #' + player.jersey + ' - ' + player.name_alt});
     });
 
     $('.js-instant-play-player').editable({
@@ -1561,7 +1561,7 @@ function submitInstantPlay(formData) {
         player = player_data({id: formData.statline_token}).first();
     if (player) {
         player_jersey = player.jersey;
-        player_name = player.name;
+        player_name = player.name_alt;
     }
     var style = 'style="background-color: rgba(240, 80, 80, 0.2)"';
     $('#js-home-instant-play-list').prepend(
@@ -1973,7 +1973,7 @@ canvas.on('dblclick', function (e) {
 
 canvas.click(function (e) {
     if (selectedPlayer) {
-        $('#js-player').text(selectedPlayer.name);
+        $('#js-player').text(selectedplayer.name_alt);
 
         showCanvasPopup(e);
     }
