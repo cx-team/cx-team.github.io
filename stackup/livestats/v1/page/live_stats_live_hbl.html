@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Tidus">
+    <meta name="author" content="CXN">
 
     <link rel="shortcut icon" href="https://cx-team.github.io/stackup/share/theme/images/favicon_1.ico">
 
@@ -250,10 +250,10 @@
                                     </table>
                                 </td>
                                 <td>
-                                    <div id="js-canvas">
-                                        <canvas id="myCanvas" width="601" height="560"></canvas>
-                                    </div>
-                                    <!--<div id="js-instant-play-buttons" class="instant-play">
+                                    <!--<div id="js-canvas" style="display: none">-->
+                                        <!--<canvas id="myCanvas" width="601" height="560"></canvas>-->
+                                    <!--</div>-->
+                                    <div id="js-instant-play-buttons" class="instant-play">
                                         <div class="btn-group btn-group-justified">
                                             <a href="" data-category="ft_m" class="js-submit-instant-play btn btn-lg btn-custom btn-white">FT_M</a>
                                             <a href="" data-category="ft_a" class="js-submit-instant-play btn btn-lg btn-custom btn-white">FT_A</a>
@@ -282,7 +282,7 @@
                                             <a href="" data-category="pfoul" class="js-submit-instant-play btn btn-lg btn-custom btn-white">FOUL</a>
                                             <a href="" id="js-show-timeout-modal" class="btn btn-lg btn-custom btn-white">TIMEOUT</a>
                                         </div>
-                                    </div>-->
+                                    </div>
                                 </td>
                                 <td>
                                     <table class="table table-hover player-list player-list-right">
@@ -322,7 +322,7 @@
                     </div>
                 </div>
 
-                <div class="row m-t-10">
+                <!--<div class="row m-t-10">
                     <div class="col-md-10 col-md-offset-1 list-button">
                         <div style="display: block; height: 56px">
                             <div class="col-md-2 col-md-offset-1 text-center">
@@ -365,7 +365,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="row m-t-10">
                     <!--<div class="col-sm-5">
@@ -591,16 +591,16 @@
         Point: <strong id="js-point"></strong>
     </h4>-->
     <div id="js-ft">
-        <button data-category="ft_m" class="js-submit-score btn btn-success">MAKE 1PT</button>
-        <button data-category="ft_a" class="js-submit-score btn btn-inverse">MISS 1PT</button>
+        <a href="" data-category="ft_m" class="js-submit-score btn btn-success">MAKE 1PT</a>
+        <a href="" data-category="ft_a" class="js-submit-score btn btn-inverse">MISS 1PT</a>
     </div>
     <div id="js-two" class="m-t-10">
-        <button data-category="two_m" class="js-submit-score btn btn-success">MAKE 2PT</button>
-        <button data-category="two_a" class="js-submit-score btn btn-inverse">MISS 2PT</button>
+        <a href="" data-category="two_m" class="js-submit-score btn btn-success">MAKE 2PT</a>
+        <a href="" data-category="two_a" class="js-submit-score btn btn-inverse">MISS 2PT</a>
     </div>
     <div id="js-trey" class="m-t-10">
-        <button data-category="trey_m" class="js-submit-score btn btn-success">MAKE 3PT</button>
-        <button data-category="trey_a" class="js-submit-score btn btn-inverse">MISS 3PT</button>
+        <a href="" data-category="trey_m" class="js-submit-score btn btn-success">MAKE 3PT</a>
+        <a href="" data-category="trey_a" class="js-submit-score btn btn-inverse">MISS 3PT</a>
     </div>
     <a href="" id="js-cancel" class="btn btn-danger m-t-10">CANCEL</a>
     </div>
@@ -905,7 +905,7 @@
 <script src="https://cx-team.github.io/stackup/share/theme/js/jquery.core.js"></script>
 <script src="https://cx-team.github.io/stackup/share/theme/js/jquery.app.js"></script>
 
-<script src="https://cx-team.github.io/stackup/share/lib/jcanvas/jcanvas.min.js"></script>
+<!--<script src="https://cx-team.github.io/stackup/share/lib/jcanvas/jcanvas.min.js"></script>-->
 <!--<script src="https://cx-team.github.io/stackup/share/lib/jQuery.countdown/dist/jquery.countdown.min.js"></script>-->
 <!--<script src="https://cx-team.github.io/stackup/share/lib/countdown/dist/countdown.js"></script>-->
 
@@ -934,6 +934,7 @@
     var api_host = 'http://www.cxn-tw.com';
     var game_id = '0NpiUbiVODN-JX9jb7idzQ';
 </script>
-<script src="https://cx-team.github.io/stackup/livestats/v1/js/live_stats_live2.js"></script>
+<script src="../js/live_stats_live_hbl.js"></script>
+<!--<script src="https://cx-team.github.io/stackup/livestats/v1/js/live_stats_live_hbl.js"></script>-->
 </body>
 </html>

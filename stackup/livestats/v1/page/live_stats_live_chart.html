@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Tidus">
+
+    <link rel="shortcut icon" href="https://cx-team.github.io/stackup/share/theme/images/favicon_1.ico">
+
+    <title>CXN - Live Stats</title>
+
+    <link href="https://cx-team.github.io/stackup/share/theme/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cx-team.github.io/stackup/share/theme/css/core.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cx-team.github.io/stackup/share/theme/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cx-team.github.io/stackup/share/theme/css/icons.css" rel="stylesheet" type="text/css"/>
+    <!--<link href="https://cx-team.github.io/stackup/share/theme/css/pages.css" rel="stylesheet" type="text/css" />-->
+    <link href="https://cx-team.github.io/stackup/share/theme/css/responsive.css" rel="stylesheet" type="text/css"/>
+
+    <link href="https://cx-team.github.io/stackup/share/theme/plugins/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <link href="https://cx-team.github.io/stackup/share/theme/plugins/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css" >
+    <link href="https://cx-team.github.io/stackup/share/theme/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
+    <!--<link href="https://cx-team.github.io/stackup/share/lib/dragula/dist/dragula.min.css" rel="stylesheet" type="text/css">-->
+    <!--<link href="https://cx-team.github.io/stackup/share/theme/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css"/>-->
+    <!--<link href="https://cx-team.github.io/stackup/share/lib/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>-->
+    <link href="https://cx-team.github.io/stackup/share/lib/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="https://cx-team.github.io/stackup/livestats/v1/css/live_stats.css" rel="stylesheet" type="text/css"/>
+    <link href="https://cx-team.github.io/stackup/livestats/v1/css/custom.css" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://cx-team.github.io/stackup/share/theme/js/modernizr.min.js"></script>
+</head>
+
+<body class="widescreen fixed-left-void">
+
+<!-- Begin page -->
+<div id="wrapper" class="enlarged forced">
+
+    <!-- Top Bar Start -->
+    <!--<div class="topbar">
+        <div class="topbar-left">
+            <div class="text-center">
+                <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>CXN</span></a>
+            </div>
+        </div>
+
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="">
+                    <div class="pull-left">
+                        <button class="button-menu-mobile open-left">
+                            <i class="ion-navicon"></i>
+                        </button>
+                        <span class="clearfix"></span>
+                    </div>
+
+                    <form role="search" class="navbar-left app-search pull-left hidden-xs">
+                        <input type="text" placeholder="Search..." class="form-control">
+                        <a href=""><i class="fa fa-search"></i></a>
+                    </form>
+
+
+                    <ul class="nav navbar-nav navbar-right pull-right">
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true"><img
+                                    src="https://cx-team.github.io/stackup/share/theme/images/users/avatar-1.jpg" alt="user-img" class="img-circle"> </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
+                                <li><a href="javascript:void(0)"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!-- Top Bar End -->
+
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <!--<div class="left side-menu">
+        <div class="sidebar-inner slimscrollleft">
+            <div id="sidebar-menu">
+                <ul>
+                    <li class="text-muted menu-title">Navigation</li>
+
+                    <li class="">
+                        <a href="index.html" class="waves-effect active"><i class="ti-home"></i>
+                            <span> Live Stats </span> </a>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html">Dashboard 1</a></li>
+                            <li><a href="dashboard_2.html">Dashboard 2</a></li>
+                            <li><a href="dashboard_3.html">Dashboard 3</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has_sub">
+                        <a href="#" class="waves-effect"><i
+                                class="ti-pencil-alt"></i><span> League Management </span></a>
+                        <ul class="list-unstyled">
+                            <li><a href="form-elements.html">General Elements</a></li>
+                            <li><a href="form-advanced.html">Advanced Form</a></li>
+                            <li><a href="form-validation.html">Form Validation</a></li>
+                            <li><a href="form-pickers.html">Form Pickers</a></li>
+                            <li><a href="form-wizard.html">Form Wizard</a></li>
+                            <li><a href="form-mask.html">Form Masks</a></li>
+                            <li><a href="form-summernote.html">Summernote</a></li>
+                            <li><a href="form-wysiwig.html">Wysiwig Editors</a></li>
+                            <li><a href="form-uploads.html">Multiple File Upload</a></li>
+                            <li><a href="form-xeditable.html">X-editable</a></li>
+                            <li><a href="form-image-crop.html">Image Crop</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="text-muted menu-title">Extra</li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>-->
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page live-stats">
+        <!-- Start content -->
+        <div class="content">
+            <div class="box-score text-center">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <div class="score-box">
+                        <div class="col-sm-4 team-box">
+                            <img id="js-home-logo" src="https://cx-team.github.io/stackup/share/image/team.png" class="team-logo team-logo-home">
+                            <h3 class="js-home-team team-name">---</h3>
+                            <h1 id="js-home-score">0</h1>
+                            <h4>---</h4>
+                        </div>
+                        <div class="col-sm-4">
+                            <!--<div id="js-game-clock-enable" style="display: none">
+                                <h2 id="js-clock">00 : 10</h2>
+                                <div>
+                                    <div class="col-sm-5 text-left">
+                                        <a id="js-start" href="" class="btn btn-primary">START</a>
+                                        <a id="js-pause" href="" class="btn btn-warning" disabled="disabled">PAUSE</a>
+                                        &lt;!&ndash;<div class="m-t-10"><a href="" id="js-end-period" class="btn btn-lg btn-info">END period</a></div>&ndash;&gt;
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <h3 class="js-period title-box">-&#45;&#45;</h3>
+                                    </div>
+                                    <div class="col-sm-5 text-right">
+                                        <a href="" id="js-next-period" disabled="disabled" class="btn btn-success">NEXT
+                                            PERIOD</a>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <div id="js-game-clock-disable" >
+                                <h2 class="js-period" style="color: #fff">---</h2>
+                                <h5 id="js-period-status">---</h5>
+                                <a id="js-start-period2" href="" class="btn btn-primary btn-block">---</a>
+                                <!--<a href="" id="js-show-timeout-modal" disabled class="m-t-10 btn btn-warning btn-block">TIMEOUT</a>-->
+                            </div>
+                            <!--<div class="m-t-10">-->
+                                <!--<input id="js-toggle-canvas" type="checkbox" checked data-plugin="switchery" data-color="#5d9cec"/>-->
+                            <!--</div>-->
+                            <!--<table class="table">
+                                <tbody>
+                                <tr>
+                                    <td>3</td>
+                                    <td>T</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>F</td>
+                                    <td>13</td>
+                                </tr>
+                                </tbody>
+                            </table>-->
+                        </div>
+                        <div class="col-sm-4 team-box">
+                            <img id="js-away-logo" src="https://cx-team.github.io/stackup/share/image/team.png" class="team-logo team-logo-away">
+                            <h3 class="js-away-team team-name">---</h3>
+                            <h1 id="js-away-score">0</h1>
+                            <h4>---</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <!-- Page-Title -->
+                <!--<div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="page-title">Live Stats</h2>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="#">Ubold</a>
+                            </li>
+                            <li>
+                                <a href="#">Tables</a>
+                            </li>
+                            <li class="active">
+                                Bootstrap Tables
+                            </li>
+                        </ol>
+                    </div>
+                </div>-->
+
+                <!--Basic Columns-->
+                <!--===================================================-->
+
+                <div class="row m-t-20">
+                    <div class="col-sm-12 ">
+                        <table class="court">
+                            <tbody>
+                            <tr>
+                                <td width="30%">
+                                    <section class="play-list-table">
+                                        <div >
+                                            <table class="table instant-play-list">
+                                                <thead>
+                                                <tr>
+                                                    <th>#<div>#</div></th>
+                                                    <!--<th>Time<div>Time</div></th>-->
+                                                    <!--<th>Team<div>Team</div></th>-->
+                                                    <th>Play<div>Play</div></th>
+                                                    <th>Player<div>Player</div></th>
+                                                    <th></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="js-home-instant-play-list">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                </td>
+                                <td>
+                                    <table class="table table-hover player-list player-list-left ">
+                                        <tbody id="js-home-player-list">
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td>
+                                    <div id="js-canvas">
+                                        <canvas id="myCanvas" width="601" height="560"></canvas>
+                                    </div>
+                                    <!--<div id="js-instant-play-buttons" class="instant-play">
+                                        <div class="btn-group btn-group-justified">
+                                            <a href="" data-category="ft_m" class="js-submit-instant-play btn btn-lg btn-custom btn-white">FT_M</a>
+                                            <a href="" data-category="ft_a" class="js-submit-instant-play btn btn-lg btn-custom btn-white">FT_A</a>
+                                        </div>
+                                        <div class="btn-group btn-group-justified m-t-10">
+                                            <a href="" data-category="two_m" class="js-submit-instant-play btn btn-lg btn-custom btn-white">TWO_M</a>
+                                            <a href="" data-category="two_a" class="js-submit-instant-play btn btn-lg btn-custom btn-white">TWO_A</a>
+                                        </div>
+                                        <div class="btn-group btn-group-justified m-t-10">
+                                            <a href="" data-category="trey_m" class="js-submit-instant-play btn btn-lg btn-custom btn-white">TREY_M</a>
+                                            <a href="" data-category="trey_a" class="js-submit-instant-play btn btn-lg btn-custom btn-white">TREY_A</a>
+                                        </div>
+                                        <div class="btn-group btn-group-justified m-t-10">
+                                            <a href="" data-category="reb_o" class="js-submit-instant-play btn btn-lg btn-custom btn-white">REB_O</a>
+                                            <a href="" data-category="reb_d" class="js-submit-instant-play btn btn-lg btn-custom btn-white">REB_D</a>
+                                        </div>
+                                        <div class="btn-group btn-group-justified m-t-10">
+                                            <a href="" data-category="stl" class="js-submit-instant-play btn btn-lg btn-custom btn-white">STL</a>
+                                            <a href="" data-category="blk" class="js-submit-instant-play btn btn-lg btn-custom btn-white">BLK</a>
+                                        </div>
+                                        <div class="btn-group btn-group-justified m-t-10">
+                                            <a href="" data-category="ast" class="js-submit-instant-play btn btn-lg btn-custom btn-white">AST</a>
+                                            <a href="" data-category="turnover" class="js-submit-instant-play btn btn-lg btn-custom btn-white">TURNOVER</a>
+                                        </div>
+                                        <div class="btn-group btn-group-justified m-t-10">
+                                            <a href="" data-category="pfoul" class="js-submit-instant-play btn btn-lg btn-custom btn-white">FOUL</a>
+                                            <a href="" id="js-show-timeout-modal" class="btn btn-lg btn-custom btn-white">TIMEOUT</a>
+                                        </div>
+                                    </div>-->
+                                </td>
+                                <td>
+                                    <table class="table table-hover player-list player-list-right">
+                                        <tbody id="js-away-player-list">
+                                        </tbody>
+                                    </table>
+                                </td>
+                                <td width="30%">
+                                    <section class="play-list-table">
+                                        <div >
+                                            <table class="table instant-play-list">
+                                                <thead>
+                                                <tr>
+                                                    <th>#<div>#</div></th>
+                                                    <!--<th>Time<div>Time</div></th>-->
+                                                    <!--<th>Team<div>Team</div></th>-->
+                                                    <th>Play<div>Play</div></th>
+                                                    <th>Player<div>Player</div></th>
+                                                    <th></th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="js-away-instant-play-list">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="text-center">
+                            <button id="js-show-change-player-modal" disabled="disabled"
+                                    class="btn btn-primary btn-lg m-b-10">
+                                SUBSTITUTE PLAYERS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-t-10">
+                    <div class="col-md-10 col-md-offset-1 list-button">
+                        <div style="display: block; height: 56px">
+                            <div class="col-md-2 col-md-offset-1 text-center">
+                                <div class="">
+                                    <h3 class="button" style="width: 100%">REB</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-md-offset-2">
+                                <div class="">
+                                    <h3 class="button" style="width: 100%">DEFENSE</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-md-2 col-md-offset-1">
+                                <div class="col-md-6 p-l-0">
+                                    <button data-category="reb_o" class="js-submit-instant-play btn btn-white btn-custom btn-lg pull-left m-b-10" >OFF</button>
+                                </div>
+                                <div class="col-md-6 p-r-0">
+                                    <button data-category="reb_d" class="js-submit-instant-play btn btn-white btn-custom btn-lg pull-right">DEF</button>
+                                </div>
+                            </div>
+                            <div class="col-md-2 ">
+                                <button data-category="ast" class="js-submit-instant-play btn btn-white btn-custom btn-lg" >AST</button>
+                            </div>
+
+                            <div class="col-md-2 col-sm-2">
+                                <div class="col-md-6 p-l-0">
+                                    <button data-category="blk" class="js-submit-instant-play btn btn-white btn-custom btn-lg pull-left m-b-10">BLK</button>
+                                </div>
+                                <div class="col-md-6 p-r-0">
+                                    <button data-category="stl" class="js-submit-instant-play btn btn-white btn-custom btn-lg pull-right">STL</button>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <button data-category="turnover" class="js-submit-instant-play btn btn-white btn-custom btn-lg">TO</button>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <button data-category="pfoul" class="js-submit-instant-play btn btn-white btn-custom btn-lg">FOUL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-t-10">
+                    <!--<div class="col-sm-5">
+                        <ul class="nav nav-tabs tabs">
+                            <li class="active tab">
+                                <a href="#pending-instant-play" data-toggle="tab" aria-expanded="false">
+                                    <span class="visible-xs"><i class="fa fa-home"></i></span>
+                                    <span class="hidden-xs">Pending</span>
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#home-instant-play" data-toggle="tab" aria-expanded="false">
+                                    <span class="visible-xs"><i class="fa fa-home"></i></span>
+                                    <span class="hidden-xs">Home</span>
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#away-instant-play" data-toggle="tab" aria-expanded="false">
+                                    <span class="visible-xs"><i class="fa fa-home"></i></span>
+                                    <span class="hidden-xs">Away</span>
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#all-instant-play" data-toggle="tab" aria-expanded="false">
+                                    <span class="visible-xs"><i class="fa fa-home"></i></span>
+                                    <span class="hidden-xs">All</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="pending-instant-play">
+                                <section class="play-list-table">
+                                    <div >
+                                        <table class="table ">
+                                            <thead>
+                                            <tr>
+                                                &lt;!&ndash;<th>Period<div>Period</div></th>&ndash;&gt;
+                                                <th>Time<div>Time</div></th>
+                                                &lt;!&ndash;<th>Team<div>Team</div></th>&ndash;&gt;
+                                                <th>Play<div>Play</div></th>
+                                                <th>Player<div>Player</div></th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="js-pending-instant-play-list">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="tab-pane " id="home-instant-play">
+                                <section class="play-list-table">
+                                    <div >
+                                        <table class="table ">
+                                            <thead>
+                                            <tr>
+                                                &lt;!&ndash;<th>Period<div>Period</div></th>&ndash;&gt;
+                                                <th>Time<div>Time</div></th>
+                                                &lt;!&ndash;<th>Team<div>Team</div></th>&ndash;&gt;
+                                                <th>Play<div>Play</div></th>
+                                                <th>Player<div>Player</div></th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="js-home-instant-play-list">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="tab-pane " id="away-instant-play">
+                                <section class="play-list-table">
+                                    <div >
+                                        <table class="table ">
+                                            <thead>
+                                            <tr>
+                                                &lt;!&ndash;<th>Period<div>Period</div></th>&ndash;&gt;
+                                                <th>Time<div>Time</div></th>
+                                                &lt;!&ndash;<th>Team<div>Team</div></th>&ndash;&gt;
+                                                <th>Play<div>Play</div></th>
+                                                <th>Player<div>Player</div></th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="js-away-instant-play-list">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="tab-pane " id="all-instant-play">
+                                <section class="play-list-table">
+                                    <div >
+                                        <table class="table ">
+                                            <thead>
+                                            <tr>
+                                                &lt;!&ndash;<th>Period<div>Period</div></th>&ndash;&gt;
+                                                <th>Time<div>Time</div></th>
+                                                <th>Team<div>Team</div></th>
+                                                <th>Play<div>Play</div></th>
+                                                <th>Player<div>Player</div></th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="js-all-instant-play-list">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>-->
+
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs tabs">
+                            <li class="active tab">
+                                <a href="#home-box-score" data-toggle="tab" aria-expanded="false">
+                                    <span class="visible-xs"><i class="fa fa-home"></i></span>
+                                    <span class="js-home-team hidden-xs">---</span>
+                                </a>
+                            </li>
+                            <li class="tab">
+                                <a href="#away-box-score" data-toggle="tab" aria-expanded="false">
+                                    <span class="visible-xs"><i class="fa fa-user"></i></span>
+                                    <span class="js-away-team hidden-xs">---</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home-box-score">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Pos</th>
+                                        <th>Time</th>
+                                        <th>Two</th>
+                                        <th>Trey</th>
+                                        <th>Ft</th>
+                                        <th>Reb_o</th>
+                                        <th>Reb_d</th>
+                                        <th>Ast</th>
+                                        <th>Stl</th>
+                                        <th>Blk</th>
+                                        <th>Turnover</th>
+                                        <th>Foul</th>
+                                        <th>Point</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="js-home-active-score-list">
+                                    </tbody>
+                                    <tbody id="js-home-inactive-score-list">
+                                    </tbody>
+                                    <tr id="js-home-total-score">
+                                        <td colspan="15"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="away-box-score">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Pos</th>
+                                        <th>Time</th>
+                                        <th>Two</th>
+                                        <th>Trey</th>
+                                        <th>Ft</th>
+                                        <th>Reb_o</th>
+                                        <th>Reb_d</th>
+                                        <th>Ast</th>
+                                        <th>Stl</th>
+                                        <th>Blk</th>
+                                        <th>Turnover</th>
+                                        <th>Foul</th>
+                                        <th>Point</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="js-away-active-score-list">
+                                    </tbody>
+                                    <tbody id="js-away-inactive-score-list">
+                                    </tbody>
+                                    <tr id="js-away-total-score">
+                                        <td colspan="15"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="js-screen5" class="row m-t-10 text-center" style="display: none">
+                    <a href="live_stats_adjust.html" class="btn btn-success btn-lg">Adjust Statline</a>
+                </div>
+                <div class="row m-t-10 text-center">
+                    <button id="js-reset-game" class="btn btn-lg btn-inverse">Reset Game (for testing only)</button>
+                </div>
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+        <footer class="footer">
+            <div class="text-center">2015 © CXN</div>
+        </footer>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Right content here -->
+    <!-- ============================================================== -->
+</div>
+<!-- END wrapper -->
+
+<div id="js-chart-popup" class="popup">
+    <h4 style="margin-top: 0">
+        Player: <strong id="js-player"></strong>
+    </h4>
+    <h4>Position:
+        [<span id="js-px"></span>, <span id="js-py"></span>]
+    </h4>
+    <!--<h4>
+        Point: <strong id="js-point"></strong>
+    </h4>-->
+    <div id="js-ft">
+        <button data-category="ft_m" class="js-submit-score btn btn-success">MAKE 1PT</button>
+        <button data-category="ft_a" class="js-submit-score btn btn-inverse">MISS 1PT</button>
+    </div>
+    <div id="js-two" class="m-t-10">
+        <button data-category="two_m" class="js-submit-score btn btn-success">MAKE 2PT</button>
+        <button data-category="two_a" class="js-submit-score btn btn-inverse">MISS 2PT</button>
+    </div>
+    <div id="js-trey" class="m-t-10">
+        <button data-category="trey_m" class="js-submit-score btn btn-success">MAKE 3PT</button>
+        <button data-category="trey_a" class="js-submit-score btn btn-inverse">MISS 3PT</button>
+    </div>
+    <a href="" id="js-cancel" class="btn btn-danger m-t-10">CANCEL</a>
+    </div>
+</div>
+
+<div id="change-player-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 90%">
+        <div class="modal-content">
+            <!--<div class="modal-header">
+                &lt;!&ndash;<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>&ndash;&gt;
+                <h4 class="modal-title" id="full-width-modalLabel">Change Player</h4>
+            </div>-->
+            <div class="modal-body">
+                <div class="text-center" >
+                    <h2 id="js-change-player-title" class="m-t-0">---</h2>
+                </div>
+
+                <div id="js-remaining-time-div">
+                    <h3 class="text-center">Remaining Time</h3>
+                    <div class="text-center col-md-offset-5 col-md-2 m-t-10 m-b-10" style="float: none">
+                        <!--<input id="js-remaining-time" type="text" class="form-control timepicker time">-->
+                        <input id="js-remaining-time" type="text" placeholder="" data-mask="99:99" class="form-control time">
+                    </div>
+                </div>
+
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td style="width: 50%; border-top: none; border-right: 1px solid #ccc;">
+                                <h3 class="js-home-team text-center m-t-0">---</h3>
+                                <div id="js-home-active-player-list" class="active-player-list m-b-20">
+                                    <!--<div class="active-player">
+                                        <img src="https://cx-team.github.io/stackup/share/image/player.png">
+                                        <strong>Young</strong>
+                                        <p>#50 SF</p>
+                                    </div>
+                                    <div class="active-player">
+                                        <img src="https://cx-team.github.io/stackup/share/image/player.png">
+                                        <strong>Young</strong>
+                                        <p>#50 SF</p>
+                                    </div>
+                                    <div class="active-player">
+                                        <img src="https://cx-team.github.io/stackup/share/image/player.png">
+                                        <strong>Young</strong>
+                                        <p>#50 SF</p>
+                                    </div>-->
+                                </div>
+                            </td>
+                            <td style="width: 50%; border-top: none;">
+                                <h3 class="js-away-team text-center m-t-0">---</h3>
+                                <div id="js-away-active-player-list" class="active-player-list m-b-20">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50%; border-right: 1px solid #ccc; vertical-align: top">
+                                <div id="js-home-inactive-player-list" class="inactive-player-list m-t-20">
+                                    <!--<div class="inactive-player">
+                                        <img src="https://cx-team.github.io/stackup/share/image/player.png" >
+                                        <p><strong>Green</strong> #25 PF</p>
+                                    </div>
+                                    <div class="inactive-player">
+                                        <img src="https://cx-team.github.io/stackup/share/image/player.png" >
+                                        <p><strong>Green</strong> #25 PF</p>
+                                    </div>
+                                    <div class="inactive-player">
+                                        <img src="https://cx-team.github.io/stackup/share/image/player.png" >
+                                        <p><strong>Green</strong> #25 PF</p>
+                                    </div>-->
+                                </div>
+                            </td>
+                            <td style="width: 50%; vertical-align: top">
+                                <div id="js-away-inactive-player-list" class="inactive-player-list m-t-20">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <!--<button class="btn btn-inverse waves-effect" data-dismiss="modal">Close</button>-->
+                <button id="js-change-player" class="btn btn-primary waves-effect waves-light">Save
+                    changes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="timeout-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="min-width: 900px">
+        <div class="modal-content">
+            <!--<div class="modal-header">
+                &lt;!&ndash;<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>&ndash;&gt;
+                <h4 class="modal-title" id="full-width-modalLabel">Change Player</h4>
+            </div>-->
+            <div class="modal-body text-center">
+                <div class="" >
+                    <h2 class="m-t-0">Timeout</h2>
+                    <!--<div>Choose team & input remaining time to submit timeout</div>-->
+                </div>
+                <form id="js-timeout-form" class="form-inline m-t-20">
+                    <div class="form-group">
+                        <div class="radio radio-primary"><input type="radio" id="home-radio" name="side" value="true" checked><label for="home-radio" class="js-home-team">---</label></div>
+                        <div class="radio radio-primary"><input type="radio" id="away-radio" name="side" value="false"><label for="away-radio" class="js-away-team">---</label></div>
+                    </div>
+                </form>
+                <div class="m-t-10 col-md-offset-5 col-md-2" style="float: none">
+                    <!--<input id="js-timeout-time" class="form-control timepicker time" type="text" >-->
+                    <input id="js-timeout-time" type="text" placeholder="" data-mask="99:99" class="form-control time">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-inverse waves-effect" data-dismiss="modal">Cancel</button>
+                <button id="js-submit-timeout" class="btn btn-primary waves-effect waves-light">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="statlines-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="width: 90%">
+        <div class="modal-content">
+            <h2 class="js-period text-center">---</h2>
+            <ul class="nav nav-tabs tabs">
+                <li class="active tab">
+                    <a href="#home-statlines" data-toggle="tab" aria-expanded="false">
+                        <span class="visible-xs"><i class="fa fa-home"></i></span>
+                        <span class="js-home-team hidden-xs">---</span>
+                    </a>
+                </li>
+                <li class="tab">
+                    <a href="#away-statlines" data-toggle="tab" aria-expanded="false">
+                        <span class="visible-xs"><i class="fa fa-user"></i></span>
+                        <span class="js-away-team hidden-xs">---</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="home-statlines">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Pos</th>
+                            <th>Time</th>
+                            <th>Two</th>
+                            <th>Trey</th>
+                            <th>Ft</th>
+                            <th>Reb_o</th>
+                            <th>Reb_d</th>
+                            <th>Ast</th>
+                            <th>Stl</th>
+                            <th>Blk</th>
+                            <th>Turnover</th>
+                            <th>Foul</th>
+                            <th>Point</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody id="js-home-statline-list">
+                        </tbody>
+                        <tr id="js-home-total-statline">
+                            <td colspan="15"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane" id="away-statlines">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Pos</th>
+                            <th>Time</th>
+                            <th>Two</th>
+                            <th>Trey</th>
+                            <th>Ft</th>
+                            <th>Reb_o</th>
+                            <th>Reb_d</th>
+                            <th>Ast</th>
+                            <th>Stl</th>
+                            <th>Blk</th>
+                            <th>Turnover</th>
+                            <th>Foul</th>
+                            <th>Point</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody id="js-away-statline-list">
+                        </tbody>
+                        <tr id="js-away-total-statline">
+                            <td colspan="15"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="m-t-20 text-center">
+                <button id="js-finalize-period" class="btn btn-lg btn-danger">Finalize</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="edit-stat-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="full-width-modalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="min-width: 90%">
+        <div class="modal-content">
+            <!--<div class="modal-header">
+                &lt;!&ndash;<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>&ndash;&gt;
+                <h4 class="modal-title" id="full-width-modalLabel">Change Player</h4>
+            </div>-->
+            <div class="modal-body text-center">
+                <div class="" >
+                    <h2 class="m-t-0">Update Statlines</h2>
+                    <h4 id="js-edit-stat-player"></h4>
+                </div>
+                <form id="js-stat-form" class="">
+                    <table class="table m-t-20">
+                        <thead>
+                        <tr>
+                            <!--<td>SECONDS</td>-->
+                            <td>TWO_M</td>
+                            <td>TWO_A</td>
+                            <td>TREY_M</td>
+                            <td>TREY_A</td>
+                            <td>FT_M</td>
+                            <td>FT_A</td>
+                            <td>RED_O</td>
+                            <td>RED_D</td>
+                            <td>AST</td>
+                            <td>STL</td>
+                            <td>BLK</td>
+                            <td>TURNOVER</td>
+                            <td>FOUL</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr id="js-stat">
+                            <!--<td><input type="text" name="seconds" class="form-control"></td>-->
+                            <td><input type="number" name="two_m" class="form-control"></td>
+                            <td><input type="number" name="two_a" class="form-control"></td>
+                            <td><input type="number" name="trey_m" class="form-control"></td>
+                            <td><input type="number" name="trey_a" class="form-control"></td>
+                            <td><input type="number" name="ft_m" class="form-control"></td>
+                            <td><input type="number" name="ft_m" class="form-control"></td>
+                            <td><input type="number" name="red_o" class="form-control"></td>
+                            <td><input type="number" name="red_d" class="form-control"></td>
+                            <td><input type="number" name="ast" class="form-control"></td>
+                            <td><input type="number" name="stl" class="form-control"></td>
+                            <td><input type="number" name="blk" class="form-control"></td>
+                            <td><input type="number" name="turnover" class="form-control"></td>
+                            <td><input type="number" name="pfoul" class="form-control"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-inverse waves-effect" data-dismiss="modal">Cancel</button>
+                <button id="js-update-stat" class="btn btn-primary" data-id="">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="js-loading" class="loading-screen" style="display: none;">
+    <div class="preloader-spinner loading-spinner"></div>
+    <h1 id="js-loading-message"></h1>
+</div>
+
+<script>
+    var resizefunc = [];
+</script>
+
+<!-- jQuery  -->
+<script src="https://cx-team.github.io/stackup/share/theme/js/jquery.min.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/js/bootstrap.min.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/js/detect.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/js/fastclick.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/js/jquery.slimscroll.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/js/wow.min.js"></script>
+<!--<script src="https://cx-team.github.io/stackup/share/theme/js/jquery.blockUI.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/js/waves.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/js/jquery.nicescroll.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/js/jquery.scrollTo.min.js"></script>-->
+
+<script src="https://cx-team.github.io/stackup/share/theme/plugins/switchery/dist/switchery.min.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/plugins/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/plugins/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/plugins/sweetalert/dist/sweetalert.min.js"></script>
+<!--<script src="https://cx-team.github.io/stackup/share/theme/plugins/multiselect/js/jquery.multi-select.js"></script>-->
+<!--<script src="https://cx-team.github.io/stackup/share/lib/dragula/dist/dragula.min.js"></script>-->
+<!--<script src="https://cx-team.github.io/stackup/share/lib/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>-->
+<script src="https://cx-team.github.io/stackup/share/theme/plugins/moment/min/moment.min.js"></script>
+
+
+<script src="https://cx-team.github.io/stackup/share/theme/js/jquery.core.js"></script>
+<script src="https://cx-team.github.io/stackup/share/theme/js/jquery.app.js"></script>
+
+<script src="https://cx-team.github.io/stackup/share/lib/jcanvas/jcanvas.min.js"></script>
+<!--<script src="https://cx-team.github.io/stackup/share/lib/jQuery.countdown/dist/jquery.countdown.min.js"></script>-->
+<!--<script src="https://cx-team.github.io/stackup/share/lib/countdown/dist/countdown.js"></script>-->
+
+<script src="https://cx-team.github.io/stackup/share/lib/toastr/toastr.min.js"></script>
+<script src="https://cx-team.github.io/stackup/share/lib/taffydb/taffy-min.js"></script>
+
+<script>
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "3000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+</script>
+
+<script>
+    var api_host = 'http://www.cxn-tw.com';
+    var game_id = '0NpiUbiVODN-JX9jb7idzQ';
+</script>
+<script src="https://cx-team.github.io/stackup/livestats/v1/js/live_stats_live_chart.js"></script>
+</body>
+</html>
