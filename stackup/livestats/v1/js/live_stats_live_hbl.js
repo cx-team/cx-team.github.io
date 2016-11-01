@@ -1207,6 +1207,7 @@ $(document).on('click', '#js-change-player', function (e) {
                     'starters': home_active_player_ids.concat(away_active_player_ids)
                 }
                 formData['gametime'] = remaining_time;
+                period_time = remaining_time;
             }
 
 
