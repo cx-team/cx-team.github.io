@@ -2136,3 +2136,37 @@ $(document).on('click', '#js-resume', function (e) {
         $('#js-show-change-player-modal').attr('disabled', 'disabled');
     }
 });*/
+
+var checking = $('#floatingCirclesG');
+function checkConnectionStatus() {
+    var ajaxTime = new Date().getTime();
+    checking.show();
+    $.ajax({
+        type: "GET",
+        url: api_host2,
+    }).done(function () {
+        checking.hide();
+        var totalTime = new Date().getTime()-ajaxTime;
+        // console.log(totalTime);
+        var status = $('#js-connection-status');
+        var statusText = $('#js-status');
+
+        if (totalTime < 250) {
+            status.css('background-color', '#2ab27b');
+            statusText.text('Excellent');
+        } else if (totalTime < 500) {
+            status.css('background-color', '#3499e0');
+            statusText.text('Good');
+        } else if (totalTime < 750) {
+            status.css('background-color', '#E47911');
+            statusText.text('Average');
+        } else {
+            status.css('background-color', '#eb4d5c');
+            statusText.text('Unstable');
+        }
+        // Here I want to get the how long it took to load some.php and use it further
+    });
+}
+
+checkConnectionStatus();
+setInterval(checkConnectionStatus, 7000);
