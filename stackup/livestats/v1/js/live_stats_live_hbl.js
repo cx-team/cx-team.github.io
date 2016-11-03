@@ -62,7 +62,7 @@ function retry(ajax, request, error) {
          }
          return;*/
     } else {
-        $('#js-loading').hide();
+        /*$('#js-loading').hide();
         swal({
             title: request.status.toString(),
             text: error,
@@ -78,7 +78,7 @@ function retry(ajax, request, error) {
             if (isConfirm) {
                 window.location.reload();
             }
-        });
+        });*/
     }
 }
 
@@ -2138,6 +2138,9 @@ $(document).on('click', '#js-resume', function (e) {
 });*/
 
 var checking = $('#floatingCirclesG');
+var connectionStatus = $('#js-connection-status');
+var connectionStatusText = $('#js-status');
+
 function checkConnectionStatus() {
     var ajaxTime = new Date().getTime();
     checking.show();
@@ -2148,24 +2151,30 @@ function checkConnectionStatus() {
         checking.hide();
         var totalTime = new Date().getTime()-ajaxTime;
         // console.log(totalTime);
-        var status = $('#js-connection-status');
-        var statusText = $('#js-status');
+
 
         if (totalTime < 250) {
-            status.css('background-color', '#2ab27b');
-            statusText.text('Excellent');
+            connectionStatus.css('background-color', '#2ab27b');
+            connectionStatusText.text('Excellent');
         } else if (totalTime < 500) {
-            status.css('background-color', '#3499e0');
-            statusText.text('Good');
+            connectionStatus.css('background-color', '#3499e0');
+            connectionStatusText.text('Good');
         } else if (totalTime < 750) {
-            status.css('background-color', '#E47911');
-            statusText.text('Average');
+            connectionStatus.css('background-color', '#E47911');
+            connectionStatusText.text('Average');
         } else {
-            status.css('background-color', '#eb4d5c');
-            statusText.text('Unstable');
+            connectionStatus.css('background-color', '#eb4d5c');
+            connectionStatusText.text('Unstable');
         }
         // Here I want to get the how long it took to load some.php and use it further
-    });
+    }).fail(function(jqXHR, textStatus, errorThrown ) {
+        checking.hide();
+        // console.log(jqXHR);
+        // console.log(textStatus);
+        // console.log(errorThrown);
+        connectionStatus.css('background-color', '#000');
+        connectionStatusText.text('Offline');
+    });;
 }
 
 checkConnectionStatus();
