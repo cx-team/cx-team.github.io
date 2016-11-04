@@ -292,13 +292,6 @@ function loadPlayerAndScore(data) {
                 if (player.active) {
                     count++;
                     home_active_player_ids.push(player.id);
-                    $('#js-home-active-player-list').append(
-                        '<div class="js-team-player active-player" data-side="1" data-id="' + player.id + '">' +
-                            '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                            '<p><strong>' + player.name + '</strong></p>' +
-                            '<p>#' + player.jersey + ' ' + player.position + '</p>' +
-                        '</div>'
-                    );
                     addActivePlayer($('#js-home-player-list'), player);
                     addScore($('#js-home-active-score-list'), player);
                     /*$('#js-home-player-select').append(
@@ -306,39 +299,25 @@ function loadPlayerAndScore(data) {
                      );*/
                 } else {
                     home_inactive_player_ids.push(player.id);
-                    $('#js-home-inactive-player-list').append(
-                        '<div class="js-team-player inactive-player" data-side="1" data-id="' + player.id + '">' +
-                            '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                            '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
-                        '</div>'
-                    );
                     addScore($('#js-home-inactive-score-list'), player);
                 }
             } else {
                 if (player.active) {
                     away_active_player_ids.push(player.id);
-                    $('#js-away-active-player-list').append(
-                        '<div class="js-team-player active-player" data-side="0" data-id="' + player.id + '">' +
-                            '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                            '<p><strong>' + player.name + '</strong></p>' +
-                            '<p>#' + player.jersey + ' ' + player.position + '</p>' +
-                        '</div>'
-                    );
                     addActivePlayer($('#js-away-player-list'), player);
                     addScore($('#js-away-active-score-list'), player);
                 } else {
                     away_inactive_player_ids.push(player.id);
-                    $('#js-away-inactive-player-list').append(
-                        '<div class="js-team-player inactive-player" data-side="0" data-id="' + player.id + '">' +
-                            '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                            '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
-                        '</div>'
-                    );
                     addScore($('#js-away-inactive-score-list'), player);
                 }
             }
         }
     });
+
+    console.log(home_active_player_ids)
+    console.log(away_active_player_ids)
+
+    updatePlayerList();
 
     data.teamstats.forEach(function (team, index) {
         if (team.side)
@@ -710,11 +689,6 @@ function resetTeamPlayer() {
     $('#js-home-player-list').html('');
     $('#js-away-player-list').html('');
 
-    $('#js-home-active-player-list').html('');
-    $('#js-home-inactive-player-list').html('');
-    $('#js-away-active-player-list').html('');
-    $('#js-away-inactive-player-list').html('');
-
     home_active_player_ids = [];
     home_inactive_player_ids = [];
     away_active_player_ids = [];
@@ -725,23 +699,13 @@ function resetTeamPlayer() {
         if (!player.inactive) {
             if (player.side) {
                 home_inactive_player_ids.push(player.id);
-                $('#js-home-inactive-player-list').append(
-                    '<div class="js-team-player inactive-player" data-side="1" data-id="' + player.id + '">' +
-                    '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                    '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
-                    '</div>'
-                );
             } else {
                 away_inactive_player_ids.push(player.id);
-                $('#js-away-inactive-player-list').append(
-                    '<div class="js-team-player inactive-player" data-side="0" data-id="' + player.id + '">' +
-                    '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                    '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
-                    '</div>'
-                );
             }
         }
     });
+
+    updatePlayerList();
 
     var time_text = moment("2016-01-01").startOf('day').seconds(period_time).format('mm:ss');
     $('#js-remaining-time').val(time_text);
@@ -1013,24 +977,17 @@ $(document).on('click', '#js-submit-timeout', function (e) {
     }
 });
 
-$(document).on('click', '#js-show-change-player-modal', function (e) {
-    e.preventDefault();
-
-    $('#js-chart-popup').hide();
-    // canvas.removeLayer('player_pos').drawLayers();
-
-    $('#js-home-active-player-list').html('');
+function updatePlayerList() {
     $('#js-home-inactive-player-list').html('');
-    $('#js-away-active-player-list').html('');
     $('#js-away-inactive-player-list').html('');
 
     home_active_player_ids.forEach(function (player_id) {
         var player = player_data({id: player_id}).first();
-        $('#js-home-active-player-list').append(
-            '<div class="js-team-player active-player" data-side="1" data-id="' + player.id + '">' +
-                '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                '<p><strong>' + player.name + '</strong></p>' +
-                '<p>#' + player.jersey + ' ' + player.position + '</p>' +
+        $('#js-home-inactive-player-list').append(
+            '<div class="js-team-player inactive-player active-player" data-side="1" data-id="' + player.id + '">' +
+            //'<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
+            '<p>#' + player.jersey + ' ' + player.position + '</p>' +
+            '<p><strong>' + player.name + '</strong></p>' +
             '</div>'
         );
     });
@@ -1039,19 +996,20 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
         var player = player_data({id: player_id}).first();
         $('#js-home-inactive-player-list').append(
             '<div class="js-team-player inactive-player" data-side="1" data-id="' + player.id + '">' +
-                '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
+            //'<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
+            '<p>#' + player.jersey + ' ' + player.position + '</p>' +
+            '<p><strong>' + player.name + '</strong></p>' +
             '</div>'
         );
     });
 
     away_active_player_ids.forEach(function (player_id) {
         var player = player_data({id: player_id}).first();
-        $('#js-away-active-player-list').append(
-            '<div class="js-team-player active-player" data-side="0" data-id="' + player.id + '">' +
-                '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                '<p><strong>' + player.name + '</strong></p>' +
-                '<p>#' + player.jersey + ' ' + player.position + '</p>' +
+        $('#js-away-inactive-player-list').append(
+            '<div class="js-team-player inactive-player active-player" data-side="0" data-id="' + player.id + '">' +
+            //'<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
+            '<p>#' + player.jersey + ' ' + player.position + '</p>' +
+            '<p><strong>' + player.name + '</strong></p>' +
             '</div>'
         );
     });
@@ -1060,11 +1018,21 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
         var player = player_data({id: player_id}).first();
         $('#js-away-inactive-player-list').append(
             '<div class="js-team-player inactive-player" data-side="0" data-id="' + player.id + '">' +
-                '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
+            //'<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
+            '<p>#' + player.jersey + ' ' + player.position + '</p>' +
+            '<p><strong>' + player.name + '</strong></p>' +
             '</div>'
         );
     });
+}
+
+$(document).on('click', '#js-show-change-player-modal', function (e) {
+    e.preventDefault();
+
+    $('#js-chart-popup').hide();
+    // canvas.removeLayer('player_pos').drawLayers();
+
+    updatePlayerList();
 
     $('#js-change-player').attr('disabled', 'disabled');
 
@@ -1127,7 +1095,7 @@ $(document).on('click', '#js-change-player', function (e) {
             var home_active_players = [];
             var away_active_players = [];
 
-            $('#js-home-active-player-list div').each(function () {
+            $('#js-home-inactive-player-list div.active-player').each(function () {
                 var player_id = $(this).attr('data-id');
                 temp.push(player_id);
                 var player = player_data({id: player_id}).first();
@@ -1142,7 +1110,7 @@ $(document).on('click', '#js-change-player', function (e) {
             home_active_players = home_active_players().order("jersey").get();
 
             temp = [];
-            $('#js-home-inactive-player-list div').each(function () {
+            $('#js-home-inactive-player-list div:not(.active-player)').each(function () {
                 var player_id = $(this).attr('data-id');
                 temp.push(player_id);
                 // if (home_inactive_player_ids.indexOf(player_id) == -1) {
@@ -1153,7 +1121,7 @@ $(document).on('click', '#js-change-player', function (e) {
             home_inactive_player_ids = temp;
 
             temp = [];
-            $('#js-away-active-player-list div').each(function () {
+            $('#js-away-inactive-player-list div.active-player').each(function () {
                 var player_id = $(this).attr('data-id');
                 temp.push(player_id);
                 var player = player_data({id: player_id}).first();
@@ -1168,7 +1136,7 @@ $(document).on('click', '#js-change-player', function (e) {
             away_active_players = away_active_players().order("jersey").get();
 
             temp = [];
-            $('#js-away-inactive-player-list div').each(function () {
+            $('#js-away-inactive-player-list div:not(.active-player)').each(function () {
                 var player_id = $(this).attr('data-id');
                 temp.push(player_id);
                 // if (away_inactive_player_ids.indexOf(player_id) == -1) {
@@ -1178,7 +1146,8 @@ $(document).on('click', '#js-change-player', function (e) {
             });
             away_inactive_player_ids = temp;
 
-            // console.log(changed_player_id_list.length);
+            console.log(home_active_player_ids.length);
+            console.log(away_active_player_ids.length);
             /*
             changed_player_id_list.forEach(function (player_id) {
                 var player = player_data({id: player_id}).first();
@@ -1209,7 +1178,6 @@ $(document).on('click', '#js-change-player', function (e) {
                 formData['gametime'] = remaining_time;
                 period_time = remaining_time;
             }
-
 
             $('#js-loading-message').text('Loading...');
             $('#js-loading').show();
@@ -1289,28 +1257,31 @@ $(document).on('click', '.js-team-player', function (e) {
     var player = player_data({id: $(this).attr('data-id')}).first();
 
     if (temp.hasClass('active-player')) {
-        temp.remove();
+        /*temp.remove();
         $('#js-' + team + '-inactive-player-list').append(
             '<div class="js-team-player inactive-player" data-side="' + side + '" data-id="' + player.id + '">' +
-                '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                '<p><strong>' + player.name + '</strong>' + ' #' + player.jersey + ' ' + player.position + '</p>' +
+                //'<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
+                '<p>#' + player.jersey + ' ' + player.position + '</p>' +
+                '<p><strong>' + player.name + '</strong></p>' +
             '</div>'
-        );
+        );*/
+        temp.removeClass('active-player');
         $('#js-change-player').attr('disabled', 'disabled');
     } else {
-        var active_player_count = $('#js-' + team + '-active-player-list div').length;
+        var active_player_count = $('#js-' + team + '-inactive-player-list div.active-player').length;
         if (active_player_count + 1 <= 5) {
-            temp.remove();
+            /*temp.remove();
             $('#js-' + team + '-active-player-list').append(
                 '<div class="js-team-player active-player" data-side="' + side + '" data-id="' + player.id + '">' +
-                    '<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
-                    '<p><strong>' + player.name + '</strong></p>' +
+                    //'<img src="https://cx-team.github.io/stackup/share/image/player.png" >' +
                     '<p>#' + player.jersey + ' ' + player.position + '</p>' +
+                    '<p><strong>' + player.name + '</strong></p>' +
                 '</div>'
-            );
+            );*/
+            temp.addClass('active-player');
 
-            home_active_player_count = $('#js-home-active-player-list div').length;
-            away_active_player_count = $('#js-away-active-player-list div').length;
+            home_active_player_count = $('#js-home-inactive-player-list div.active-player').length;
+            away_active_player_count = $('#js-away-inactive-player-list div.active-player').length;
 
             if (home_active_player_count == 5 && away_active_player_count == 5) {
                 $('#js-change-player').removeAttr('disabled');
@@ -2178,4 +2149,4 @@ function checkConnectionStatus() {
 }
 
 checkConnectionStatus();
-setInterval(checkConnectionStatus, 7000);
+// setInterval(checkConnectionStatus, 7000);
