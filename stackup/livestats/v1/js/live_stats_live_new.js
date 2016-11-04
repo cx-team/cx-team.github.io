@@ -2149,4 +2149,4 @@ function checkConnectionStatus() {
 }
 
 checkConnectionStatus();
-// setInterval(checkConnectionStatus, 7000);
+setInterval(checkConnectionStatus, 7000);
