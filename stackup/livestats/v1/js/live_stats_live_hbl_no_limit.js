@@ -1049,6 +1049,10 @@ $(document).on('click', '#js-show-change-player-modal', function (e) {
     }
 
     $('#js-change-player-title').text('Substitute players for PERIOD ' + cur_period);
+    var home_active_player_count = $('#js-home-inactive-player-list div.active-player').length;
+    var away_active_player_count = $('#js-away-inactive-player-list div.active-player').length;
+    $('#js-home-active-player-num').text(home_active_player_count);
+    $('#js-away-active-player-num').text(away_active_player_count);
     $('#change-player-modal').modal();
 });
 
@@ -1264,8 +1268,38 @@ $(document).on('click', '.js-team-player', function (e) {
 
     // var active_player_count = $('#js-' + team + '-inactive-player-list div.active-player').length;
     // if (active_player_count + 1 <= 5) {
-        home_active_player_count = $('#js-home-inactive-player-list div.active-player').length;
-        away_active_player_count = $('#js-away-inactive-player-list div.active-player').length;
+        var home_active_player_count = $('#js-home-inactive-player-list div.active-player').length;
+        var away_active_player_count = $('#js-away-inactive-player-list div.active-player').length;
+
+    // console.log(home_active_player_count);
+    // console.log(away_active_player_count);
+
+    $('#js-home-active-player-num').text(home_active_player_count);
+    $('#js-away-active-player-num').text(away_active_player_count);
+        var home_player_list = $('#js-home-inactive-player-list');
+        var away_player_list = $('#js-away-inactive-player-list');
+
+        if (home_active_player_count < 5) {
+            home_player_list.parent().removeClass();
+            home_player_list.parent().addClass('yellow');
+        } else if (home_active_player_count == 5) {
+            home_player_list.parent().removeClass();
+            home_player_list.parent().addClass('green');
+        } else {
+            home_player_list.parent().removeClass();
+            home_player_list.parent().addClass('red');
+        }
+
+        if (away_active_player_count < 5) {
+            away_player_list.parent().removeClass();
+            away_player_list.parent().addClass('yellow');
+        } else if (away_active_player_count == 5) {
+            away_player_list.parent().removeClass();
+            away_player_list.parent().addClass('green');
+        } else {
+            away_player_list.parent().removeClass();
+            away_player_list.parent().addClass('red');
+        }
 
         if (home_active_player_count == 5 && away_active_player_count == 5) {
             $('#js-change-player').removeAttr('disabled');
