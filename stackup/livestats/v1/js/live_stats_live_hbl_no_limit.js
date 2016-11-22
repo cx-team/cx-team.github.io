@@ -32,6 +32,21 @@ const STAT_CATEGORY_STL = 'stl';
 const STAT_CATEGORY_TURNOVER = 'turnover';
 const STAT_CATEGORY_PFOUL = 'pfoul';
 
+var stat_category_map = [];
+stat_category_map[STAT_CATEGORY_FT_M] = '罰球 中';
+stat_category_map[STAT_CATEGORY_FT_A] = '罰球 不中';
+stat_category_map[STAT_CATEGORY_TWO_M] = '2分中';
+stat_category_map[STAT_CATEGORY_TWO_A] = '2分不中';
+stat_category_map[STAT_CATEGORY_TREY_M] = '3分中';
+stat_category_map[STAT_CATEGORY_TREY_A] = '3分不中';
+stat_category_map[STAT_CATEGORY_REB_O] = '進攻籃板';
+stat_category_map[STAT_CATEGORY_REB_D] = '防守籃板';
+stat_category_map[STAT_CATEGORY_AST] = '助攻';
+stat_category_map[STAT_CATEGORY_BLK] = '阻攻';
+stat_category_map[STAT_CATEGORY_STL] = '抄截';
+stat_category_map[STAT_CATEGORY_TURNOVER] = '失誤';
+stat_category_map[STAT_CATEGORY_PFOUL] = '個人犯規';
+
 // $('.timepicker').datetimepicker({
 //     format: 'mm:ss',
 // });
@@ -1490,7 +1505,7 @@ function initXEditable() {
                     '<td>' + play.jersey + '</td>' +
                     // '<td>' + play.current_gametime + '</td>' +
                     // '<td id="js-instant-play-team' + play.id + '">' + play.team_name + '</td>' +
-                    '<td><span class="js-instant-play-category" data-url="' + url + '">' + play.stat_category + '</span></td>' +
+                    '<td><span class="js-instant-play-category" data-url="' + url + '">' + stat_category_map[play.stat_category] + '</span></td>' +
                     '<td><span class="js-instant-play-player" data-url="' + url + '">' + play.player_name + '</span></td>' +
                     '<td><a href="" class="js-delete-instant-play" data-id="' + play.id + '"><i class="fa fa-remove fa-lg"></i></a></td>' +
                 '</tr>'
@@ -1513,7 +1528,7 @@ function addInstantPlay(list, play, type) {
                 '<td>' + play.jersey + '</td>' +
                 // '<td>' + play.current_gametime + '</td>' +
                 // '<td id="js-all-instant-play-team' + play.id + '">' + play.team_name + '</td>' +
-                '<td><span class="js-instant-play-category" data-url="' + url + '">' + play.stat_category + '</span></td>' +
+                '<td><span class="js-instant-play-category" data-url="' + url + '">' + stat_category_map[play.stat_category] + '</span></td>' +
                 '<td><span class="js-instant-play-player" data-url="' + url + '">' + play.player_name + '</span></td>' +
                 '<td><a href="" class="js-delete-instant-play" data-id="' + play.id + '"><i class="fa fa-remove fa-lg"></i></a></td>' +
             '</tr>'
@@ -1523,7 +1538,7 @@ function addInstantPlay(list, play, type) {
                 '<td>' + play.jersey + '</td>' +
                 // '<td>' + play.current_gametime + '</td>' +
                 // '<td id="js-all-instant-play-team' + play.id + '">' + play.team_name + '</td>' +
-                '<td><span class="js-instant-play-category" data-url="' + url + '">' + play.stat_category + '</span></td>' +
+                '<td><span class="js-instant-play-category" data-url="' + url + '">' + stat_category_map[play.stat_category] + '</span></td>' +
                 '<td><span class="js-instant-play-player" data-url="' + url + '">' + play.player_name + '</span></td>' +
                 '<td><a href="" class="js-delete-instant-play" data-id="' + play.id + '"><i class="fa fa-remove fa-lg"></i></a></td>' +
             '</tr>'
@@ -1534,7 +1549,7 @@ function addInstantPlay(list, play, type) {
                 '<td>' + play.jersey + '</td>' +
                 // '<td>' + play.current_gametime + '</td>' +
                 // '<td id="js-instant-play-team' + play.id + '">' + play.team_name + '</td>' +
-                '<td><span class="js-instant-play-category" data-url="' + url + '">' + play.stat_category + '</span></td>' +
+                '<td><span class="js-instant-play-category" data-url="' + url + '">' + stat_category_map[play.stat_category] + '</span></td>' +
                 '<td><span class="js-instant-play-player" data-url="' + url + '">' + play.player_name + '</span></td>' +
                 '<td><a href="" class="js-delete-instant-play" data-id="' + play.id + '"><i class="fa fa-remove fa-lg"></i></a></td>' +
             '</tr>'
