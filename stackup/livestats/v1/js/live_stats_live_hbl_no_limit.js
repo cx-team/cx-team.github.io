@@ -295,7 +295,7 @@ function loadPlayerAndScore(data) {
                     addActivePlayer($('#js-home-player-list'), player);
                     addScore($('#js-home-active-score-list'), player);
                     /*$('#js-home-player-select').append(
-                     '<option value="' + player.id + '" selected>' + player.name + ' #' + player.jersey + ' ' + player.position + '</option>'
+                     '<option value="' + player.id + '" selected>' + player.name_alt + ' #' + player.jersey + ' ' + player.position + '</option>'
                      );*/
                 } else {
                     home_inactive_player_ids.push(player.id);
@@ -888,7 +888,7 @@ $(document).on('click', '#js-update-stat', function (e) {
             $('#js-statline' + player.id).replaceWith(
                 '<tr id="js-statline' + player.id + '">' +
                     '<td>' + player.jersey + '</td>' +
-                    '<td>' + player.name + '</td>' +
+                    '<td>' + player.name_alt + '</td>' +
                     '<td>' + player.position + '</td>' +
                     '<td>' + moment("2016-01-01").startOf('day').seconds(player.seconds).format('mm:ss') + '</td>' +
                     '<td>' + player.two_m + ' - ' + (player.two_m + player.two_a) + '</td>' +
@@ -1552,7 +1552,7 @@ function submitInstantPlay(formData) {
         player = player_data({id: formData.statline_token}).first();
     if (player) {
         player_jersey = player.jersey;
-        player_name = player.name;
+        player_name = player.name_alt;
     }
     var style = 'style="background-color: rgba(240, 80, 80, 0.2)"';
     $('#js-home-instant-play-list').prepend(
@@ -1964,7 +1964,7 @@ canvas.on('dblclick', function (e) {
 
 canvas.click(function (e) {
     if (selectedPlayer) {
-        $('#js-player').text(selectedPlayer.name);
+        $('#js-player').text(selectedplayer.name_alt);
 
         showCanvasPopup(e);
     }
