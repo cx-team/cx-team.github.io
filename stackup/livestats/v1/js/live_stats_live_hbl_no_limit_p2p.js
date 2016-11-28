@@ -2221,16 +2221,16 @@ function checkConnectionStatus() {
 
         if (totalTime < 250) {
             connectionStatus.css('background-color', '#2ab27b');
-            connectionStatusText.text('Excellent / ');
+            connectionStatusText.text('Excellent / 極佳');
         } else if (totalTime < 500) {
             connectionStatus.css('background-color', '#3499e0');
-            connectionStatusText.text('Good / ');
+            connectionStatusText.text('Good / 良好');
         } else if (totalTime < 750) {
             connectionStatus.css('background-color', '#E47911');
-            connectionStatusText.text('Average');
+            connectionStatusText.text('Average / 普通');
         } else {
             connectionStatus.css('background-color', '#eb4d5c');
-            connectionStatusText.text('Unstable');
+            connectionStatusText.text('Unstable / 不穩定');
         }
         // Here I want to get the how long it took to load some.php and use it further
     }).fail(function(jqXHR, textStatus, errorThrown ) {
@@ -2239,7 +2239,7 @@ function checkConnectionStatus() {
         // console.log(textStatus);
         // console.log(errorThrown);
         connectionStatus.css('background-color', '#000');
-        connectionStatusText.text('Offline');
+        connectionStatusText.text('Offline / 未連線');
     });;
 }
 
