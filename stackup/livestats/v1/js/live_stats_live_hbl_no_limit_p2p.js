@@ -301,7 +301,7 @@ function loadGameSetting() {
 
 function addP2P(data, i) {
     $('#js-p2p-head').append(
-        '<th id="js-p2p-period' + (i+1) + '" colspan="2">Period ' + (i+1) + '</th>'
+        '<th id="js-p2p-period' + (i+1) + '" colspan="2">P ' + (i+1) + '</th>'
     );
     $('#js-p2p-point').append(
         '<td id="js-p2p-point-home' + i + '">' + data.score_home_p2p + '</td>' +
