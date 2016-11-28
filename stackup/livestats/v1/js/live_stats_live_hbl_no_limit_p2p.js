@@ -2221,10 +2221,10 @@ function checkConnectionStatus() {
 
         if (totalTime < 250) {
             connectionStatus.css('background-color', '#2ab27b');
-            connectionStatusText.text('Excellent');
+            connectionStatusText.text('Excellent / ');
         } else if (totalTime < 500) {
             connectionStatus.css('background-color', '#3499e0');
-            connectionStatusText.text('Good');
+            connectionStatusText.text('Good / ');
         } else if (totalTime < 750) {
             connectionStatus.css('background-color', '#E47911');
             connectionStatusText.text('Average');
