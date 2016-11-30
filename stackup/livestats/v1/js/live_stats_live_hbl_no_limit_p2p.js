@@ -301,19 +301,19 @@ function loadGameSetting() {
 
 function addP2P(data, i) {
     $('#js-p2p-head').append(
-        '<th id="js-p2p-period' + (i+1) + '" colspan="2">Period ' + (i+1) + '</th>'
+        '<th id="js-p2p-period' + (i+1) + '" colspan="2">P ' + (i+1) + '</th>'
     );
     $('#js-p2p-point').append(
-        '<td id="js-p2p-point-home' + i + '">' + data.score_home_p2p + '</td>' +
-        '<td id="js-p2p-point-away' + i + '">' + data.score_away_p2p + '</td>'
+        '<td id="js-p2p-point-home' + i + '" class="js-p2p-home">' + data.score_home_p2p + '</td>' +
+        '<td id="js-p2p-point-away' + i + '" class="js-p2p-away">' + data.score_away_p2p + '</td>'
     );
     $('#js-p2p-pfoul').append(
-        '<td id="js-p2p-pfoul-home' + i + '">' + data.fouls_home_p2p + '</td>' +
-        '<td id="js-p2p-pfoul-away' + i + '">' + data.fouls_away_p2p + '</td>'
+        '<td id="js-p2p-pfoul-home' + i + '" class="js-p2p-home">' + data.fouls_home_p2p + '</td>' +
+        '<td id="js-p2p-pfoul-away' + i + '" class="js-p2p-away">' + data.fouls_away_p2p + '</td>'
     );
     $('#js-p2p-timeout').append(
-        '<td id="js-p2p-timeout-home' + i + '">' + data.timeouts_home_p2p + '</td>' +
-        '<td id="js-p2p-timeout-away' + i + '">' + data.timeouts_away_p2p + '</td>'
+        '<td id="js-p2p-timeout-home' + i + '" class="js-p2p-home">' + data.timeouts_home_p2p + '</td>' +
+        '<td id="js-p2p-timeout-away' + i + '" class="js-p2p-away">' + data.timeouts_away_p2p + '</td>'
     );
 }
 
@@ -2221,16 +2221,16 @@ function checkConnectionStatus() {
 
         if (totalTime < 250) {
             connectionStatus.css('background-color', '#2ab27b');
-            connectionStatusText.text('Excellent');
+            connectionStatusText.text('Excellent / 極佳');
         } else if (totalTime < 500) {
             connectionStatus.css('background-color', '#3499e0');
-            connectionStatusText.text('Good');
+            connectionStatusText.text('Good / 良好');
         } else if (totalTime < 750) {
             connectionStatus.css('background-color', '#E47911');
-            connectionStatusText.text('Average');
+            connectionStatusText.text('Average / 普通');
         } else {
             connectionStatus.css('background-color', '#eb4d5c');
-            connectionStatusText.text('Unstable');
+            connectionStatusText.text('Unstable / 不穩定');
         }
         // Here I want to get the how long it took to load some.php and use it further
     }).fail(function(jqXHR, textStatus, errorThrown ) {
@@ -2239,7 +2239,7 @@ function checkConnectionStatus() {
         // console.log(textStatus);
         // console.log(errorThrown);
         connectionStatus.css('background-color', '#000');
-        connectionStatusText.text('Offline');
+        connectionStatusText.text('Offline / 未連線');
     });;
 }
 

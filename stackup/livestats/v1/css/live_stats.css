@@ -19,7 +19,8 @@ body {
 
 .live-stats .box-score {
     background: #141414;
-    height: 259px;
+    height: 350px;
+    padding: 25px;
 }
 
 .live-stats .score-box {
